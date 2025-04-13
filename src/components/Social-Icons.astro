@@ -1,0 +1,55 @@
+---
+import FacebookIcon from "@/assets/svg/facebook.svg"
+import InstagramIcon from "@/assets/svg/instagram.svg"
+import LinkedInIcon from "@/assets/svg/linkedin.svg"
+import TikTokIcon from "@/assets/svg/tiktok.svg"
+import TwitterXIcon from "@/assets/svg/x.svg"
+
+const {
+  className = "",
+  iconClassName = "h-5 w-5",
+  iconColor = "text-white hover:text-primary",
+} = Astro.props
+
+const socialLinks = [
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/AimeEcuador",
+    Icon: FacebookIcon,
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/aime_ecuador/",
+    Icon: InstagramIcon,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/company/asociaci%C3%B3n-de-ingenieros-de-minas-del-ecuador",
+    Icon: LinkedInIcon,
+  },
+  {
+    name: "TikTok",
+    href: "https://www.tiktok.com/@aime_ecuador",
+    Icon: TikTokIcon,
+  },
+  {
+    name: "Twitter",
+    href: "https://twitter.com/aime_ecuador",
+    Icon: TwitterXIcon,
+  },
+]
+---
+
+<div class={`flex space-x-4 ${className}`}>
+  {socialLinks.map(({ name, href, Icon }) => (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      class={`transition-colors ${iconColor}`}
+      aria-label={name}
+    >
+      <Icon class={iconClassName} />
+    </a>
+  ))}
+</div>

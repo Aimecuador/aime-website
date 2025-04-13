@@ -1,0 +1,177 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import AccordionValores from "@/components/sections/AccordionValores";
+import {
+  Users,
+  History,
+  Target,
+  Compass,
+  Award,
+  CheckCircle,
+  ChevronRight,
+} from "lucide-react";
+---
+
+<Layout title="Quiénes Somos | AIME">
+  <main class="container mx-auto py-12">
+    <section class="mb-16">
+      <div class="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
+        <div>
+          <div class="flex items-center space-x-2 mb-6">
+            <div class="h-1 w-10 bg-primary"></div>
+            <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+              Sobre Nosotros
+            </span>
+          </div>
+          <h1 class="text-4xl font-bold mb-8">Quiénes Somos</h1>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <Users className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+              <p>
+                La Asociación de Ingenieros en Minas del Ecuador (AIME) es una
+                organización profesional que agrupa a los ingenieros en minas
+                del país, comprometida con el desarrollo técnico, científico y
+                ético de la minería ecuatoriana.
+              </p>
+            </div>
+            <p>
+              Nuestro propósito es fomentar la excelencia profesional,
+              promover el intercambio de conocimientos, y fortalecer el rol
+              del ingeniero en minas como un actor clave en la sostenibilidad
+              y competitividad del sector minero nacional.
+            </p>
+          </div>
+        </div>
+        <div class="relative rounded-lg overflow-hidden shadow-lg">
+          <img
+            src="/images/nosotros/directiva-aime.webp"
+            alt="Directiva de AIME"
+            class="w-full h-auto"
+            width={1200}
+            height={800}
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="historia" class="mb-16">
+      <div class="grid gap-8 md:grid-cols-2 items-center">
+        <div class="order-2 md:order-1">
+          <div class="relative rounded-lg overflow-hidden shadow-lg">
+            <img
+              src="/images/nosotros/historia-aime.webp"
+              alt="Fundación histórica de AIME"
+              class="object-cover w-full h-auto"
+              width={800}
+              height={600}
+            />
+          </div>
+        </div>
+        <div class="order-1 md:order-2">
+          <div class="flex items-center space-x-2 mb-6">
+            <div class="h-1 w-10 bg-primary"></div>
+            <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+              Nuestra Trayectoria
+            </span>
+          </div>
+          <h2 class="text-3xl font-bold mb-6">Historia</h2>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <History className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+              <p>
+                La Asociación fue fundada en el año 1989 con el objetivo de
+                representar y apoyar a los profesionales de la ingeniería en
+                minas en el Ecuador, consolidando un espacio de encuentro,
+                formación y defensa de los intereses gremiales.
+              </p>
+            </div>
+            <p>
+              A lo largo de los años, ha trabajado en estrecha colaboración
+              con instituciones públicas, privadas y académicas, participando
+              activamente en el desarrollo del sector minero del país.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mision-vision" class="mb-16">
+      <div class="flex items-center space-x-2 mb-6">
+        <div class="h-1 w-10 bg-primary"></div>
+        <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+          Nuestro Propósito
+        </span>
+      </div>
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="bg-muted p-8 rounded-lg shadow-sm border-l-4 border-primary">
+          <div class="flex items-center gap-3 mb-4">
+            <Compass className="h-6 w-6 text-primary" />
+            <h2 class="text-2xl font-bold">Misión</h2>
+          </div>
+          <p>
+            Promover el desarrollo integral de los ingenieros en minas del
+            Ecuador, fomentando la ética profesional, la actualización técnica
+            y científica, y el compromiso con una minería responsable y
+            sostenible.
+          </p>
+        </div>
+        <div class="bg-muted p-8 rounded-lg shadow-sm border-l-4 border-primary">
+          <div class="flex items-center gap-3 mb-4">
+            <Target className="h-6 w-6 text-primary" />
+            <h2 class="text-2xl font-bold">Visión</h2>
+          </div>
+          <p>
+            Ser una organización líder y referente en el ámbito minero
+            ecuatoriano, reconocida por su compromiso con la excelencia
+            profesional, la innovación y la defensa de los principios técnicos
+            y éticos de la ingeniería en minas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="valores" class="mb-16">
+      <div class="flex items-center space-x-2 mb-6">
+        <div class="h-1 w-10 bg-primary"></div>
+        <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+          Nuestros Principios
+        </span>
+      </div>
+      <div class="flex items-center gap-3 mb-6">
+        <Award className="h-6 w-6 text-primary" />
+        <h2 class="text-3xl font-bold">Valores y Principios</h2>
+      </div>
+
+      <AccordionValores client:load />
+    </section>
+
+    <section id="objetivos" class="mb-16">
+      <div class="flex items-center space-x-2 mb-6">
+        <div class="h-1 w-10 bg-primary"></div>
+        <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+          Nuestras Metas
+        </span>
+      </div>
+      <div class="flex items-center gap-3 mb-6">
+        <CheckCircle className="h-6 w-6 text-primary" />
+        <h2 class="text-3xl font-bold">Objetivos</h2>
+      </div>
+      <div class="bg-muted p-8 rounded-lg shadow-sm">
+        <ul class="space-y-4">
+          {[
+            "Representar y respaldar los intereses de los ingenieros en minas a nivel nacional e internacional.",
+            "Impulsar la formación continua y el desarrollo profesional de sus miembros.",
+            "Promover la investigación, la innovación y el uso de tecnologías en la ingeniería de minas.",
+            "Fomentar espacios de diálogo y colaboración con los diferentes actores del sector minero.",
+            "Contribuir al desarrollo de una minería sustentable y alineada con los objetivos del país.",
+          ].map((objetivo, index) => (
+            <li class="flex items-start gap-3 group">
+              <ChevronRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5 transition-transform duration-300 group-hover:translate-x-1" />
+              <p>{objetivo}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  </main>
+</Layout>
