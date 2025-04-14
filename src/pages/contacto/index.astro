@@ -1,0 +1,130 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import GoogleMap from '@/components/sections/GoogleMap.astro';
+import { Button } from '@/components/ui/button';
+import SocialIcons from '@/components/Social-Icons.astro';
+---
+
+<Layout title="Contacto | AIME">
+  <main class="container mx-auto py-12">
+    <section class="py-8">
+      <div class="flex items-center space-x-2 mb-2">
+        <div class="h-1 w-10 bg-primary"></div>
+        <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+          Comunícate con nosotros
+        </span>
+      </div>
+      <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl">
+        Contáctanos
+      </h1>
+      <div class="grid gap-12 lg:grid-cols-2">
+        <div>
+          <p class="mt-4 text-muted-foreground">
+            Estamos aquí para responder tus preguntas y ayudarte a conectar con la comunidad de ingenieros de minas de
+            Ecuador.
+          </p>
+
+          <div class="mt-8 space-y-6">
+            <div class="flex items-start gap-4">
+              <MapPin className="h-5 w-5 text-primary mt-0.5" />
+              <div>
+                <h3 class="font-medium">Dirección</h3>
+                <p class="text-muted-foreground">
+                  Av. Francisco de Orellana E4 -65 y 9 de Octubre, Quito, Ecuador{" "}
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <Phone className="h-5 w-5 text-primary mt-0.5" />
+              <div>
+                <h3 class="font-medium">Teléfono</h3>
+                <p class="text-muted-foreground">023238003 - 0968204060</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <Mail className="h-5 w-5 text-primary mt-0.5" />
+              <div>
+                <h3 class="font-medium">Email</h3>
+                <p class="text-muted-foreground">secretaria@aimecuador.org</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <Clock className="h-5 w-5 text-primary mt-0.5" />
+              <div>
+                <h3 class="font-medium">Horario de Atención</h3>
+                <p class="text-muted-foreground">Lunes a Viernes: 8:00am - 17:00pm</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <h3 class="text-lg font-medium mb-4">Síguenos</h3>
+            <SocialIcons iconClassName="h-5 w-5" iconColor="text-gray-600 hover:text-primary" />
+          </div>
+        </div>
+
+        <div>
+          <form class="space-y-6 bg-muted p-6 rounded-lg">
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div class="space-y-2">
+                <label for="nombre" class="text-sm font-medium">
+                  Nombre
+                </label>
+                <input
+                  id="nombre"
+                  type="text"
+                  class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  placeholder="Tu nombre"
+                />
+              </div>
+              <div class="space-y-2">
+                <label for="email" class="text-sm font-medium">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  placeholder="tu@email.com"
+                />
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label for="asunto" class="text-sm font-medium">
+                Asunto
+              </label>
+              <input
+                id="asunto"
+                type="text"
+                class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                placeholder="Asunto de tu mensaje"
+              />
+            </div>
+            <div class="space-y-2">
+              <label for="mensaje" class="text-sm font-medium">
+                Mensaje
+              </label>
+              <textarea
+                id="mensaje"
+                class="w-full min-h-[120px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                placeholder="Tu mensaje"
+              ></textarea>
+            </div>
+            <Button type="submit" className="w-full transition-all duration-300 hover:scale-[1.02]">
+              Enviar Mensaje
+            </Button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-8">
+      <div class="flex items-center gap-3 mb-6">
+        <MapPin className="h-6 w-6 text-primary" />
+        <h2 class="text-2xl font-bold">Ubicación</h2>
+      </div>
+      <GoogleMap />
+    </section>
+  </main>
+</Layout>
