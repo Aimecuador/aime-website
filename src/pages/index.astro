@@ -5,6 +5,7 @@ import LogoMarquee from '@/components/LogoMarquee';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import ButtonLink from '@/components/ui/ButtonLink.astro';
 import { Calendar, ChevronRight, MapPin } from 'lucide-react';
+import { Image } from 'astro:assets';
 
 const eventosDestacados = [
   {
@@ -24,17 +25,27 @@ const eventosDestacados = [
     image: "/images/eventos/cards/resultados-laboratorio-social-innovacion.webp",
     description: "Presentación de una herramienta de gobernanza minera orientada al cumplimiento de los Objetivos de Desarrollo Sostenible (ODS) y la Agenda 2030.",
     slug: "resultados-laboratorio-social-innovacion-minero",
+  }
+];
+
+const avalLogos = [
+  {
+    name: "Ministerio de Energía y Minas",
+    image: "/images/convenios/logos/ministerio_de_energia_y_minas.png",
   },
   {
-    id: 3,
-    title: "IV Taller Multisectorial sobre Gobernanza en el Sector Minero – Ibarra 2024",
-    date: "12 Diciembre, 2024",
-    location: "Ibarra, Ecuador",
-    image: "/images/eventos/cards/iv-taller-multisectorial-gobernanza-ibarra.webp",
-    description: "Espacio de diálogo entre gobierno, industria minera, academia y sociedad civil para reflexionar sobre el presente y futuro de la minería en Ecuador.",
-    slug: "taller-multisectorial-gobernanza-ibarra",
+    name: "Ministerio de Telecomunicaciones",
+    image: "/images/convenios/logos/mintel.png",
   },
-];
+  {
+    name: "ARCA",
+    image: "/images/convenios/logos/arca.png",
+  },
+  {
+    name: "ESPOL",
+    image: "/images/convenios/logos/espol.png",
+  },
+]
 
 const logos = [
   {
@@ -83,9 +94,31 @@ const logos = [
 <Layout>
   <HeroCarousel client:visible />
 
-  <!-- Eventos Section -->
-  <section id="eventos" class="py-16 md:py-24">
+  <!-- Aval Section -->
+  <section class="py-8">
     <div class="container">
+      <div class="text-center mb-8 flex items-center space-x-2 justify-center">
+        <div class="h-1 w-10 md:w-20 bg-primary"></div>
+        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl">Con el aval de</h2>
+        <div class="h-1 w-10 md:w-20 bg-primary"></div>
+      </div>
+    </div>
+    <div class="bg-muted grid grid-cols-2 gap-6 items-center justify-items-center lg:flex lg:justify-center lg:gap-14 px-6 py-10">
+      {avalLogos.map((logo) => (
+        <Image
+          src={logo.image}
+          alt={logo.name}
+          width={150}
+          height={80}
+          class="max-h-16 w-auto object-contain"
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- Eventos Section -->
+  <section class="py-10">
+    <div class="container mx-auto">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
         <div>
           <div class="flex items-center space-x-2 mb-2">
@@ -95,40 +128,40 @@ const logos = [
             </span>
           </div>
           <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Eventos Recientes
+            Eventos
           </h2>
           <p class="mt-4 text-muted-foreground max-w-3xl">
             Participa en nuestros eventos y mantente actualizado con las últimas tendencias y avances en el sector minero.
           </p>
         </div>
-        <ButtonLink href="/eventos" variant="outline" class="mt-4 md:mt-0 self-start md:self-auto group">
+        <ButtonLink href="/eventos" class="mt-4 md:mt-0 self-start md:self-auto group">
           Ver todos los eventos
           <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </ButtonLink>
       </div>
 
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-6 md:grid-cols-2 md:gap-10 lg:gap-32">
         {eventosDestacados.map((evento) => (
-          <Card className="overflow-hidden group transition-all duration-300 hover:shadow-lg">
-            <img
-              width={600}
-              height={400}
-              src={evento.image || "/placeholder.svg"}
+          <Card className="overflow-hidden group transition-all duration-300">
+            <Image
+              width={1024}
+              height={576}
+              src={evento.image}
               alt={evento.title}
-              class="object-cover transition-transform duration-500 group-hover:scale-105"
+              class="object-fit transition-transform duration-500 group-hover:scale-105"
             />
-            <CardHeader>
+            <CardHeader className='pb-3'>
               <CardTitle className="line-clamp-2 hover:text-primary">
                 {evento.title}
               </CardTitle>
-              <CardDescription>
+              <CardDescription className='flex gap-4'>
                 <div class="flex items-center mt-2">
                   <Calendar className="h-4 w-4 mr-2 text-primary" />
-                  <span>{evento.date}</span>
+                  <span class="mt-0.5">{evento.date}</span>
                 </div>
-                <div class="flex items-center mt-1">
+                <div class="flex items-center mt-2">
                   <MapPin className="h-4 w-4 mr-2 text-primary" />
-                  <span>{evento.location}</span>
+                  <span class="mt-0.5">{evento.location}</span>
                 </div>
               </CardDescription>
             </CardHeader>
@@ -136,7 +169,9 @@ const logos = [
               <p class="line-clamp-3">{evento.description}</p>
             </CardContent>
             <CardFooter>
-              <ButtonLink href={`/eventos/${evento.slug}`} class="w-full">Ver detalles</ButtonLink>
+              <ButtonLink href={`/eventos/${evento.slug}`}>
+              Ver detalles
+              </ButtonLink>
             </CardFooter>
           </Card>
         ))}
@@ -145,7 +180,7 @@ const logos = [
   </section>
 
   <!-- Galería Section -->
-  <section id="galeria" class="py-16 md:py-24 bg-muted">
+  <section class="py-16 md:py-24 bg-muted">
     <div class="container">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
         <div>
@@ -221,7 +256,7 @@ const logos = [
   </section>
 
   <!-- Services/Activities Section -->
-  <section id="servicios" class="py-16 md:py-24">
+  <section class="py-16 md:py-24">
     <div class="container">
       <div class="text-center mb-12">
         <div class="flex items-center space-x-2 mb-2 justify-center">
@@ -272,7 +307,7 @@ const logos = [
   </section>
 
   <!-- Convenios Interinstitucionales Section -->
-  <section id="convenios" class="py-16 md:py-24 bg-muted">
+  <section class="py-16 md:py-24 bg-muted">
     <div class="container">
       <div class="text-center mb-12">
         <div class="flex items-center space-x-2 mb-2 justify-center">

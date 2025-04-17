@@ -8,9 +8,9 @@ const menuItems = [
   { name: "Quienes Somos", href: "/quienes-somos" },
   { name: "Comisiones Técnicas", href: "/comisiones-tecnicas" },
   { name: "Eventos", href: "/eventos" },
-  { name: "PINU", href: "/pinu" },
+  { name: "PIIMU", href: "/PIIMU" },
   { name: "Minería para todos", href: "/mineria-para-todos" },
-  { name: "Publicaciones", href: "/publicaciones" },
+  { name: "Noticias", href: "/noticias" },
   { name: "Blog", href: "/blog" },
   { name: "Contacto", href: "/contacto" },
 ];
@@ -63,7 +63,7 @@ export default function Header() {
     <header className="fixed w-full top-0 z-40">
       <div
         className={cn(
-          "bg-secondary transition-all duration-300 ease-in-out",
+          "bg-primary transition-all duration-300 ease-in-out",
           isScrolled ? "opacity-0 h-0 overflow-hidden" : "opacity-100 h-10"
         )}
       >
@@ -74,26 +74,17 @@ export default function Header() {
 
       <div
         className={cn(
-          "w-full transition-all duration-300 ease-in-out bg-white shadow-sm",
+          "w-full transition-all bg-[#fffdfa] duration-300 ease-in-out border-b border-b-gray-200",
           isScrolled ? "py-2" : "py-4"
         )}
       >
         <div className="container mx-auto">
           <div className="flex items-center justify-between">
-            <a href="/" className="w-[30%] max-w-[65px]">
+            <a href="/" className="h-[55px] w-[60px]">
               <img
-                src={isScrolled ? "/aime-logo2.jpg" : "/aime-logo-sin-texto.jpg"}
+                src={"/aime-logo-sin-texto.jpg"}
                 alt="AIME logo"
-                width={isScrolled ? 120 : 160}
-                height={isScrolled ? 120 : 160}
-                className="hidden md:block"
-              />
-              <img
-                src={isScrolled ? "/aime-logo2.jpg" : "/aime-logo-sin-texto.jpg"}
-                alt="AIME logo"
-                width={120}
-                height={120}
-                className="md:hidden"
+                className="h-full w-full"
               />
             </a>
 
@@ -102,7 +93,7 @@ export default function Header() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="font-medium text-gray-700 transition-colors py-2 hover:text-primary"
+                  className="font-se text-gray-800 transition-colors py-2 hover:text-primary"
                 >
                   {item.name}
                 </a>
@@ -150,7 +141,7 @@ export default function Header() {
               ))}
 
               <div className="border-t border-gray-200 pt-4 pb-3">
-                <button className="bg-primary block w-full rounded-md px-4 py-2 text-center text-base font-medium text-white transition-colors duration-300 hover:cursor-pointer hover:bg-opacity-90">
+                <button type="button" className="bg-primary block w-full rounded-md px-4 py-2 text-center text-base font-medium text-white transition-colors duration-300 hover:cursor-pointer hover:bg-opacity-90">
                   Hazte Miembro
                 </button>
               </div>

@@ -56,7 +56,7 @@ const mapSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.79489
         }
       });
     },
-    { threshold: 0.2 }
+    { rootMargin: "300px 0px 0px 0px" }
   );
 
   document.querySelectorAll("[data-observe]").forEach((el) => {

@@ -73,100 +73,101 @@ const eventos = [
 ---
 
 <Layout title="Eventos | AIME Ecuador">
-  <main class="container mx-auto py-12">
-    <div class="flex items-center justify-center space-x-2 mb-6">
-      <div class="h-1 w-10 bg-primary"></div>
-      <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-        Agenda AIME
-      </span>
-      <div class="h-1 w-10 bg-primary"></div>
-    </div>
-    <h1 class="text-4xl font-bold mb-8 text-center">Eventos</h1>
-
-    <div class="max-w-3xl mx-auto mb-12">
-      <p class="text-lg text-center">
-        Participa en nuestros eventos y mantente actualizado con las últimas
-        tendencias, avances y oportunidades en el sector minero ecuatoriano.
-        La AIME organiza y participa en diversos encuentros orientados al
-        desarrollo profesional y la promoción de una minería responsable.
-      </p>
-    </div>
-
-    {/* Todos los eventos */}
-    <section>
-      <h2 class="text-2xl font-bold mb-6 flex items-center">
-        <Calendar className="mr-2 h-5 w-5 text-primary" />
-        Historial de Eventos
-      </h2>
-
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {eventos.map((evento) => (
-          <Card
-            key={evento.id}
-            className="overflow-hidden group transition-all duration-300 hover:shadow-lg flex flex-col"
+  <main class="py-12 bg-muted/15">
+    <div class="container">
+      <div class="flex items-center justify-center space-x-2 mb-6">
+        <div class="h-1 w-10 bg-primary"></div>
+        <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+          Agenda AIME
+        </span>
+        <div class="h-1 w-10 bg-primary"></div>
+      </div>
+      <h1 class="text-4xl font-bold mb-8 text-center">Eventos</h1>
+  
+      <div class="max-w-3xl mx-auto mb-12">
+        <p class="text-lg text-center">
+          Participa en nuestros eventos y mantente actualizado con las últimas
+          tendencias, avances y oportunidades en el sector minero ecuatoriano.
+          La AIME organiza y participa en diversos encuentros orientados al
+          desarrollo profesional y la promoción de una minería responsable.
+        </p>
+      </div>
+  
+      {/* Todos los eventos */}
+      <section>
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <Calendar className="mr-2 h-5 w-5 text-primary" />
+          Historial de Eventos
+        </h2>
+  
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
+          {eventos.map((evento) => (
+            <Card
+              key={evento.id}
+              className="overflow-hidden group transition-all duration-300 flex flex-col border hover:shadow-lg bg-white"
+            >
+              <Image
+                width={600}
+                height={400}
+                src={evento.image}
+                alt={evento.title}
+                class="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <CardHeader className='px-5'>
+                <CardTitle className="line-clamp-2 hover:text-primary">{evento.title}</CardTitle>
+                <CardDescription className='flex items-center gap-2'>
+                  <div class="flex items-center mt-2">
+                    <Calendar className="h-4 w-4 mr-1 text-primary" />
+                    <span>{evento.date}</span>
+                  </div>
+                  <div class="flex items-center mt-1">
+                    <MapPin className="h-4 w-4 mr-1 text-primary" />
+                    <span class="mt-[0.5px]">{evento.location}</span>
+                  </div>
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-grow px-6">
+                <p class="line-clamp-3">{evento.description}</p>
+              </CardContent>
+              <CardFooter className="pt-0 px-6">
+                <ButtonLink
+                  href={`/eventos/${evento.slug}`}
+                  variant="default"
+                >
+                  Ver detalles
+                </ButtonLink>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+      </section>
+  
+      {/* Sección de contacto para eventos */}
+      <section class="mt-16 bg-muted p-8 rounded-lg shadow-md text-center">
+        <h2 class="text-2xl font-bold mb-4">
+          ¿Interesado en nuestros eventos?
+        </h2>
+        <p class="mb-6 max-w-2xl mx-auto">
+          Si deseas más información sobre nuestros próximos eventos o estás
+          interesado en participar, no dudes en contactarnos. Podemos
+          proporcionarte detalles adicionales sobre fechas, ubicaciones y
+          programas.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <ButtonLink href="/contacto" size="lg">
+            Contáctanos
+          </ButtonLink>
+          <ButtonLink
+            href="/blog"
+            variant="outline"
+            size="lg"
+            class="group"
           >
-            <Image
-              width={600}
-              height={400}
-              src={evento.image}
-              alt={evento.title}
-              class="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            <CardHeader>
-              <CardTitle className="line-clamp-2">{evento.title}</CardTitle>
-              <CardDescription>
-                <div class="flex items-center mt-2">
-                  <Calendar className="h-4 w-4 mr-2 text-primary" />
-                  <span>{evento.date}</span>
-                </div>
-                <div class="flex items-center mt-1">
-                  <MapPin className="h-4 w-4 mr-2 text-primary" />
-                  <span>{evento.location}</span>
-                </div>
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="flex-grow">
-              <p class="line-clamp-3">{evento.description}</p>
-            </CardContent>
-            <CardFooter className="pt-0">
-              <ButtonLink
-                href={`/eventos/${evento.slug}`}
-                variant="default"
-                class="w-full"
-              >
-                Ver detalles
-              </ButtonLink>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-    </section>
-
-    {/* Sección de contacto para eventos */}
-    <section class="mt-16 bg-muted p-8 rounded-lg text-center">
-      <h2 class="text-2xl font-bold mb-4">
-        ¿Interesado en nuestros eventos?
-      </h2>
-      <p class="mb-6 max-w-2xl mx-auto">
-        Si deseas más información sobre nuestros próximos eventos o estás
-        interesado en participar, no dudes en contactarnos. Podemos
-        proporcionarte detalles adicionales sobre fechas, ubicaciones y
-        programas.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <ButtonLink href="/contacto" size="lg">
-          Contáctanos
-        </ButtonLink>
-        <ButtonLink
-          href="/blog"
-          variant="outline"
-          size="lg"
-          class="group"
-        >
-          Ver noticias relacionadas
-          <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-        </ButtonLink>
-      </div>
-    </section>
+            Ver noticias relacionadas
+            <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </ButtonLink>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

@@ -1,0 +1,385 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import ButtonLink from '@/components/ui/ButtonLink.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  BookOpen,
+  GraduationCap,
+  Globe,
+  Building,
+  Target,
+  Compass,
+  Calendar,
+  CheckCircle,
+  ArrowRight,
+Handshake,
+Lightbulb,
+Network,
+Leaf,
+Users,
+} from 'lucide-react';
+import AccordionBasesPIIMU from '@/components/sections/AccordionBasesPIIMU';
+
+// Bases que sustentan el programa
+const bases = [
+  {
+    id: "educacion",
+    title: "Compromiso con la Educación y el Desarrollo Profesional",
+    icon: GraduationCap,
+    description: [
+      "AIME busca ser el motor que impulse la formación de ingenieros de minas altamente capacitados, alineados con las demandas y desafíos internacionales de la industria minera.",
+      "El programa fomenta el desarrollo de habilidades técnicas avanzadas, promoviendo el aprendizaje de tecnologías de vanguardia y la aplicación de nuevas metodologías en minería sostenible.",
+    ],
+  },
+  {
+    id: "proyeccion",
+    title: "Proyección Internacional de la Minería Ecuatoriana",
+    icon: Globe,
+    description: [
+      "El PIIMU no solo busca beneficiar a los estudiantes, sino también colocar a Ecuador en el mapa global de la minería.",
+      "Este enfoque internacional también contribuye a mejorar la visibilidad de la minería ecuatoriana, mostrando su compromiso con la sostenibilidad, la innovación y el desarrollo responsable de los recursos naturales.",
+    ],
+  },
+  {
+    id: "alianzas",
+    title: "Alianzas Estratégicas con Universidades y Empresas Internacionales",
+    icon: Handshake,
+    description: [
+      "El programa establece alianzas con universidades, centros de investigación y empresas mineras de renombre mundial.",
+      "Las instituciones participantes, tanto locales como internacionales, proporcionan un entorno colaborativo que facilita el aprendizaje y la integración de soluciones prácticas a los problemas comunes de la minería.",
+    ],
+  },
+  {
+    id: "sostenibilidad",
+    title: "Fomento de la Minería Sostenible y Responsable",
+    icon: Leaf,
+    description: [
+      "Un pilar fundamental del PIIMU es la minería sostenible, en línea con los Objetivos de Desarrollo Sostenible (ODS) de la ONU.",
+      "Durante el intercambio y las pasantías, los estudiantes están expuestos a proyectos que promueven la minería verde, la reducción del impacto ambiental y la mejora de la calidad de vida de las comunidades cercanas a las operaciones mineras.",
+    ],
+  },
+  {
+    id: "competencias",
+    title: "Desarrollo de Competencias Interculturales y Profesionales",
+    icon: Users,
+    description: [
+      "Los estudiantes que participan en el PIIMU adquieren una valiosa experiencia internacional que los prepara para trabajar en entornos multiculturales.",
+      "El programa no solo se enfoca en el aspecto técnico de la minería, sino también en la gestión de proyectos, el liderazgo y la comunicación efectiva en entornos internacionales.",
+    ],
+  },
+  {
+    id: "investigacion",
+    title: "Investigación y Desarrollo Colaborativo",
+    icon: Lightbulb,
+    description: [
+      "El PIIMU promueve la investigación aplicada, ofreciendo a los estudiantes la posibilidad de participar en proyectos de investigación conjunta entre universidades e industrias mineras de diferentes países.",
+      "Los estudiantes tienen la oportunidad de contribuir al desarrollo de nuevas tecnologías mineras, desde métodos de extracción más limpios hasta el uso de tecnologías de monitoreo ambiental y social.",
+    ],
+  },
+  {
+    id: "redes",
+    title: "Acceso a Redes Profesionales Internacionales",
+    icon: Network,
+    description: [
+      "El PIIMU facilita la creación de redes de contacto que permiten a los estudiantes acceder a oportunidades profesionales y laborales en el ámbito internacional.",
+      "Los participantes no solo establecen relaciones con sus pares, sino también con expertos de la industria y académicos internacionales, lo que mejora sus perspectivas de empleabilidad y colaboración en proyectos de investigación.",
+    ],
+  },
+  {
+    id: "impacto",
+    title: "Impacto en la Comunidad Minera Ecuatoriana",
+    icon: Building,
+    description: [
+      "A través del PIIMU, AIME busca fortalecer el ecosistema minero ecuatoriano, ya que los estudiantes que participan en el programa regresan con una visión renovada, con nuevos conocimientos y con la capacidad de implementar buenas prácticas y tecnologías adquiridas en el extranjero.",
+      "Esto contribuye al crecimiento del sector minero del país, mejorando las capacidades de los futuros profesionales y promoviendo el desarrollo económico local.",
+    ],
+  },
+];
+
+// Objetivos específicos
+const objetivosEspecificos = [
+  "Brindar oportunidades de intercambio académico y profesional",
+  "Desarrollar competencias técnicas avanzadas",
+  "Fomentar la sostenibilidad en la minería",
+  "Fortalecer las capacidades de innovación",
+  "Promover el desarrollo de habilidades interculturales",
+  "Facilitar la creación de redes profesionales internacionales",
+  "Impulsar el impacto positivo que trae la minería para la sociedad ecuatoriana",
+];
+
+// Metas
+const metas = [
+  {
+    plazo: "Corto Plazo",
+    descripcion:
+      "Culminar el II Intercambio Académico Internacional Para Estudiante Universitario Ecuador – Chile 2025",
+    icon: Calendar,
+  },
+  {
+    plazo: "Mediano Plazo",
+    descripcion:
+      "Expandir el programa a nivel internacional con alianzas estratégicas en América Latina y generar un impacto positivo en al menos 50 estudiantes por año.",
+    icon: Target,
+  },
+  {
+    plazo: "Largo Plazo",
+    descripcion:
+      "Consolidar el PIIMU como un referente en formación técnica minera, con una red establecida de universidades, empresas y organismos colaboradores.",
+    icon: Globe,
+  },
+];
+
+// Beneficiarios
+const beneficiarios = [
+  {
+    tipo: "Estudiantes",
+    descripcion: "Estudiantes de ingeniería en minas y carreras afines.",
+    icon: GraduationCap,
+  },
+  {
+    tipo: "Docentes",
+    descripcion: "Docentes y académicos interesados en intercambios de conocimiento.",
+    icon: BookOpen,
+  },
+  {
+    tipo: "Empresas",
+    descripcion: "Empresas mineras que buscan fortalecer la capacitación de futuros profesionales.",
+    icon: Building,
+  },
+];
+---
+
+<Layout title="PIIMU | AIME Ecuador">
+  <main class="container mx-auto py-12">
+    {/* Encabezado */}
+    <section class="mb-16 text-center">
+      <div class="flex justify-center mb-8">
+          <Image src="/PIIMU-logo.png" alt="Logo PIIMU" width={256} height={256} class="object-contain" />
+      </div>
+      <h1 class="text-4xl font-bold mt-1 mb-4">
+        Programa Internacional de Intercambio Minero Universitario
+      </h1>
+      <div class="flex justify-center">
+        <div class="h-1 w-20 bg-primary"></div>
+      </div>
+    </section>
+
+    {/* Introducción */}
+    <section class="mb-16">
+      <div class="bg-muted rounded-lg p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <BookOpen className="mr-3 h-6 w-6 text-primary" />
+          Introducción
+        </h2>
+        <div class="space-y-4">
+          <p>
+            El Programa Internacional de Intercambio Minero Universitario (PIIMU) nace como una iniciativa de la
+            Asociación de Ingenieros de Minas del Ecuador (AIME), que busca promover activamente la carrera de
+            ingeniería de minas en Ecuador. AIME, con su firme compromiso con la educación y el desarrollo del sector
+            minero, trabaja para ser un referente en la formación de profesionales altamente capacitados en minería.
+            Su objetivo es impulsar la minería ecuatoriana en el ámbito internacional, promoviendo una educación de
+            calidad, el intercambio de conocimientos y la innovación en la industria.
+          </p>
+          <p>
+            En este contexto, el PIIMU se presenta como una plataforma de intercambio académico y profesional que
+            ofrece a los estudiantes ecuatorianos la oportunidad de obtener experiencias internacionales, enriquecer
+            sus competencias y contribuir al fortalecimiento de la minería sostenible. A través de intercambios,
+            pasantías y proyectos de investigación conjunta, el programa permite que los futuros ingenieros de minas
+            desarrollen una visión global de la industria y se alineen con los estándares internacionales de
+            sostenibilidad y responsabilidad social.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* Misión y Visión */}
+    <section class="mb-16">
+      <div class="grid gap-8 md:grid-cols-2">
+        <Card className="overflow-hidden border-l-4 px-6 border-l-primary">
+          <CardHeader className="bg-muted/50">
+            <div class="flex items-center gap-3">
+              <Compass className="h-6 w-6 text-primary" />
+              <CardTitle>Misión</CardTitle>
+            </div>
+          </CardHeader>
+          <CardContent className="pt-6">
+            <p>
+              Facilitar la integración y el desarrollo de estudiantes de ingeniería en minas a través de intercambios
+              académicos, pasantías y experiencias en campo, promoviendo el aprendizaje práctico, el fortalecimiento
+              de conocimientos técnicos y la vinculación con profesionales y empresas del sector minero.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="overflow-hidden border-l-4 px-6 border-l-primary">
+          <CardHeader className="bg-muted/50">
+            <div class="flex items-center gap-3">
+              <Target className="h-6 w-6 text-primary" />
+              <CardTitle>Visión</CardTitle>
+            </div>
+          </CardHeader>
+          <CardContent className="pt-6">
+            <p>
+              Ser el programa líder de intercambio minero en Ecuador y la región, reconocido por su impacto en la
+              formación de profesionales altamente capacitados, fomentando una minería sostenible, responsable y
+              alineada con los Objetivos de Desarrollo Sostenible (ODS).
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
+
+    {/* Bases que sustentan el programa */}
+    <section class="mb-16">
+      <div class="text-center mb-10">
+        <div class="flex items-center space-x-2 mb-2 justify-center">
+          <div class="h-1 w-10 bg-primary"></div>
+          <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">Fundamentos</span>
+          <div class="h-1 w-10 bg-primary"></div>
+        </div>
+        <h2 class="text-3xl font-bold">Bases que sustentan el Programa PIIMU</h2>
+      </div>
+
+      {/* Vista para pantallas grandes */}
+      <div class="hidden lg:grid grid-cols-1 gap-8">
+        {bases.map((base, index) => (
+          <div
+            class={`flex gap-6 p-6 rounded-lg transition-all duration-300 hover:shadow-md ${
+              index % 2 === 0 ? "bg-white" : "bg-muted/50"
+            }`}
+          >
+            <div class="flex-shrink-0 flex items-start pt-1">
+              <base.icon className="h-10 w-10 text-primary" />
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-3">{base.title}</h3>
+              <ul class="space-y-2">
+                {base.description.map((item, i) => (
+                  <li class="flex items-start gap-2">
+                    <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <p>{item}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Vista para pantallas pequeñas y medianas */}
+      <div class="lg:hidden">
+        <AccordionBasesPIIMU client:visible />
+      </div>
+    </section>
+
+    {/* Objetivos */}
+    <section class="mb-16 bg-muted p-8 rounded-lg">
+      <div class="text-center mb-10">
+        <div class="flex items-center space-x-2 mb-2 justify-center">
+          <div class="h-1 w-10 bg-primary"></div>
+          <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">Propósitos</span>
+          <div class="h-1 w-10 bg-primary"></div>
+        </div>
+        <h2 class="text-3xl font-bold mb-4">Objetivos</h2>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <Target className="mr-2 h-6 w-6 text-primary" />
+          Objetivo General
+        </h3>
+        <p class="text-lg">
+          Fortalecer la formación de los estudiantes de ingeniería de minas en Ecuador, a través de un programa de
+          intercambio académico y profesional, promoviendo el desarrollo de competencias técnicas, socioambientales e
+          interculturales, y posicionando a Ecuador como un referente en minería responsable y sostenible a nivel
+          global.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <CheckCircle className="mr-2 h-6 w-6 text-primary" />
+          Objetivos Específicos
+        </h3>
+        <ul class="grid md:grid-cols-2 gap-4">
+          {objetivosEspecificos.map((objetivo, index) => (
+            <li class="flex items-start gap-2 bg-white p-4 rounded-lg shadow-sm">
+              <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+              <span>{objetivo}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    {/* Metas */}
+    <section class="mb-16">
+      <div class="text-center mb-10">
+        <div class="flex items-center space-x-2 mb-2 justify-center">
+          <div class="h-1 w-10 bg-primary"></div>
+          <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">Proyecciones</span>
+          <div class="h-1 w-10 bg-primary"></div>
+        </div>
+        <h2 class="text-3xl font-bold">Metas</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {metas.map((meta, index) => (
+          <Card key={index} className="transition-all duration-300 hover:shadow-md">
+            <CardHeader className="bg-muted/50 px-6">
+              <div class="flex items-center gap-3">
+                <meta.icon className="h-6 w-6 text-primary" />
+                <CardTitle>{meta.plazo}</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6 px-6">
+              <p>{meta.descripcion}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </section>
+
+    {/* Beneficiarios */}
+    <section class="mb-16">
+      <div class="text-center mb-10">
+        <div class="flex items-center space-x-2 mb-2 justify-center">
+          <div class="h-1 w-10 bg-primary"></div>
+          <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">Participantes</span>
+          <div class="h-1 w-10 bg-primary"></div>
+        </div>
+        <h2 class="text-3xl font-bold">Beneficiarios</h2>
+        <p class="mt-4 text-muted-foreground max-w-3xl mx-auto">
+          El PIIMU está dirigido a diversos actores del sector minero y educativo:
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {beneficiarios.map((beneficiario, index) => (
+          <div
+            class="bg-muted p-6 rounded-lg text-center transition-all duration-300 hover:shadow-md hover:bg-muted/70"
+          >
+            <div class="flex justify-center mb-4">
+              <div class="p-4 bg-primary/10 rounded-full">
+                <beneficiario.icon className="h-6 w-6 text-primary" />
+              </div>
+            </div>
+            <h3 class="text-xl font-bold mb-2">{beneficiario.tipo}</h3>
+            <p>{beneficiario.descripcion}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* Sección de contacto */}
+    <section class="bg-muted p-8 rounded-lg text-center">
+      <h2 class="text-2xl font-bold mb-4">¿Interesado en participar en el PIIMU?</h2>
+      <p class="mb-6 max-w-2xl mx-auto">
+        Si eres estudiante, docente o representante de una empresa y deseas obtener más información sobre cómo
+        participar en el Programa Internacional de Intercambio Minero Universitario, contáctanos.
+      </p>
+      <ButtonLink href="/contacto" size="lg">Contáctanos</ButtonLink>
+    </section>
+  </main>
+</Layout>

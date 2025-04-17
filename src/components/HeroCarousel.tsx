@@ -27,7 +27,7 @@ const carouselItems: CarouselItem[] = [
     title: "Asociación de Ingenieros de Minas del Ecuador",
     description:
       "Promoviendo el desarrollo sostenible de la minería en Ecuador a través de la excelencia profesional y la innovación.",
-    image: "/placeholder.svg?height=800&width=1600",
+    image: "/images/home/hero-1.jpg",
     primaryButton: {
       text: "Contáctanos",
       href: "/contacto",
@@ -182,7 +182,7 @@ export default function HeroCarousel() {
   return (
     <section
       id="inicio"
-      className="relative h-[500px] sm:h-[550px] md:h-[600px] overflow-hidden cursor-grab active:cursor-grabbing"
+      className="relative h-[500px] md:h-[380px] py-10 overflow-hidden cursor-grab active:cursor-grabbing"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -191,6 +191,7 @@ export default function HeroCarousel() {
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
     >
+      <div className="absolute inset-0 z-10 bg-black/50"></div>
       {carouselItems.map((item, index) => (
         <div
           key={index}
@@ -199,7 +200,7 @@ export default function HeroCarousel() {
           }`}
         >
           <img
-            src={item.image || "/placeholder.svg"}
+            src={item.image}
             alt={`Slide ${index + 1}`}
             className="object-cover w-full h-full brightness-50"
             loading={index === 0 ? "eager" : "lazy"}
@@ -221,7 +222,7 @@ export default function HeroCarousel() {
               AIME Ecuador
             </span>
           </div>
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">
             {currentItem.title}
           </h1>
           <p className="text-lg md:text-xl">{currentItem.description}</p>
@@ -259,9 +260,10 @@ export default function HeroCarousel() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-0 right-0 z-10 flex justify-center space-x-2">
+      <div className="absolute pt-4 bottom-4 left-0 right-0 z-10 flex justify-center space-x-2">
         {carouselItems.map((_, index) => (
           <button
+            type="button"
             key={index}
             onClick={() => {
               if (!isAnimating && index !== currentIndex) {

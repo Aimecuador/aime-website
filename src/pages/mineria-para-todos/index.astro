@@ -1,0 +1,259 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import ButtonLink from '@/components/ui/ButtonLink.astro';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Play, Calendar, Users, ExternalLink, Youtube } from 'lucide-react';
+
+const temporadas = [
+  {
+    numero: "Primera",
+    fecha: "23 de septiembre de 2021",
+    descripcion:
+      "Marcó el lanzamiento del programa con entrevistas y paneles sobre la situación de la minería en el país, sus desafíos y oportunidades.",
+    imagen: "/placeholder.svg?height=200&width=400&text=Primera+Temporada",
+    color: "from-secondary/90 to-secondary/70",
+  },
+  {
+    numero: "Segunda",
+    fecha: "8 de febrero de 2022",
+    descripcion:
+      "Se transmitió todos los martes a las 19h00 a través de Facebook Live, consolidando el programa como un referente de educación minera digital.",
+    imagen: "/placeholder.svg?height=200&width=400&text=Segunda+Temporada",
+    color: "from-secondary/90 to-secondary/70",
+  },
+  {
+    numero: "Tercera",
+    fecha: "Octubre de 2023",
+    descripcion:
+      "Con una frecuencia quincenal, mantuvo el enfoque técnico y educativo, e integró nuevas temáticas como transición energética, innovación y responsabilidad social.",
+    imagen: "/placeholder.svg?height=200&width=400&text=Tercera+Temporada",
+    color: "from-secondary/90 to-secondary/70",
+  },
+];
+---
+
+<Layout title="Minería para Todos | AIME Ecuador">
+  <main class="py-12">
+    
+    {/* Descripción del programa */}
+    <section class="mb-16 container mx-auto">
+      <div class="flex items-center space-x-2 mb-4">
+        <div class="h-1 w-10 bg-primary"></div>
+        <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+          Sobre el programa
+        </span>
+      </div>
+      <h2 class="text-3xl font-bold mb-6">¿Qué es Minería para Todos?</h2>
+      <div class="grid lg:grid-cols-2 gap-12 items-center text-gray-800">
+        <div>
+          <div class="space-y-4 text-lg">
+            <p>
+              <span class="font-semibold">Minería para Todos</span> es un
+              programa de divulgación técnica y científica creado por la
+              Asociación de Ingenieros de Minas del Ecuador (AIME), con el
+              respaldo de la Escuela Superior Politécnica del Litoral (ESPOL).
+            </p>
+            <p>
+              Su objetivo principal es acercar el conocimiento del sector
+              minero a toda la ciudadanía, generando espacios de diálogo con
+              expertos nacionales e internacionales para compartir
+              experiencias, buenas prácticas y avances tecnológicos que
+              contribuyen a una minería responsable y sostenible en el país.
+            </p>
+            <p>
+              A lo largo de sus temporadas, el programa ha contado con la
+              participación de representantes de la academia, empresas
+              privadas, instituciones públicas, gremios y comunidades,
+              fomentando el entendimiento de la minería como una actividad
+              estratégica para el desarrollo del Ecuador.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-4 mt-8">
+            <ButtonLink
+              href="#episodios"
+              size="lg"
+            >
+              <Play className="mr-2 h-4 w-4" /> Ver episodios
+            </ButtonLink>
+            <ButtonLink
+              href="https://www.youtube.com/@asociaciondeingenierosdemi7834"
+              variant="outline"
+              size="lg"
+              target="_blank"
+            >
+              <Youtube className="mr-2 h-4 w-4" /> Canal de YouTube
+            </ButtonLink>
+          </div>
+        </div>
+        <div class="relative h-[400px] rounded-xl overflow-hidden shadow-lg">
+          <Image
+            src="https://img.youtube.com/vi/BYEAW8A1X4Y/maxresdefault.jpg"
+            alt="Minería para Todos"
+            width={800}
+            height={400}
+            class="object-cover w-full h-full"
+          />
+        </div>
+      </div>
+    </section>
+
+    {/* Temporadas */}
+    <section class="mb-16 container mx-auto">
+      <div class="flex items-center space-x-2 mb-6">
+        <div class="h-1 w-10 bg-primary"></div>
+        <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+          Evolución
+        </span>
+      </div>
+      <h2 class="text-3xl font-bold mb-8 flex items-center">
+        <Calendar className="mr-3 h-8 w-8 text-primary" />
+        Temporadas
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {temporadas.map((temporada, index) => (
+          <Card
+            key={index}
+            className="overflow-hidden transition-all duration-300 hover:shadow-lg border rounded-lg"
+          >
+            <div
+              class={`h-3 w-full bg-gradient-to-r ${temporada.color}`}
+            ></div>
+            <CardHeader className='p-6'>
+              <CardTitle className="text-2xl">
+                <h3>
+                  <span class="text-primary font-bold">
+                    {temporada.numero}
+                  </span>{" "}
+                  Temporada
+                </h3>
+              </CardTitle>
+              <CardDescription className="flex items-center">
+                <Calendar className="mr-2 h-4 w-4 text-primary" />
+                Inicio: {temporada.fecha}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className='px-6'>
+              <p>{temporada.descripcion}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </section>
+
+    {/* Episodios */}
+    <section id="episodios" class="mb-16 scroll-mt-20 bg-muted py-12">
+      <div class="container mx-auto">
+        <div class="flex items-center space-x-2 mb-6">
+          <div class="h-1 w-10 bg-primary"></div>
+          <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+            Contenido
+          </span>
+        </div>
+        <h2 class="text-3xl font-bold mb-8 flex items-center">
+          <Play className="mr-3 h-8 w-8 text-primary" />
+          Episodios
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="relative aspect-video rounded-xl overflow-hidden shadow-lg group">
+            <Image
+              src="https://img.youtube.com/vi/BYEAW8A1X4Y/maxresdefault.jpg"
+              alt="Minería para Todos - Playlist"
+              width={800}
+              height={450}
+              class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+              <ButtonLink
+                href="https://www.youtube.com/watch?v=BYEAW8A1X4Y&list=PLmbzm9HyfWz2sOzDknmHskhq7NC6ZC7wI&index=1"
+                size="lg"
+                class="bg-primary hover:bg-primary/90 text-white transition-transform duration-300 hover:scale-110"
+                target="_blank"
+              >
+                <Play className="mr-2 h-5 w-5" /> Ver en YouTube
+              </ButtonLink>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold mb-4">
+              Playlist completa en YouTube
+            </h3>
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <Play className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+                <p>Más de 20 episodios con expertos del sector minero</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <Users className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+                <p>
+                  Entrevistas con profesionales nacionales e internacionales
+                </p>
+              </div>
+              <div class="flex items-start gap-3">
+                <Calendar className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+                <p>
+                  Contenido organizado por temporadas para facilitar su
+                  visualización
+                </p>
+              </div>
+            </div>
+            <div class="mt-8">
+              <ButtonLink
+                href="https://www.youtube.com/playlist?list=PLmbzm9HyfWz2sOzDknmHskhq7NC6ZC7wI"
+                size="lg"
+                variant="outline"
+                target="_blank"
+              >
+                <Youtube className="h-5 w-5" /> Ver playlist completa
+              </ButtonLink>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Dónde verlo */}
+    <section class="mb-16 container mx-auto">
+      <div class="flex items-center space-x-2 mb-6">
+        <div class="h-1 w-10 bg-primary"></div>
+        <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+          Acceso
+        </span>
+      </div>
+      <h2 class="text-3xl font-bold mb-8 flex items-center">
+        <ExternalLink className="mr-3 h-8 w-8 text-primary" />
+        ¿Dónde verlo?
+      </h2>
+
+      <div class="bg-muted p-8 rounded-xl">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="flex-shrink-0">
+            <div class="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center">
+              <Youtube className="h-12 w-12 text-primary" />
+            </div>
+          </div>
+          <div class="flex-grow text-center md:text-left">
+            <h3 class="text-xl font-bold mb-2">
+              Canal oficial de YouTube
+            </h3>
+            <p class="text-lg mb-4">
+              Todos los episodios están disponibles en nuestro canal oficial.
+              Suscríbete para no perderte ningún contenido nuevo.
+            </p>
+            <ButtonLink
+              href="https://www.youtube.com/@asociaciondeingenierosdemi7834"
+              size="lg"
+              target="_blank"
+            >
+              <Youtube className="mr-2 h-5 w-5" />
+              Visitar canal
+            </ButtonLink>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

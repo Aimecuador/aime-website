@@ -50,13 +50,14 @@ const blogPosts = [
 
 <Layout title="Blog | AIME Ecuador">
   <main class="container mx-auto py-12">
-    <div class="flex items-center space-x-2 mb-6">
+    <div class="flex items-center justify-center space-x-2 mb-6">
       <div class="h-1 w-10 bg-primary"></div>
       <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
         Publicaciones
       </span>
+      <div class="h-1 w-10 bg-primary"></div>
     </div>
-    <h1 class="text-4xl font-bold mb-8">Blog AIME</h1>
+    <h1 class="text-4xl font-bold mb-8 text-center">Blog AIME</h1>
 
     <div class="max-w-3xl mx-auto mb-12">
       <p class="text-lg text-center">
@@ -70,7 +71,7 @@ const blogPosts = [
       {blogPosts.map((post) => (
         <Card
           key={post.id}
-          className="flex flex-col overflow-hidden hover:shadow-md transition-shadow"
+          className="flex flex-col overflow-hidden hover:shadow-lg transition-shadow border bg-muted/50"
         >
           <CardHeader className="p-0">
             <div class="relative w-full bg-muted">
@@ -88,7 +89,7 @@ const blogPosts = [
               <Calendar className="h-4 w-4 mr-2 text-primary" />
               <span>{post.date}</span>
             </div>
-            <CardTitle className="text-2xl font-semibold leading-none tracking-tight mb-2.5 line-clamp-2">
+            <CardTitle className="text-2xl font-semibold leading-none tracking-tight mb-2.5 line-clamp-2 hover:text-primary">
               {post.title}
             </CardTitle>
             <p class="text-muted-foreground line-clamp-3">
@@ -98,7 +99,6 @@ const blogPosts = [
           <CardFooter className="pt-0 pb-6 px-6">
             <ButtonLink
               href={`/blog/${post.slug}`}
-              variant="outline"
               class="w-full group"
             >
               <span class="flex items-center justify-center">
