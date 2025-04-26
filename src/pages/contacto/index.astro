@@ -2,8 +2,8 @@
 import Layout from '@/layouts/Layout.astro';
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
 import GoogleMap from '@/components/sections/GoogleMap.astro';
-import { Button } from '@/components/ui/button';
 import SocialIcons from '@/components/Social-Icons.astro';
+import { ContactForm } from '@/components/sections/ContactForm';
 ---
 
 <Layout title="Contacto | AIME">
@@ -65,56 +65,7 @@ import SocialIcons from '@/components/Social-Icons.astro';
         </div>
 
         <div>
-          <form class="space-y-6 bg-muted p-6 rounded-lg">
-            <div class="grid gap-6 sm:grid-cols-2">
-              <div class="space-y-2">
-                <label for="nombre" class="text-sm font-medium">
-                  Nombre
-                </label>
-                <input
-                  id="nombre"
-                  type="text"
-                  class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                  placeholder="Tu nombre"
-                />
-              </div>
-              <div class="space-y-2">
-                <label for="email" class="text-sm font-medium">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                  placeholder="tu@email.com"
-                />
-              </div>
-            </div>
-            <div class="space-y-2">
-              <label for="asunto" class="text-sm font-medium">
-                Asunto
-              </label>
-              <input
-                id="asunto"
-                type="text"
-                class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                placeholder="Asunto de tu mensaje"
-              />
-            </div>
-            <div class="space-y-2">
-              <label for="mensaje" class="text-sm font-medium">
-                Mensaje
-              </label>
-              <textarea
-                id="mensaje"
-                class="w-full min-h-[120px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                placeholder="Tu mensaje"
-              ></textarea>
-            </div>
-            <Button type="submit" className="w-full transition-all duration-300 hover:scale-[1.02]">
-              Enviar Mensaje
-            </Button>
-          </form>
+          <ContactForm client:visible />
         </div>
       </div>
     </section>

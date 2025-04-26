@@ -4,7 +4,20 @@
 
 :root {
   --color-primary: #f5a623;
+  --color-primary-light: #f8c55c;
+  --color-primary-xlight: #fbe3a1;
+  --color-primary-dark: #c47f1b;
+
   --color-secondary: #191013;
+  --color-secondary-light: #302328;
+  --color-secondary-xlight: #4c3c41;
+
+  --color-success: #4caf50;
+  --color-error: #e53935;
+  --color-neutral-bg: #f9f9f9;
+
+  --text-dark: #222222;
+  --text-light: #ffffff;
   --color-muted: #fff5e4;
 
   --background: 0 0% 100%;

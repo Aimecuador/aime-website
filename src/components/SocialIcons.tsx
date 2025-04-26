@@ -1,52 +1,63 @@
-import { Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
+import FacebookIcon from "./icons/facebook"
+import InstagramIcon from "./icons/instagram"
+import LinkedInIcon from "./icons/linkedin"
+import TikTokIcon from "./icons/tiktok"
+import TwitterXIcon from "./icons/twitter-x"
+
+export const socialLinks = [
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/AimeEcuador",
+    Icon: FacebookIcon,
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/aime_ecuador/",
+    Icon: InstagramIcon,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/company/asociaci%C3%B3n-de-ingenieros-de-minas-del-ecuador",
+    Icon: LinkedInIcon,
+  },
+  {
+    name: "TikTok",
+    href: "https://www.tiktok.com/@aime_ecuador",
+    Icon: TikTokIcon,
+  },
+  {
+    name: "Twitter",
+    href: "https://twitter.com/aime_ecuador",
+    Icon: TwitterXIcon,
+  },
+]
 
 interface SocialIconsProps {
-  iconClassName?: string;
-  iconColor?: string;
+  className?: string
+  iconClassName?: string
+  iconColor?: string
 }
 
-export default function SocialIcons({ 
-  iconClassName = "h-5 w-5", 
-  iconColor = "text-white hover:text-secondary transition-colors duration-300" 
+export default function SocialIcons({
+  className = "",
+  iconClassName = "h-5 w-5",
+  iconColor = "text-white hover:text-primary",
 }: SocialIconsProps) {
   return (
-    <div className="flex items-center space-x-4">
-      <a
-        href="https://www.facebook.com/AimeEcuador"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Facebook"
-        className={iconColor}
-      >
-        <Facebook className={iconClassName} />
-      </a>
-      <a
-        href="https://twitter.com/aime_ecuador"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Twitter"
-        className={iconColor}
-      >
-        <Twitter className={iconClassName} />
-      </a>
-      <a
-        href="https://www.instagram.com/aime_ecuador/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Instagram"
-        className={iconColor}
-      >
-        <Instagram className={iconClassName} />
-      </a>
-      <a
-        href="https://www.linkedin.com/company/asociaci%C3%B3n-de-ingenieros-de-minas-del-ecuador"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="LinkedIn"
-        className={iconColor}
-      >
-        <Linkedin className={iconClassName} />
-      </a>
+    <div className={`flex space-x-4 ${className}`}>
+      {socialLinks.map((social) => (
+        <a
+          key={social.name}
+          href={social.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`transition-colors ${iconColor}`}
+          aria-label={social.name}
+        >
+          <social.Icon className={iconClassName} />
+        </a>
+      ))}
     </div>
-  );
+  )
 }
+

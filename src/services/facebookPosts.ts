@@ -15,16 +15,48 @@ export async function fetchFacebookPosts() {
   }
 }
 
-/*
-export async function fetchPostMedia(postId: string) {
-  const url = `https://graph.facebook.com/v22.0/${postId}/attachments?access_token=${ACCESS_TOKEN}`;
-  const response = await fetch(url);
-  const data = await response.json();
+export type FacebookPost = {
+  attachments?: {
+    data: {
+      type: string;
+      media?: {
+        image?: {
+          src: string;
+        };
+      };
+      subattachments?: {
+        data: {
+          type: string;
+          media?: {
+            image?: {
+              src: string;
+            };
+          };
+        }[];
+      };
+    }[];
+  };
+};
 
-  if (response.ok) {
-    return data.data[0] 
-  } else {
-    throw new Error('Error al obtener los medios de la publicación');
+
+export function extractGalleryImages(post: FacebookPost): string[] {
+  const images: string[] = [];
+
+  if (!post.attachments?.data) return images;
+
+  for (const attachment of post.attachments.data) {
+    if (attachment.type === 'photo' && attachment.media?.image?.src) {
+      images.push(attachment.media.image.src);
+    }
+
+    if (attachment.type === 'album' && attachment.subattachments?.data) {
+      for (const sub of attachment.subattachments.data) {
+        if (sub.type === 'photo' && sub.media?.image?.src) {
+          images.push(sub.media.image.src);
+        }
+      }
+    }
   }
+
+  return images;
 }
-*/

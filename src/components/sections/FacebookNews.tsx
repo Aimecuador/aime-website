@@ -3,7 +3,7 @@ import { fetchFacebookPosts } from "@/services/facebookPosts";
 import { Card, CardDescription, CardFooter, CardTitle } from "../ui/card";
 import { CardHeader } from "../ui/card";
 import { CardContent } from "../ui/card";
-import { Skeleton } from "../ui/skeleteon";
+import { Skeleton } from "../ui/skeleton";
 import { Calendar, ExternalLink } from "lucide-react";
 import { Button } from "../ui/button";
 
@@ -15,7 +15,11 @@ type Post = {
   permalink_url: string;
 };
 
-export function FacebookNews() {
+interface FacebookNewsProps {
+  limit?: number;
+}
+
+export function FacebookNews({ limit }: FacebookNewsProps) {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -24,7 +28,7 @@ export function FacebookNews() {
     const getPosts = async () => {
       try {
         const data = await fetchFacebookPosts();
-        setPosts(data);
+        setPosts(limit ? data.slice(0, limit) : data);
       } catch (error) {
         setError("Hubo un error al cargar las publicaciones.");
       } finally {
@@ -76,7 +80,7 @@ export function FacebookNews() {
           <img
             src={post.full_picture || "/placeholder.svg"}
             alt={post.message || "Publicación de Facebook"}
-            className="object-fit h-[330px] w-full group-hover:scale-105 transition-transform duration-300"
+            className="object-cover h-[350px] w-full group-hover:scale-110 transition-transform duration-500"
           />
           <CardHeader className="px-6">
             <CardTitle className="line-clamp-3 text-xl">
@@ -105,7 +109,7 @@ export function FacebookNews() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2"
               >
-                Ver en Facebook
+                Ver más
                 <ExternalLink className="h-4 w-4" />
               </a>
             </Button>

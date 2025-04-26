@@ -11,7 +11,9 @@ import { Button } from "./ui/button";
 type CarouselItem = {
   title: string;
   description: string;
-  image: string;
+  imageMobile: string;
+  imageXL: string;
+  imageXXL: string;
   primaryButton?: {
     text: string;
     href: string;
@@ -27,36 +29,30 @@ const carouselItems: CarouselItem[] = [
     title: "Asociación de Ingenieros de Minas del Ecuador",
     description:
       "Promoviendo el desarrollo sostenible de la minería en Ecuador a través de la excelencia profesional y la innovación.",
-    image: "/images/home/hero-1.jpg",
+    imageMobile: "/images/home/hero-1-sm.webp",
+    imageXL: "/images/home/hero-1-lg.webp",
+    imageXXL: "/images/home/hero-1-xl.webp",
     primaryButton: {
       text: "Contáctanos",
       href: "/contacto",
     },
     secondaryButton: {
       text: "Conoce más",
-      href: "/nosotros",
+      href: "/quienes-somos",
     },
   },
   {
-    title: "Congreso Anual de Minería 2024",
+    title: "Últimas Noticias",
     description:
-      "El evento más importante del sector minero en Ecuador. Conferencias, networking y las últimas tendencias de la industria.",
-    image: "/placeholder.svg?height=800&width=1600&text=Congreso",
+      "Mantente informado sobre las últimas novedades de las actividades que realiza AIME. Noticias, eventos y más.",
+    imageMobile: "/images/home/hero-1-sm.webp",
+    imageXL: "/images/home/hero-1-lg.webp",
+    imageXXL: "/images/home/hero-1-xl.webp",
     primaryButton: {
-      text: "Ver evento",
-      href: "/eventos",
+      text: "Ver noticias",
+      href: "/noticias",
     },
-  },
-  {
-    title: "Minería Sostenible",
-    description:
-      "Promovemos prácticas mineras responsables que equilibran el desarrollo económico con la protección ambiental y social.",
-    image: "/placeholder.svg?height=800&width=1600&text=Sostenibilidad",
-    primaryButton: {
-      text: "Conoce Nuestras Iniciativas",
-      href: "/mineria-para-todos",
-    },
-  },
+  }
 ];
 
 export default function HeroCarousel() {
@@ -191,7 +187,7 @@ export default function HeroCarousel() {
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
     >
-      <div className="absolute inset-0 z-10 bg-black/50"></div>
+      <div className="absolute inset-0 z-10 bg-black/75"></div>
       {carouselItems.map((item, index) => (
         <div
           key={index}
@@ -199,12 +195,16 @@ export default function HeroCarousel() {
             index === currentIndex ? "opacity-100" : "opacity-0"
           }`}
         >
-          <img
-            src={item.image}
-            alt={`Slide ${index + 1}`}
-            className="object-cover w-full h-full brightness-50"
-            loading={index === 0 ? "eager" : "lazy"}
-          />
+          <picture>
+            <source media="(min-width: 1024px)" srcSet={item.imageXXL} />
+            <source media="(min-width: 640px)" srcSet={item.imageXL} />
+            <img
+              src={item.imageMobile}
+              alt="Minería en Ecuador"
+              loading={index === 0 ? "eager" : "lazy"}
+              className="object-cover w-full h-full"
+            />
+          </picture>
         </div>
       ))}
 

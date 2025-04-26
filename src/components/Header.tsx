@@ -4,10 +4,10 @@ import { cn } from "../lib/utils";
 
 const menuItems = [
   { name: "Inicio", href: "/" },
-  { name: "Servicios", href: "/servicios" },
   { name: "Quienes Somos", href: "/quienes-somos" },
   { name: "Comisiones Técnicas", href: "/comisiones-tecnicas" },
   { name: "Eventos", href: "/eventos" },
+  { name: "Galería", href: "/galeria" },
   { name: "PIIMU", href: "/PIIMU" },
   { name: "Minería para todos", href: "/mineria-para-todos" },
   { name: "Noticias", href: "/noticias" },

@@ -1,4 +1,4 @@
-import { Scale, Mountain, Database, Shield, Cpu, FileSearch, ClipboardCheck } from 'lucide-react';
+import { Scale, Mountain, Database, Shield, Cpu, FileSearch, ClipboardCheck, User } from 'lucide-react';
 import { 
   Accordion, 
   AccordionContent, 
@@ -10,7 +10,7 @@ const comisiones = [
   {
     id: "legal",
     title: "Comisión Legal",
-    icon: Scale,
+    icon: <Scale className="h-6 w-6 text-primary" />,
     description:
       "La Comisión Legal de la Asociación de Ingenieros en Minas del Ecuador tiene como objetivo brindar asesoramiento jurídico y promover el cumplimiento del marco legal aplicable a la profesión y al ejercicio de la ingeniería en minas en el país.",
     funciones: [
@@ -19,11 +19,16 @@ const comisiones = [
       "Proponer recomendaciones ante entidades públicas o privadas respecto a leyes, reglamentos y políticas que impacten al sector minero.",
       "Promover el conocimiento jurídico entre los asociados mediante charlas, capacitaciones y publicaciones sobre legislación minera, ambiental y profesional.",
     ],
+    director: {
+      nombre: "Doctor Fernando Villamar",
+      cargo: "Director Ejecutivo Comisión Técnicas de Especialidades Legal y Responsabilidad Social",
+      foto: "/placeholder.svg?height=200&width=200&text=Dr.+Villamar",
+    },
   },
   {
     id: "geotecnia",
     title: "Comisión de Geotecnia y Mecánica de Rocas",
-    icon: Mountain,
+    icon: <Mountain className="h-6 w-6 text-primary" />,
     description:
       "La Comisión de Geotecnia y Mecánica de Rocas de la Asociación de Ingenieros en Minas del Ecuador se enfoca en el análisis, evaluación y aplicación de conocimientos geotécnicos fundamentales para el diseño y estabilidad de excavaciones mineras subterráneas y a cielo abierto.",
     funciones: [
@@ -33,11 +38,16 @@ const comisiones = [
       "Colaborar con instituciones académicas y técnicas en la generación y difusión de investigaciones aplicadas.",
       "Asesorar a los miembros de la Asociación en problemáticas geotécnicas que requieran criterio técnico especializado.",
     ],
+    director: {
+      nombre: "(Ingeniero Carlos Mendoza)",
+      cargo: "Director Ejecutivo Comisión Técnicas de Geotecnia y Mecánica de Rocas",
+      foto: "/placeholder.svg?height=200&width=200&text=Ing.+Mendoza",
+    },
   },
   {
     id: "recursos",
     title: "Comisión de Recursos y Reservas",
-    icon: Database,
+    icon: <Database className="h-6 w-6 text-primary" />,
     description:
       "La Comisión de Recursos y Reservas de la Asociación de Ingenieros en Minas del Ecuador se encarga de fomentar el conocimiento, la aplicación de buenas prácticas y la estandarización en la estimación, clasificación y reporte de recursos y reservas minerales conforme a los marcos internacionales y normativas nacionales.",
     funciones: [
@@ -47,11 +57,16 @@ const comisiones = [
       "Servir como espacio de consulta técnica para profesionales que participen en la elaboración de informes técnicos o evaluaciones de proyectos mineros.",
       "Colaborar con autoridades y organismos técnicos en la definición y mejora de normativas nacionales relacionadas con recursos y reservas minerales.",
     ],
+    director: {
+      nombre: "Ingeniero Juan Diego Varela",
+      cargo: "Director Ejecutivo Comisión Técnicas de Especialidades Recursos y Reservas Minerales",
+      foto: "/placeholder.svg?height=200&width=200&text=Ing.+Varela",
+    },
   },
   {
     id: "ssa",
     title: "Comisión de SSA",
-    icon: Shield,
+    icon: <Shield className="h-6 w-6 text-primary" />,
     description:
       "La Comisión de Seguridad, Salud y Ambiente (SSA) de la Asociación de Ingenieros en Minas del Ecuador tiene como propósito fomentar una cultura minera segura y ambientalmente responsable, alineada con los estándares nacionales e internacionales.",
     funciones: [
@@ -60,11 +75,16 @@ const comisiones = [
       "Organizar talleres, capacitaciones y conversatorios sobre gestión de riesgos, controles operacionales, sistemas de gestión integrada y respuesta ante emergencias.",
       "Impulsar una minería preventiva, basada en la identificación de peligros, evaluación de riesgos y mejora continua.",
     ],
+    director: {
+      nombre: "Ingeniero Byron Andrade",
+      cargo: "Director Ejecutivo Comisión Técnicas de Seguridad, Salud y Ambiente SSA",
+      foto: "/placeholder.svg?height=200&width=200&text=Ing.+Andrade",
+    },
   },
   {
     id: "tecnologia",
     title: "Comisión de Tecnología e Innovación",
-    icon: Cpu,
+    icon: <Cpu className="h-6 w-6 text-primary" />,
     description:
       "La Comisión de Tecnología e Innovación de la Asociación de Ingenieros en Minas del Ecuador impulsa la incorporación de nuevas tecnologías, metodologías y procesos innovadores en la práctica minera, contribuyendo a una industria más eficiente, segura y sostenible.",
     funciones: [
@@ -74,11 +94,16 @@ const comisiones = [
       "Colaborar en el desarrollo de soluciones técnicas para mejorar la productividad, sostenibilidad y competitividad del sector minero nacional.",
       "Impulsar alianzas estratégicas con centros de investigación, universidades y empresas tecnológicas vinculadas a la minería.",
     ],
+    director: {
+      nombre: "Ingeniero Oswaldo Sandoval",
+      cargo: "Director Ejecutivo Comisión Técnicas de Tecnología e Innovación CTET",
+      foto: "/placeholder.svg?height=200&width=200&text=Ing.+Sandoval",
+    },
   },
   {
     id: "peritos",
     title: "Comisión de Peritos",
-    icon: FileSearch,
+    icon: <FileSearch className="h-6 w-6 text-primary" />,
     description:
       "La Comisión de Peritos de la Asociación de Ingenieros en Minas del Ecuador tiene como finalidad fortalecer el rol de los ingenieros en minas como peritos técnicos en procesos judiciales, administrativos y consultorías especializadas dentro del ámbito minero.",
     funciones: [
@@ -87,11 +112,16 @@ const comisiones = [
       "Organizar talleres, cursos y simulaciones prácticas sobre elaboración de peritajes, manejo de pruebas técnicas, normativas legales y participación en audiencias.",
       "Colaborar con instituciones del Estado como la Función Judicial, el Ministerio de Energía y Minas, y otras, en procesos que requieran peritajes técnicos especializados.",
     ],
+    director: {
+      nombre: "Ingeniera Diana Agual",
+      cargo: "Director Ejecutivo Comisión Técnicas de Peritaje Técnico",
+      foto: "/placeholder.svg?height=200&width=200&text=Ing.+Agual",
+    },
   },
   {
     id: "auditores",
     title: "Comisión de Auditores Mineros",
-    icon: ClipboardCheck,
+    icon: <ClipboardCheck className="h-6 w-6 text-primary" />,
     description:
       "La Comisión de Auditores Mineros de la Asociación de Ingenieros en Minas del Ecuador tiene como objetivo fortalecer la práctica profesional de la auditoría técnica minera, promoviendo la calidad, transparencia y cumplimiento de estándares en proyectos y operaciones mineras a nivel nacional.",
     funciones: [
@@ -101,45 +131,73 @@ const comisiones = [
       "Establecer lineamientos y buenas prácticas para la elaboración de auditorías mineras integrales, incluyendo aspectos técnicos, ambientales, de seguridad y legales.",
       "Brindar asesoría especializada a los miembros interesados en desempeñarse como auditores o mejorar sus competencias en esta área.",
     ],
+    director: {
+      nombre: "Ingeniero Edison Veloz",
+      cargo: "Director Ejecutivo Comisión Técnicas de Especialidades de Auditoría Minera",
+      foto: "/placeholder.svg?height=200&width=200&text=Ing.+Veloz",
+    },
   },
-];
+]
 
 export function AccordionComisiones() {
   return (
     <div className="max-w-4xl mx-auto">
-      <Accordion type="single" collapsible className="w-full">
-        {comisiones.map((comision) => (
-          <AccordionItem key={comision.id} value={comision.id}>
-            <AccordionTrigger className="hover:no-underline data-[state=open]:bg-muted group">
-              <div className="flex items-center gap-3">
-                <comision.icon className="h-6 w-6 text-primary" />
-                <h2 className="text-xl font-semibold text-left group-data-[state=open]:text-primary transition-colors">
-                  {comision.title}
-                </h2>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent>
-              <div className="pt-2 pb-4">
-                <p className="mb-4">{comision.description}</p>
-
-                <div>
-                  <h3 className="text-lg font-semibold mb-3 flex items-center">
-                    <div className="h-1 w-6 bg-primary mr-2"></div>
-                    Funciones principales
-                  </h3>
-                  <ul className="space-y-2 pl-6 list-disc">
-                    {comision.funciones.map((funcion, index) => (
-                      <li key={index} className="text-muted-foreground">
-                        {funcion}
-                      </li>
-                    ))}
-                  </ul>
+        <Accordion type="single" collapsible className="w-full">
+          {comisiones.map((comision) => (
+            <AccordionItem key={comision.id} value={comision.id}>
+              <AccordionTrigger className="p-4 hover:no-underline data-[state=open]:bg-muted group">
+                <div className="flex items-center gap-3">
+                  {comision.icon}
+                  <div className="flex flex-col items-start">
+                    <h2 className="text-xl font-semibold text-left group-data-[state=open]:text-primary transition-colors">
+                      {comision.title}
+                    </h2>
+                    <span className="text-[13px] text-muted-foreground flex items-center">
+                      <User className="h-3 w-3 mr-1" />
+                      {comision.director.nombre}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <div className="pt-2 pb-4">
+                  {/* Director de la comisión */}
+                  <div className="flex flex-col sm:flex-row gap-4 mb-6 p-4 rounded-lg">
+                    <div className="flex-shrink-0">
+                      <img
+                        src={comision.director.foto || "/placeholder.svg"}
+                        alt={`Foto de ${comision.director.nombre}`}
+                        width={100}
+                        height={100}
+                        className="rounded-full object-cover"
+                      />
+                    </div>
+                    <div className="flex flex-col justify-center">
+                      <h3 className="text-lg font-semibold text-primary">{comision.director.nombre}</h3>
+                      <p className="text-sm text-muted-foreground">{comision.director.cargo}</p>
+                    </div>
+                  </div>
+
+                  <p className="mb-4">{comision.description}</p>
+
+                  <div>
+                    <h3 className="text-lg font-semibold mb-3 flex items-center">
+                      <div className="h-1 w-6 bg-primary mr-2"></div>
+                      Funciones principales
+                    </h3>
+                    <ul className="space-y-2 pl-6 list-disc">
+                      {comision.funciones.map((funcion, index) => (
+                        <li key={index} className="text-muted-foreground">
+                          {funcion}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
   );
 }

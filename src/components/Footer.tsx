@@ -31,11 +31,7 @@ export default function Footer() {
                   Nosotros
                 </a>
               </li>
-              <li>
-                <a href="/servicios" className="text-gray-300 hover:text-primary">
-                  Servicios
-                </a>
-              </li>
+
               <li>
                 <a href="/comisiones-tecnicas" className="text-gray-300 hover:text-primary">
                   Comisiones Técnicas
@@ -52,8 +48,8 @@ export default function Footer() {
             <h3 className="text-sm font-medium mb-4">Recursos</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/blog" className="text-gray-300 hover:text-primary">
-                  Publicaciones
+                <a href="/noticias" className="text-gray-300 hover:text-primary">
+                  Noticias
                 </a>
               </li>
               <li>
@@ -68,7 +64,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href="/servicios/empleo" className="text-gray-300 hover:text-primary">
-                  Bolsa de Trabajo
+                  
                 </a>
               </li>
               <li>
@@ -78,7 +74,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div>
+         {/*  <div>
             <h3 className="text-sm font-medium mb-4">Legal</h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -102,7 +98,7 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </div>*/}
         </div>
         <div className="mt-8 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-gray-300">

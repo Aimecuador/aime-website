@@ -1,0 +1,37 @@
+---
+import FacebookGallery from "@/components/sections/FacebookGallery";
+import ButtonLink from "@/components/ui/ButtonLink.astro";
+import Layout from "@/layouts/Layout.astro";
+import { ChevronRight } from "lucide-react";
+---
+
+<Layout title="Galería">
+  <section class="py-16 md:py-24 bg-muted">
+    <div class="container">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <div class="flex items-center space-x-2 mb-2">
+            <div class="h-1 w-10 bg-primary"></div>
+            <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+              Imágenes
+            </span>
+          </div>
+          <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            Nuestra Galería
+          </h2>
+          <p class="mt-4 text-muted-foreground max-w-3xl">
+            Explora momentos destacados de nuestras actividades, eventos y proyectos mineros.
+          </p>
+        </div>
+        <ButtonLink href="/galeria" variant="outline" class="mt-4 md:mt-0 self-start md:self-auto group">
+          Ver galería completa
+          <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+        </ButtonLink>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <FacebookGallery client:visible />
+      </div>
+    </div>
+  </section>
+</Layout>
