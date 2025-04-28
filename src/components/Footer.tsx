@@ -63,11 +63,6 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/servicios/empleo" className="text-gray-300 hover:text-primary">
-                  
-                </a>
-              </li>
-              <li>
                 <a href="/galeria" className="text-gray-300 hover:text-primary">
                   Galería
                 </a>

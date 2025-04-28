@@ -7,6 +7,7 @@ import {
 } from "@/services/facebookPosts";
 import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ImageModal } from "../ui/image-modal";
 
 interface FacebookGalleryProps {
   limit?: number;
@@ -16,6 +17,7 @@ export default function FacebookGallery({ limit }: FacebookGalleryProps) {
   const [galleries, setGalleries] = useState<string[][]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -64,9 +66,11 @@ export default function FacebookGallery({ limit }: FacebookGalleryProps) {
   return (
     <>
       {imagesToShow.map((src, i) => (
-        <div
+        <button
           key={i}
-          className="group relative overflow-hidden aspect-square"
+          type="button"
+          onClick={() => setSelectedImage(src)}
+          className="group relative overflow-hidden cursor-pointer aspect-square"
         >
           <img
             src={src || "/placeholder.svg"}
@@ -74,13 +78,17 @@ export default function FacebookGallery({ limit }: FacebookGalleryProps) {
             className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-            <p className="text-white p-4 font-medium text-sm md:text-base">
-              Foto AIME
-            </p>
-          </div>
-        </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+        </button>
       ))}
+
+      {selectedImage && (
+        <ImageModal
+          src={selectedImage}
+          alt="Imagen ampliada"
+          onClose={() => setSelectedImage(null)}
+        />
+      )}
     </>
   );
 }

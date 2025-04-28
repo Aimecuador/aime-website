@@ -67,14 +67,14 @@ const blogPosts = [
       </p>
     </div>
 
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <div class="grid gap-2 md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-10">
       {blogPosts.map((post) => (
         <Card
           key={post.id}
-          className="flex flex-col overflow-hidden hover:shadow-lg transition-shadow border bg-muted/50"
+          className="flex flex-col overflow-hidden"
         >
-          <CardHeader className="p-0">
-            <div class="relative w-full bg-muted">
+          <CardHeader>
+            <div class="relative w-full">
               <Image
                 src={post.image}
                 alt={post.title}
@@ -84,28 +84,26 @@ const blogPosts = [
               />
             </div>
           </CardHeader>
-          <CardContent className="flex-grow p-6">
+          <CardContent className="flex-grow">
             <div class="flex items-center text-sm text-muted-foreground mb-2.5">
               <Calendar className="h-4 w-4 mr-2 text-primary" />
               <span>{post.date}</span>
             </div>
-            <CardTitle className="text-2xl font-semibold leading-none tracking-tight mb-2.5 line-clamp-2 hover:text-primary">
+            <CardTitle className="text-2xl font-semibold leading-none tracking-tight mb-2.5 line-clamp-2">
               {post.title}
             </CardTitle>
             <p class="text-muted-foreground line-clamp-3">
               {post.excerpt}
             </p>
           </CardContent>
-          <CardFooter className="pt-0 pb-6 px-6">
-            <ButtonLink
+          <CardFooter className='mt-2'>
+            <a
               href={`/blog/${post.slug}`}
-              class="w-full group"
+              class="group/link flex items-center hover:underline text-sm text-blue-600 hover:text-primary"
             >
-              <span class="flex items-center justify-center">
-                Leer más
-                <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
-            </ButtonLink>
+              Leer más
+              <ChevronRight className="h-4 w-4 m-2 transition-transform duration-300 group-hover/link:translate-x-1" />
+            </a>
           </CardFooter>
         </Card>
       ))}

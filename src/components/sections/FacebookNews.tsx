@@ -4,8 +4,7 @@ import { Card, CardDescription, CardFooter, CardTitle } from "../ui/card";
 import { CardHeader } from "../ui/card";
 import { CardContent } from "../ui/card";
 import { Skeleton } from "../ui/skeleton";
-import { Calendar, ExternalLink } from "lucide-react";
-import { Button } from "../ui/button";
+import { Calendar, ChevronRight } from "lucide-react";
 
 type Post = {
   id: string;
@@ -42,8 +41,8 @@ export function FacebookNews({ limit }: FacebookNewsProps) {
   if (loading) {
     return (
       <div className="grid gap-5 min justify-center sm:grid-cols-2 lg:grid-cols-3">
-        {[1, 2, 3, 4, 5, 6].map((item) => (
-          <Card key={item} className="overflow-hidden max-w-[400px]">
+        {[...Array(limit || 6)].map((item) => (
+          <Card key={item} className="overflow-hidden">
             <Skeleton className="h-[320px] w-full" />
             <CardHeader>
               <Skeleton className="h-6 w-3/4 mb-2" />
@@ -71,51 +70,42 @@ export function FacebookNews({ limit }: FacebookNewsProps) {
   }
 
   return (
-    <article className="grid gap-5 justify-center sm:grid-cols-2 sm:gap-y-9 lg:grid-cols-3">
+    <div className="grid gap-2 justify-center sm:grid-cols-2 sm:gap-x-5 sm:gap-y-9 lg:grid-cols-3 lg:gap-x-10">
       {posts.map((post) => (
         <Card
           key={post.id}
-          className="shadow-md hover:shadow-xl transition-shadow border flex flex-col max-w-[400px] overflow-hidden group"
+          className="flex flex-col overflow-hidden group"
         >
-          <img
-            src={post.full_picture || "/placeholder.svg"}
-            alt={post.message || "Publicación de Facebook"}
-            className="object-cover h-[350px] w-full group-hover:scale-110 transition-transform duration-500"
-          />
-          <CardHeader className="px-6">
-            <CardTitle className="line-clamp-3 text-xl">
+          <div className="relative overflow-hidden h-[350px] w-full">
+            <img
+              src={post.full_picture || "/placeholder.svg"}
+              alt={post.message || "Publicación de Facebook"}
+              className="object-cover size-full group-hover:scale-110 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end pointer-events-none"></div>
+          </div>
+          <CardHeader>
+            <CardDescription className="flex items-center gap-1">
+              <Calendar className="h-4 w-4" />
+              <span> {new Date(post.created_time).toLocaleDateString()}</span>
+            </CardDescription>
+            <CardTitle className="pt-1 line-clamp-3 text-xl leading-6">
               {post.message || "Publicación de AIME"}
             </CardTitle>
-            <CardDescription className="flex flex-col">
-              <a
-                href={post.permalink_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="break-words break-all text-sm text-blue-600 hover:underline"
-              >
-                {post.permalink_url}
-              </a>
-              <div className="flex items-center gap-1 mt-1.5">
-                <Calendar className="h-4 w-4" />
-                <span> {new Date(post.created_time).toLocaleDateString()}</span>
-              </div>
-            </CardDescription>
           </CardHeader>
-          <CardFooter className="px-6">
-            <Button className="w-full" asChild>
-              <a
-                href={post.permalink_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2"
-              >
-                Ver más
-                <ExternalLink className="h-4 w-4" />
-              </a>
-            </Button>
+          <CardFooter>
+            <a
+              href={post.permalink_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group/link flex items-center hover:underline text-sm text-blue-600 hover:text-primary"
+            >
+              Ver más
+              <ChevronRight className="h-4 w-4 m-2 transition-transform duration-300 group-hover/link:translate-x-1" />
+            </a>
           </CardFooter>
         </Card>
       ))}
-    </article>
+    </div>
   );
 }
