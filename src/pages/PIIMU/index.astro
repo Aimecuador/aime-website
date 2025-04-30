@@ -19,9 +19,8 @@ Network,
 Leaf,
 Users,
 } from 'lucide-react';
-import AccordionBasesPIIMU from '@/components/sections/AccordionBasesPIIMU';
+import { AccordionBasesPIIMU } from '@/components/sections/AccordionBasesPIIMU';
 
-// Bases que sustentan el programa
 const bases = [
   {
     id: "educacion",
@@ -97,7 +96,6 @@ const bases = [
   },
 ];
 
-// Objetivos específicos
 const objetivosEspecificos = [
   "Brindar oportunidades de intercambio académico y profesional",
   "Desarrollar competencias técnicas avanzadas",
@@ -108,7 +106,6 @@ const objetivosEspecificos = [
   "Impulsar el impacto positivo que trae la minería para la sociedad ecuatoriana",
 ];
 
-// Metas
 const metas = [
   {
     plazo: "Corto Plazo",
@@ -130,7 +127,6 @@ const metas = [
   },
 ];
 
-// Beneficiarios
 const beneficiarios = [
   {
     tipo: "Estudiantes",
@@ -151,8 +147,8 @@ const beneficiarios = [
 ---
 
 <Layout title="PIIMU | AIME Ecuador">
-  <main class="container mx-auto py-12">
-    {/* Encabezado */}
+  <main class="max-w-screen-lg mx-auto py-12">
+
     <section class="mb-16 text-center">
       <div class="flex justify-center mb-8">
           <Image src="/PIIMU-logo.png" alt="Logo PIIMU" width={256} height={256} class="object-contain" />
@@ -165,7 +161,6 @@ const beneficiarios = [
       </div>
     </section>
 
-    {/* Introducción */}
     <section class="mb-16">
       <div class="bg-muted rounded-lg p-8">
         <h2 class="text-2xl font-bold mb-6 flex items-center">
@@ -193,7 +188,6 @@ const beneficiarios = [
       </div>
     </section>
 
-    {/* Misión y Visión */}
     <section class="mb-16">
       <div class="grid gap-8 md:grid-cols-2">
         <Card className="overflow-hidden border-l-4 border-l-primary">
@@ -230,7 +224,6 @@ const beneficiarios = [
       </div>
     </section>
 
-    {/* Bases que sustentan el programa */}
     <section class="mb-16">
       <div class="text-center mb-10">
         <div class="flex items-center space-x-2 mb-2 justify-center">

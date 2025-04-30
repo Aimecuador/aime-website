@@ -1,0 +1,118 @@
+---
+import SocialIcons from "./SocialIcons";
+---
+
+<footer class="border-t bg-secondary text-white">
+  <div class="container py-8 md:py-12">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <img
+            src="/aime-logo-sin-texto.jpg"
+            alt="AIME Logo"
+            width={50}
+            height={50}
+            class="rounded"
+          />
+          <span class="text-xl font-bold tracking-tight">AIME</span>
+        </div>
+        <p class="text-sm text-gray-300">
+          Asociación de Ingenieros en Minas del Ecuador. Promoviendo la
+          excelencia profesional y el desarrollo sostenible de la minería en
+          Ecuador.
+        </p>
+        <div class="mt-6">
+          <SocialIcons
+            iconClassName="size-4"
+            iconColor="text-primary/60 rounded-full hover:text-white bg-transparent p-1.5 ring-1 ring-primary hover:bg-primary"
+          />
+        </div>
+      </div>
+      <div>
+        <h3 class="text-sm font-medium mb-4">Enlaces Rápidos</h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="/" class="text-gray-300 hover:text-primary">
+              Inicio
+            </a>
+          </li>
+          <li>
+            <a href="/nosotros" class="text-gray-300 hover:text-primary">
+              Nosotros
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/comisiones-tecnicas"
+              class="text-gray-300 hover:text-primary"
+            >
+              Comisiones Técnicas
+            </a>
+          </li>
+          <li>
+            <a href="/contacto" class="text-gray-300 hover:text-primary">
+              Contacto
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-sm font-medium mb-4">Recursos</h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="/noticias" class="text-gray-300 hover:text-primary">
+              Noticias
+            </a>
+          </li>
+          <li>
+            <a href="/eventos" class="text-gray-300 hover:text-primary">
+              Eventos
+            </a>
+          </li>
+          <li>
+            <a href="/servicios" class="text-gray-300 hover:text-primary">
+              Certificaciones
+            </a>
+          </li>
+          <li>
+            <a href="/galeria" class="text-gray-300 hover:text-primary">
+              Galería
+            </a>
+          </li>
+        </ul>
+      </div>
+      {/*  <div>
+            <h3 class="text-sm font-medium mb-4">Legal</h3>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a href="#" class="text-gray-300 hover:text-primary">
+                  Términos y Condiciones
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-primary">
+                  Política de Privacidad
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-primary">
+                  Estatutos
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-primary">
+                  Código de Ética
+                </a>
+              </li>
+            </ul>
+          </div>*/}
+    </div>
+    <div class="mt-8 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-xs text-gray-300">
+        &copy; {new Date().getFullYear()} Asociación de Ingenieros de Minas del
+        Ecuador. Todos los derechos reservados.
+      </p>
+    </div>
+  </div>
+</footer>

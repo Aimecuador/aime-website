@@ -87,7 +87,7 @@ const bases = [
   },
 ];
 
-export default function AccordionBasesPIIMU () {
+export function AccordionBasesPIIMU () {
   return (
     <Accordion type="single" collapsible className="w-full">
       {bases.map((base) => (

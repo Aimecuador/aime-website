@@ -58,7 +58,7 @@ const valoresYPrincipios = [
   },
 ];
 
-export default function AccordionValores() {
+export function AccordionValores() {
   return (
     <Accordion type="single" collapsible className="w-full">
         {valoresYPrincipios.map((valor) => {

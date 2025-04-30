@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import SocialIcons from "./SocialIcons";
 import { cn } from "../lib/utils";
+import { Button } from "./ui/button";
 
 const menuItems = [
   { name: "Inicio", href: "/" },
@@ -60,7 +61,7 @@ export default function Header() {
   }, [isMenuOpen]);
 
   return (
-    <header className="fixed w-full top-0 z-40">
+    <header className="fixed w-full top-0 z-40 font-medium">
       <div
         className={cn(
           "bg-primary transition-all duration-300 ease-in-out",
@@ -68,13 +69,13 @@ export default function Header() {
         )}
       >
         <div className="container mx-auto flex items-center justify-end h-10">
-          <SocialIcons />
+          <SocialIcons className="space-x-1" iconClassName="size-5" iconColor="text-white rounded-full p-1.5 hover:bg-secondary" />
         </div>
       </div>
 
       <div
         className={cn(
-          "w-full transition-all bg-[#fffdfa] duration-300 ease-in-out border-b border-b-gray-200",
+          "w-full transition-all bg-white duration-300 ease-in-out border-b border-b-gray-200",
           isScrolled ? "py-2" : "py-4"
         )}
       >
@@ -100,9 +101,7 @@ export default function Header() {
               ))}
             </nav>
 
-            <button type="button" className="hidden xl:block bg-primary rounded-md px-4 py-2 text-sm font-medium text-white transition-colors duration-300 hover:bg-opacity-90 hover:cursor-pointer">
-              Hazte Miembro
-            </button>
+            <Button>Hazte Miembro</Button>
 
             <button
               type="button"
@@ -122,7 +121,7 @@ export default function Header() {
           <div
             id="mobile-menu"
             className={cn(
-              "absolute top-full left-0 z-40 w-full border-t border-gray-200 bg-white ease-out xl:hidden transform transition-all duration-300",
+              "absolute top-full left-0 z-40 w-full border-gray-200 bg-white ease-out xl:hidden transform transition-all duration-300",
               isMenuOpen
                 ? "translate-y-0 opacity-100 visible"
                 : "-translate-y-6 opacity-0 invisible"
@@ -141,9 +140,7 @@ export default function Header() {
               ))}
 
               <div className="border-t border-gray-200 pt-4 pb-3">
-                <button type="button" className="bg-primary block w-full rounded-md px-4 py-2 text-center text-base font-medium text-white transition-colors duration-300 hover:cursor-pointer hover:bg-opacity-90">
-                  Hazte Miembro
-                </button>
+                <Button>Hazte Miembro</Button>
               </div>
             </nav>
           </div>

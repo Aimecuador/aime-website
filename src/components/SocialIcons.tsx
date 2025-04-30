@@ -41,7 +41,7 @@ interface SocialIconsProps {
 export default function SocialIcons({
   className = "",
   iconClassName = "h-5 w-5",
-  iconColor = "text-white hover:text-primary",
+  iconColor = "text-white",
 }: SocialIconsProps) {
   return (
     <div className={`flex space-x-4 ${className}`}>
@@ -51,7 +51,7 @@ export default function SocialIcons({
           href={social.href}
           target="_blank"
           rel="noopener noreferrer"
-          className={`transition-colors ${iconColor}`}
+          className={`transition-all duration-500 ${iconColor}`}
           aria-label={social.name}
         >
           <social.Icon className={iconClassName} />

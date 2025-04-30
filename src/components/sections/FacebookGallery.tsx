@@ -13,7 +13,7 @@ interface FacebookGalleryProps {
   limit?: number;
 }
 
-export default function FacebookGallery({ limit }: FacebookGalleryProps) {
+export function FacebookGallery({ limit }: FacebookGalleryProps) {
   const [galleries, setGalleries] = useState<string[][]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
