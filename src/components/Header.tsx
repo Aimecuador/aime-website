@@ -101,7 +101,7 @@ export default function Header() {
               ))}
             </nav>
 
-            <Button>Hazte Miembro</Button>
+            <Button className="hidden xl:inline-block">Hazte Miembro</Button>
 
             <button
               type="button"
