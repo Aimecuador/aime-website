@@ -8,10 +8,9 @@ import {
   Users,
   Network,
   Building,
-  ArrowRight,
+  ChevronRight,
 } from 'lucide-react';
 
-// Bases que sustentan el programa
 const bases = [
   {
     id: "educacion",
@@ -89,10 +88,10 @@ const bases = [
 
 export function AccordionBasesPIIMU () {
   return (
-    <Accordion type="single" collapsible className="w-full">
+    <Accordion type="multiple" className="w-full">
       {bases.map((base) => (
         <AccordionItem key={base.id} value={base.id}>
-          <AccordionTrigger className="hover:no-underline data-[state=open]:bg-muted group">
+          <AccordionTrigger className="px-2 hover:no-underline data-[state=open]:bg-muted group">
             <div className="flex items-center gap-3">
               <div className="text-primary">
                 <base.icon className="h-10 w-10" />
@@ -103,11 +102,11 @@ export function AccordionBasesPIIMU () {
             </div>
           </AccordionTrigger>
           <AccordionContent>
-            <div className="pt-2 pb-4 pl-16">
+            <div className="pt-2 pb-4 pl-4">
               <ul className="space-y-2">
                 {base.description.map((item, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <ChevronRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <p>{item}</p>
                   </li>
                 ))}

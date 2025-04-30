@@ -1,10 +1,19 @@
-import { Scale, Mountain, Database, Shield, Cpu, FileSearch, ClipboardCheck, User } from 'lucide-react';
-import { 
-  Accordion, 
-  AccordionContent, 
-  AccordionItem, 
-  AccordionTrigger } 
-from '@/components/ui/accordion';
+import {
+  Scale,
+  Mountain,
+  Database,
+  Shield,
+  Cpu,
+  FileSearch,
+  ClipboardCheck,
+  User,
+} from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const comisiones = [
   {
@@ -21,7 +30,8 @@ const comisiones = [
     ],
     director: {
       nombre: "Doctor Fernando Villamar",
-      cargo: "Director Ejecutivo Comisión Técnicas de Especialidades Legal y Responsabilidad Social",
+      cargo:
+        "Director Ejecutivo Comisión Técnicas de Especialidades Legal y Responsabilidad Social",
       foto: "/placeholder.svg?height=200&width=200&text=Dr.+Villamar",
     },
   },
@@ -40,7 +50,8 @@ const comisiones = [
     ],
     director: {
       nombre: "(Ingeniero Carlos Mendoza)",
-      cargo: "Director Ejecutivo Comisión Técnicas de Geotecnia y Mecánica de Rocas",
+      cargo:
+        "Director Ejecutivo Comisión Técnicas de Geotecnia y Mecánica de Rocas",
       foto: "/placeholder.svg?height=200&width=200&text=Ing.+Mendoza",
     },
   },
@@ -59,7 +70,8 @@ const comisiones = [
     ],
     director: {
       nombre: "Ingeniero Juan Diego Varela",
-      cargo: "Director Ejecutivo Comisión Técnicas de Especialidades Recursos y Reservas Minerales",
+      cargo:
+        "Director Ejecutivo Comisión Técnicas de Especialidades Recursos y Reservas Minerales",
       foto: "/placeholder.svg?height=200&width=200&text=Ing.+Varela",
     },
   },
@@ -77,7 +89,8 @@ const comisiones = [
     ],
     director: {
       nombre: "Ingeniero Byron Andrade",
-      cargo: "Director Ejecutivo Comisión Técnicas de Seguridad, Salud y Ambiente SSA",
+      cargo:
+        "Director Ejecutivo Comisión Técnicas de Seguridad, Salud y Ambiente SSA",
       foto: "/placeholder.svg?height=200&width=200&text=Ing.+Andrade",
     },
   },
@@ -96,7 +109,8 @@ const comisiones = [
     ],
     director: {
       nombre: "Ingeniero Oswaldo Sandoval",
-      cargo: "Director Ejecutivo Comisión Técnicas de Tecnología e Innovación CTET",
+      cargo:
+        "Director Ejecutivo Comisión Técnicas de Tecnología e Innovación CTET",
       foto: "/placeholder.svg?height=200&width=200&text=Ing.+Sandoval",
     },
   },
@@ -133,71 +147,76 @@ const comisiones = [
     ],
     director: {
       nombre: "Ingeniero Edison Veloz",
-      cargo: "Director Ejecutivo Comisión Técnicas de Especialidades de Auditoría Minera",
+      cargo:
+        "Director Ejecutivo Comisión Técnicas de Especialidades de Auditoría Minera",
       foto: "/placeholder.svg?height=200&width=200&text=Ing.+Veloz",
     },
   },
-]
+];
 
 export function AccordionComisiones() {
   return (
     <div className="max-w-4xl mx-auto">
-        <Accordion type="single" collapsible className="w-full">
-          {comisiones.map((comision) => (
-            <AccordionItem key={comision.id} value={comision.id}>
-              <AccordionTrigger className="p-4 hover:no-underline data-[state=open]:bg-muted group">
-                <div className="flex items-center gap-3">
-                  {comision.icon}
-                  <div className="flex flex-col items-start">
-                    <h2 className="text-xl font-semibold text-left group-data-[state=open]:text-primary transition-colors">
-                      {comision.title}
-                    </h2>
-                    <span className="text-[13px] text-muted-foreground flex items-center">
-                      <User className="h-3 w-3 mr-1" />
+      <Accordion type="multiple" className="w-full">
+        {comisiones.map((comision) => (
+          <AccordionItem key={comision.id} value={comision.id}>
+            <AccordionTrigger className="p-4 hover:no-underline data-[state=open]:bg-muted group">
+              <div className="flex items-center gap-3">
+                {comision.icon}
+                <div className="flex flex-col items-start">
+                  <h2 className="text-xl font-semibold text-left group-data-[state=open]:text-primary transition-colors">
+                    {comision.title}
+                  </h2>
+                  <span className="text-[13px] text-muted-foreground flex items-center">
+                    <User className="h-3 w-3 mr-1" />
+                    {comision.director.nombre}
+                  </span>
+                </div>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent>
+              <div className="pt-2 pb-4">
+                {/* Director de la comisión */}
+                <div className="flex flex-col sm:flex-row gap-4 mb-6 p-4 rounded-lg">
+                  <div className="flex-shrink-0">
+                    <img
+                      src={comision.director.foto || "/placeholder.svg"}
+                      alt={`Foto de ${comision.director.nombre}`}
+                      width={100}
+                      height={100}
+                      className="rounded-full object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-col justify-center">
+                    <h3 className="text-lg font-semibold text-primary">
                       {comision.director.nombre}
-                    </span>
-                  </div>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent>
-                <div className="pt-2 pb-4">
-                  {/* Director de la comisión */}
-                  <div className="flex flex-col sm:flex-row gap-4 mb-6 p-4 rounded-lg">
-                    <div className="flex-shrink-0">
-                      <img
-                        src={comision.director.foto || "/placeholder.svg"}
-                        alt={`Foto de ${comision.director.nombre}`}
-                        width={100}
-                        height={100}
-                        className="rounded-full object-cover"
-                      />
-                    </div>
-                    <div className="flex flex-col justify-center">
-                      <h3 className="text-lg font-semibold text-primary">{comision.director.nombre}</h3>
-                      <p className="text-sm text-muted-foreground">{comision.director.cargo}</p>
-                    </div>
-                  </div>
-
-                  <p className="mb-4">{comision.description}</p>
-
-                  <div>
-                    <h3 className="text-lg font-semibold mb-3 flex items-center">
-                      <div className="h-1 w-6 bg-primary mr-2"></div>
-                      Funciones principales
                     </h3>
-                    <ul className="space-y-2 pl-6 list-disc">
-                      {comision.funciones.map((funcion, index) => (
-                        <li key={index} className="text-muted-foreground">
-                          {funcion}
-                        </li>
-                      ))}
-                    </ul>
+                    <p className="text-sm text-muted-foreground">
+                      {comision.director.cargo}
+                    </p>
                   </div>
                 </div>
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div>
+
+                <p className="mb-4">{comision.description}</p>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-3 flex items-center">
+                    <div className="h-1 w-6 bg-primary mr-2"></div>
+                    Funciones principales
+                  </h3>
+                  <ul className="space-y-2 pl-6 list-disc">
+                    {comision.funciones.map((funcion, index) => (
+                      <li key={index} className="text-muted-foreground">
+                        {funcion}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </div>
   );
 }

@@ -3,8 +3,12 @@ import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import * as path from "path";
 
+import sitemap from "@astrojs/sitemap";
+
 export default defineConfig({
-  integrations: [tailwind(), react()],
+  site: 'https://www.aimecuador.org',
+  
+  integrations: [tailwind(), react(), sitemap()],
 
   vite: {
     resolve: {

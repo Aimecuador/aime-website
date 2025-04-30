@@ -3,15 +3,8 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-import {
-  Users,
-  Award,
-  Shield,
-  Leaf,
-  Lightbulb,
-  Heart,
-} from "lucide-react";
+} from "@/components/ui/accordion";
+import { Users, Award, Shield, Leaf, Lightbulb, Heart } from "lucide-react";
 
 const valoresYPrincipios = [
   {
@@ -60,31 +53,31 @@ const valoresYPrincipios = [
 
 export function AccordionValores() {
   return (
-    <Accordion type="single" collapsible className="w-full">
-        {valoresYPrincipios.map((valor) => {
-          const Icon = valor.icon;
-          return (
-            <AccordionItem
-              key={valor.id}
-              value={valor.id}
-              className="border rounded-lg mb-4 overflow-hidden"
-            >
-              <AccordionTrigger className="px-6 py-4 hover:no-underline bg-muted/50 hover:bg-muted group">
-                <div className="flex items-center gap-4">
-                  <div className="text-primary transition-colors duration-300 group-hover:text-primary/80">
-                    <Icon className="h-10 w-10" />
-                  </div>
-                  <h3 className="text-lg font-semibold group-hover:text-primary transition-colors duration-300 text-left">
-                    {valor.title}
-                  </h3>
+    <Accordion type="multiple" className="w-full">
+      {valoresYPrincipios.map((valor) => {
+        const Icon = valor.icon;
+        return (
+          <AccordionItem
+            key={valor.id}
+            value={valor.id}
+            className="border rounded-lg mb-4 overflow-hidden"
+          >
+            <AccordionTrigger className="px-6 py-4 hover:no-underline bg-muted/50 hover:bg-muted group">
+              <div className="flex items-center gap-4">
+                <div className="text-primary transition-colors duration-300 group-hover:text-primary/80">
+                  <Icon className="h-10 w-10" />
                 </div>
-              </AccordionTrigger>
-              <AccordionContent className="px-6 py-4 text-gray-700 text-base">
-                <p className="pl-14">{valor.description}</p>
-              </AccordionContent>
-            </AccordionItem>
-          );
-        })}
-      </Accordion>
-  )
+                <h3 className="text-lg font-semibold group-hover:text-primary transition-colors duration-300 text-left">
+                  {valor.title}
+                </h3>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="px-6 py-4 text-gray-700 text-base">
+              <p className="pl-14">{valor.description}</p>
+            </AccordionContent>
+          </AccordionItem>
+        );
+      })}
+    </Accordion>
+  );
 }

@@ -90,7 +90,7 @@ const logos = [
           alt={logo.name}
           width={150}
           height={80}
-          class="max-h-16 w-auto object-contain"
+          class="max-h-[70px] w-auto object-contain"
         />
       ))}
     </div>
@@ -119,8 +119,7 @@ const logos = [
           <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </ButtonLink>
       </div>
-
-        <FacebookNews limit={3} client:visible />
+      <FacebookNews limit={3} client:load />
     </div>
   </section>
 
@@ -142,14 +141,14 @@ const logos = [
             Explora momentos destacados de nuestras actividades, eventos y proyectos mineros.
           </p>
         </div>
-        <ButtonLink href="/galeria" variant="outline" class="mt-4 md:mt-0 self-start md:self-auto group">
+        <ButtonLink href="/galeria" variant="outline" class="mt-4 mr-4 md:mt-0 self-start md:self-auto group">
           Ver galería completa
           <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </ButtonLink>
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
-        <FacebookGallery limit={8} client:visible />
+        <FacebookGallery limit={8} client:load />
       </div>
     </div>
   </section>

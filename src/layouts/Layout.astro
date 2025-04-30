@@ -16,16 +16,34 @@ const { title = "AIME" } = Astro.props;
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="preload" as="font" type="font/woff2" href={openSansWoff2} crossorigin="anonymous" />
+
     <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="AIME" />
     <link rel="manifest" href="/favicon/site.webmanifest" />
+    
+    <meta name="description" content="AIME - La Asociación de Ingenieros de Minas del Ecuador promueve el desarrollo profesional, científico y técnico del sector minero del Ecuador. Conoce más sobre nosotros." />
+    <meta name="keywords" content="Ingeniería de minas, AIME Ecuador, minería responsable, ingeniería geológica, asociación de ingenieros">
+    <meta name="author" content="AIME - Asociación de Ingenieros en Minas del Ecuador">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Asociación de Ingenieros en Minas del Ecuador - AIME">
+    <meta property="og:description" content="Impulsamos el sector minero en Ecuador con profesionalismo y responsabilidad.">
+    <meta property="og:image" content="https://www.aimecuador.org/images/og-image.png">
+    <meta property="og:url" content="https://www.aimecuador.org/">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Asociación de Ingenieros en Minas del Ecuador - AIME">
+    <meta name="twitter:description" content="Descubre el trabajo de AIME en el desarrollo minero del país.">
+    <meta name="twitter:image" content="https://www.aimecuador.org/images/og-image.png">
+
     <title>{title}</title>
-    <script is:inline src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
   <body>
     <Header client:load />
