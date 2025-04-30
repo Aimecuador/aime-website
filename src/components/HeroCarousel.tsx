@@ -70,8 +70,8 @@ export default function HeroCarousel() {
       setCurrentIndex((prevIndex) =>
         prevIndex === carouselItems.length - 1 ? 0 : prevIndex + 1
       );
-      setTimeout(() => setIsAnimating(false), 500);
-    }, 300);
+      setTimeout(() => setIsAnimating(false), 100);
+    }, 400);
   };
 
   const prevSlide = () => {
@@ -82,8 +82,8 @@ export default function HeroCarousel() {
       setCurrentIndex((prevIndex) =>
         prevIndex === 0 ? carouselItems.length - 1 : prevIndex - 1
       );
-      setTimeout(() => setIsAnimating(false), 500);
-    }, 300);
+      setTimeout(() => setIsAnimating(false), 100);
+    }, 400);
   };
 
   useEffect(() => {
@@ -270,8 +270,8 @@ export default function HeroCarousel() {
                 setIsAnimating(true);
                 setTimeout(() => {
                   setCurrentIndex(index);
-                  setTimeout(() => setIsAnimating(false), 500);
-                }, 300);
+                  setTimeout(() => setIsAnimating(false), 100);
+                }, 400);
               }
             }}
             className={`h-2 w-8 rounded-full transition-all ${
