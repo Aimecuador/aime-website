@@ -6,10 +6,11 @@ import '@fontsource-variable/open-sans';
 import openSansWoff2 from '@fontsource-variable/open-sans/files/open-sans-latin-wght-normal.woff2?url';
 
 interface Props {
-  title?: string;
+  title: string;
+  description: string;
 }
 
-const { title = "AIME" } = Astro.props;
+const { title = "AIME", description } = Astro.props;
 ---
 
 <!doctype html>
@@ -26,8 +27,9 @@ const { title = "AIME" } = Astro.props;
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="AIME" />
     <link rel="manifest" href="/favicon/site.webmanifest" />
-    
-    <meta name="description" content="AIME - La Asociación de Ingenieros de Minas del Ecuador promueve el desarrollo profesional, científico y técnico del sector minero del Ecuador. Conoce más sobre nosotros." />
+
+    <meta name="google-site-verification" content="AHGi01juJaOMubxgl2LaFloDJSdqlGl_uOLyvqbP3yw" />
+    <meta name="description" content={description} />
     <meta name="keywords" content="Ingeniería de minas, AIME Ecuador, minería responsable, ingeniería geológica, asociación de ingenieros">
     <meta name="author" content="AIME - Asociación de Ingenieros en Minas del Ecuador">
     <meta name="robots" content="index, follow">
