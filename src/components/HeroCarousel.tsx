@@ -7,6 +7,7 @@ import {
 } from "react";
 import { ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
+import parse from 'html-react-parser';
 
 type CarouselItem = {
   title: string;
@@ -28,7 +29,7 @@ const carouselItems: CarouselItem[] = [
   {
     title: "Asociación de Ingenieros de Minas del Ecuador",
     description:
-      "Promoviendo el desarrollo sostenible de la minería en Ecuador a través de la excelencia profesional y la innovación.",
+      "Promoviendo el desarrollo sostenible de la <strong>minería en Ecuador</strong> a través de la excelencia profesional y la innovación.",
     imageMobile: "/images/home/hero-1-sm.webp",
     imageXL: "/images/home/hero-1-lg.webp",
     imageXXL: "/images/home/hero-1-xl.webp",
@@ -44,7 +45,7 @@ const carouselItems: CarouselItem[] = [
   {
     title: "Últimas Noticias",
     description:
-      "Mantente informado sobre las últimas novedades de las actividades que realiza AIME. Noticias, eventos y más.",
+      "Mantente <strong>informado</strong> sobre las últimas novedades de las actividades que realiza AIME. Noticias, eventos y más.",
     imageMobile: "/images/home/hero-1-sm.webp",
     imageXL: "/images/home/hero-1-lg.webp",
     imageXXL: "/images/home/hero-1-xl.webp",
@@ -225,8 +226,8 @@ export default function HeroCarousel() {
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">
             {currentItem.title}
           </h1>
-          <p className="text-lg md:text-xl">{currentItem.description}</p>
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+          <p className="text-lg md:text-xl">{parse(currentItem.description)}</p>
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 pt-4">
             {currentItem.primaryButton && (
               <Button
                 size="lg"

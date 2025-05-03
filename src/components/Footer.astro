@@ -1,23 +1,26 @@
 ---
+import { Image } from "astro:assets";
 import SocialIcons from "./SocialIcons";
 ---
 
 <footer class="border-t bg-secondary text-white">
   <div class="container py-8 md:py-12">
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       <div>
         <div class="flex items-center gap-2 mb-4">
-          <img
+          <div>
+            <Image
             src="/aime-logo-sin-texto.jpg"
             alt="AIME Logo"
-            width={50}
-            height={50}
-            class="rounded"
+            width={60}
+            height={60}
+            class="p-2 bg-white rounded"
           />
+          </div>
           <span class="text-xl font-bold tracking-tight">AIME</span>
         </div>
         <p class="text-sm text-gray-300">
-          Asociación de Ingenieros en Minas del Ecuador. Promoviendo la
+          Asociación de Ingenieros de Minas del Ecuador. Promoviendo la
           excelencia profesional y el desarrollo sostenible de la minería en
           Ecuador.
         </p>
@@ -29,7 +32,7 @@ import SocialIcons from "./SocialIcons";
           />
         </div>
       </div>
-      <div>
+      <div class="pl-16">
         <h3 class="text-sm font-medium mb-4">Enlaces Rápidos</h3>
         <ul class="space-y-2 text-sm">
           <li>
@@ -72,42 +75,12 @@ import SocialIcons from "./SocialIcons";
             </a>
           </li>
           <li>
-            <a href="/servicios" class="text-gray-300 hover:text-primary">
-              Certificaciones
-            </a>
-          </li>
-          <li>
             <a href="/galeria" class="text-gray-300 hover:text-primary">
               Galería
             </a>
           </li>
         </ul>
       </div>
-      {/*  <div>
-            <h3 class="text-sm font-medium mb-4">Legal</h3>
-            <ul class="space-y-2 text-sm">
-              <li>
-                <a href="#" class="text-gray-300 hover:text-primary">
-                  Términos y Condiciones
-                </a>
-              </li>
-              <li>
-                <a href="#" class="text-gray-300 hover:text-primary">
-                  Política de Privacidad
-                </a>
-              </li>
-              <li>
-                <a href="#" class="text-gray-300 hover:text-primary">
-                  Estatutos
-                </a>
-              </li>
-              <li>
-                <a href="#" class="text-gray-300 hover:text-primary">
-                  Código de Ética
-                </a>
-              </li>
-            </ul>
-          </div>*/}
     </div>
     <div class="mt-8 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
       <p class="text-xs text-gray-300">

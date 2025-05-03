@@ -4,72 +4,9 @@ import { Image } from 'astro:assets';
 import ButtonLink from '@/components/ui/ButtonLink.astro';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, MapPin, ChevronRight } from 'lucide-react';
+import AimeEvents from '@/components/sections/AimeEvents.astro';
 
-const eventos = [
-  {
-    id: 1,
-    title: "II Seminario de Geotecnia y Mecánica de Rocas - 2025",
-    date: "11-14 Febrero, 2025",
-    location: "Quito, Ecuador",
-    image: "/images/eventos/cards/ii-seminario-de-geotecnia-y-mecanica-de-rocas-2025.webp",
-    description:
-      "Evento que reunió a expertos nacionales e internacionales para compartir conocimientos sobre estabilidad de taludes, diseño de túneles e innovación geotécnica aplicada a la minería.",
-    slug: "seminario-geotecnia-mecanica-rocas-2025",
-  },
-  {
-    id: 2,
-    title:
-      "Presentación de Resultados del Laboratorio Social de Innovación Energético Minero",
-    date: "15 Enero, 2025",
-    location: "Universidad UTE, Quito",
-    image: "/images/eventos/cards/resultados-laboratorio-social-innovacion.webp",
-    description:
-      "Presentación de una herramienta de gobernanza minera orientada al cumplimiento de los Objetivos de Desarrollo Sostenible (ODS) y la Agenda 2030.",
-    slug: "resultados-laboratorio-social-innovacion-minero",
-  },
-  {
-    id: 3,
-    title:
-      "IV Taller Multisectorial sobre Gobernanza en el Sector Minero – Ibarra 2024",
-    date: "12 Diciembre, 2024",
-    location: "Ibarra, Ecuador",
-    image: "/images/eventos/cards/iv-taller-multisectorial-gobernanza-ibarra.webp",
-    description:
-      "Espacio de diálogo entre gobierno, industria minera, academia y sociedad civil para reflexionar sobre el presente y futuro de la minería en Ecuador.",
-    slug: "taller-multisectorial-gobernanza-ibarra",
-  },
-  {
-    id: 4,
-    title:
-      "III Taller Multisectorial sobre Gobernanza en el Sector Minero – Loja 2024",
-    date: "21 Noviembre, 2024",
-    location: "Universidad Nacional de Loja",
-    image: "/images/eventos/cards/iii-taller-multisectorial-sobre-gobernanza-en-el-sector-minero.webp",
-    description:
-      "La AIME continúa promoviendo espacios de construcción colectiva para el fortalecimiento de la gobernanza minera en Ecuador.",
-    slug: "taller-multisectorial-gobernanza-loja",
-  },
-  {
-    id: 5,
-    title: "AIME presente en el XIX Encuentro Anual de Minería – ENAEP 2024",
-    date: "26 Noviembre, 2024",
-    location: "Quito, Ecuador",
-    image: "/images/eventos/cards/xix-encuentro-anual-de-mineria-enaep-2024.webp",
-    description:
-      "La AIME, representada por su presidente Ing. Flavio Granizo, participó activamente en el XIX Encuentro Anual de Minería (ENAEP 2024), uno de los foros más relevantes del sector minero en Ecuador.",
-    slug: "aime-encuentro-anual-mineria-enaep-2024",
-  },
-  {
-    id: 6,
-    title: "Revisión Técnica del Estándar Consolidado para Minería",
-    date: "Octubre-Noviembre, 2024",
-    location: "Sede AIME, Quito",
-    image: "/images/eventos/cards/revision-tecnica-del-estandar-consolidado-para-mineria.webp",
-    description:
-      "La Asociación de Ingenieros de Minas del Ecuador (AIME), a través de la CESSA, participó activamente en la revisión técnica del Estándar Consolidado para Minería.",
-    slug: "revision-estandar-consolidado-mineria",
-  },
-];
+
 ---
 
 <Layout title="Eventos | AIME" description="Eventos organizados por AIME para promover el desarrollo profesional y la minería responsable.">
@@ -100,47 +37,7 @@ const eventos = [
           Historial de Eventos
         </h2>
   
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
-          {eventos.map((evento) => (
-            <Card
-              key={evento.id}
-              className="overflow-hidden group transition-all duration-300 flex flex-col"
-            >
-              <Image
-                width={600}
-                height={400}
-                src={evento.image}
-                alt={evento.title}
-                class="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <CardHeader>
-                <CardDescription className='flex items-center gap-2'>
-                  <div class="flex items-center mt-2">
-                    <Calendar className="h-4 w-4 mr-1 text-primary" />
-                    <span>{evento.date}</span>
-                  </div>
-                  <div class="flex items-center mt-1">
-                    <MapPin className="h-4 w-4 mr-1 text-primary" />
-                    <span class="mt-[0.5px]">{evento.location}</span>
-                  </div>
-                </CardDescription>
-                <CardTitle className="line-clamp-2 hover:text-primary">{evento.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <p class="line-clamp-3">{evento.description}</p>
-              </CardContent>
-              <CardFooter>
-                <a
-                  href={`/eventos/${evento.slug}`}
-                  class="group/link flex items-center justify-center hover:underline text-sm text-blue-600 hover:text-primary"
-                >
-                  Ver detalles
-                  <ChevronRight className="h-4 w-4 m-2 transition-transform duration-300 group-hover/link:translate-x-1" />
-                </a>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
+        <AimeEvents />
       </section>
   
       {/* Sección de contacto para eventos */}

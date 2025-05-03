@@ -12,12 +12,12 @@ import {
   Compass,
   Calendar,
   CheckCircle,
-  ArrowRight,
   Handshake,
   Lightbulb,
   Network,
   Leaf,
   Users,
+ChevronRight,
 } from 'lucide-react';
 import { AccordionBasesPIIMU } from '@/components/sections/AccordionBasesPIIMU';
 
@@ -151,7 +151,7 @@ const beneficiarios = [
 
     <section class="mb-16 text-center">
       <div class="flex justify-center mb-8">
-          <Image src="/PIIMU-logo.png" alt="Logo PIIMU" width={256} height={256} class="object-contain" />
+          <Image src="/PIIMU-logo.png" alt="Logo PIIMU" width={256} height={256} class="object-contain" loading="eager" />
       </div>
       <h1 class="text-4xl font-bold mt-1 mb-4">
         Programa Internacional de Intercambio Minero Universitario
@@ -188,16 +188,16 @@ const beneficiarios = [
       </div>
     </section>
 
-    <section class="mb-16">
+    <section class="mb-16 pb-10">
       <div class="grid gap-8 md:grid-cols-2">
-        <Card className="overflow-hidden border-l-4 border-l-primary">
+        <Card className="overflow-hidden border border-l-4 border-l-primary shadow-md hover:shadow-xl transition-all duration-300">
           <CardHeader className="bg-muted/50 px-6">
             <div class="flex items-center gap-3">
               <Compass className="h-6 w-6 text-primary" />
               <CardTitle>Misión</CardTitle>
             </div>
           </CardHeader>
-          <CardContent className="pt-6 px-6">
+          <CardContent className="p-6">
             <p>
               Facilitar la integración y el desarrollo de estudiantes de ingeniería en minas a través de intercambios
               académicos, pasantías y experiencias en campo, promoviendo el aprendizaje práctico, el fortalecimiento
@@ -206,7 +206,7 @@ const beneficiarios = [
           </CardContent>
         </Card>
 
-        <Card className="overflow-hidden border-l-4 border-l-primary">
+        <Card className="overflow-hidden border border-l-4 border-l-primary shadow-md hover:shadow-xl transition-all duration-300">
           <CardHeader className="bg-muted/50">
             <div class="flex items-center gap-3 px-6">
               <Target className="h-6 w-6 text-primary" />
@@ -250,7 +250,7 @@ const beneficiarios = [
               <ul class="space-y-2">
                 {base.description.map((item, i) => (
                   <li class="flex items-start gap-2">
-                    <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <ChevronRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <p>{item}</p>
                   </li>
                 ))}
@@ -319,14 +319,14 @@ const beneficiarios = [
 
       <div class="grid md:grid-cols-3 gap-6">
         {metas.map((meta, index) => (
-          <Card key={index} className="transition-all duration-300 hover:shadow-md">
+          <Card key={index} className="transition-all duration-300 shadow-md hover:shadow-xl border">
             <CardHeader className="bg-muted/50 px-6">
               <div class="flex items-center gap-3">
                 <meta.icon className="h-6 w-6 text-primary" />
                 <CardTitle>{meta.plazo}</CardTitle>
               </div>
             </CardHeader>
-            <CardContent className="pt-6 px-6">
+            <CardContent className="p-6">
               <p>{meta.descripcion}</p>
             </CardContent>
           </Card>

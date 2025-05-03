@@ -7,23 +7,24 @@ import { ChevronRight } from 'lucide-react';
 import { Image } from 'astro:assets';
 import { FacebookGallery } from '@/components/sections/FacebookGallery';
 import { FacebookNews } from '@/components/sections/FacebookNews';
+import AimeEvents from '@/components/sections/AimeEvents.astro';
 
 const avalLogos = [
-  {
-    name: "Ministerio de Energía y Minas",
-    image: "/images/convenios/logos/ministerio_de_energia_y_minas.png",
+{
+    name: "Maccaferri logo",
+    image: "/images/convenios/logos/maccaferri.jpg",
   },
   {
-    name: "Ministerio de Telecomunicaciones",
-    image: "/images/convenios/logos/mintel.png",
+    name: "Tecnovoladuras logo",
+    image: "/images/convenios/logos/tecnovoladuras.png",
   },
   {
-    name: "ARCA",
-    image: "/images/convenios/logos/arca.png",
+    name: "Ideal Alambrec logo",
+    image: "/images/convenios/logos/ideal-alambrec.png",
   },
   {
-    name: "ESPOL",
-    image: "/images/convenios/logos/espol.png",
+    name: "Teincomin logo",
+    image: "/images/convenios/logos/teincomin.png",
   },
 ]
 
@@ -71,7 +72,7 @@ const logos = [
 ];
 ---
 
-<Layout title="AIME - Asociación de Ingenieros en Minas del Ecuador" description="Somos una organización técnica científica que agrupa a profesionales de la industria minera ecuatoriana, con reconocimiento a nivel nacional e internacional. ¡𝑭𝒐𝒓𝒋𝒆𝒎𝒐𝒔 𝒋𝒖𝒏𝒕𝒐𝒔 𝒖𝒏 𝒇𝒖𝒕𝒖𝒓𝒐 𝒆𝒙𝒊𝒕𝒐𝒔𝒐!">
+<Layout title="AIME - Asociación de Ingenieros de Minas del Ecuador" description="Somos una organización técnica científica que agrupa a profesionales de la industria minera ecuatoriana, con reconocimiento a nivel nacional e internacional. ¡Forjemos juntos un futuro exitoso!">
 
   <HeroCarousel client:load />
 
@@ -80,15 +81,16 @@ const logos = [
     <div class="container">
       <div class="text-center mb-8 flex items-center space-x-2 justify-center">
         <div class="h-1 w-10 md:w-20 bg-primary"></div>
-        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl">Con el aval de</h2>
+        <h2 class="text-2xl font-bold tracking-tighter sm:text-4xl">Empresas Adherentes</h2>
         <div class="h-1 w-10 md:w-20 bg-primary"></div>
       </div>
     </div>
-    <div class="bg-muted grid grid-cols-2 gap-6 items-center justify-items-center lg:flex lg:justify-center lg:gap-14 px-6 py-10">
+    <div class="bg-muted px-6 py-10 grid grid-cols-2 gap-6 items-center justify-items-center lg:flex lg:justify-center lg:gap-20">
       {avalLogos.map((logo) => (
         <Image
           src={logo.image}
           alt={logo.name}
+          loading="eager"
           width={150}
           height={80}
           class="max-h-[70px] w-auto object-contain"
@@ -105,22 +107,22 @@ const logos = [
           <div class="flex items-center space-x-2 mb-2">
             <div class="h-1 w-10 bg-primary"></div>
             <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-              Novedades
+              Actividades
             </span>
           </div>
           <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mt-4">
-            Últimas Noticias
+            Eventos
           </h2>
           <p class="mt-4 text-muted-foreground max-w-3xl">
-            Mantente al día con las últimas novedades y eventos de AIME. Aquí encontrarás información relevante sobre la industria minera, actividades y proyectos en los que estamos involucrados.
+            Mantente al día con las últimas novedades y eventos de AIME. <br> Participa en nuestros eventos y mantente actualizado con las últimas tendencias y avances en el sector minero.
           </p>
         </div>
-        <ButtonLink href="/noticias" class="mt-4 md:mt-0 self-start md:self-auto group">
-          Ver todas las noticias
+        <ButtonLink href="/eventos" class="mt-4 md:mt-0 self-start md:self-auto group">
+          Ver todos los eventos
           <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </ButtonLink>
       </div>
-      <FacebookNews limit={3} client:load />
+      <AimeEvents limit={3} />
     </div>
   </section>
 
