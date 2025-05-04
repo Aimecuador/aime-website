@@ -21,10 +21,9 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ftp.aimecuador.org
-        username: deploy@aimecuador.org
+        server: ${{ secrets.SERVER }}
+        username: ${{ secrets.USER }}
         password: ${{ secrets.PASSWORD }}
         protocol: ftps
         port: 21
         local-dir: ./dist/
-        dangerous-clean-slate: true
