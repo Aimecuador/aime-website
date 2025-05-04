@@ -81,7 +81,7 @@ export default function Header() {
       >
         <div className="container mx-auto">
           <div className="flex items-center justify-between">
-            <a href="/" className="h-[55px] w-[60px]">
+            <a href="/" className={cn("aspect[800/682] w-auto", isScrolled ? "h-[55px]" : "h-[70px]")}>
               <img
                 src={"/aime-logo-sin-texto.jpg"}
                 alt="AIME logo"

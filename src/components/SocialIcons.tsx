@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils"
 import FacebookIcon from "./icons/facebook"
 import InstagramIcon from "./icons/instagram"
 import LinkedInIcon from "./icons/linkedin"
@@ -44,7 +45,7 @@ export default function SocialIcons({
   iconColor = "text-white",
 }: SocialIconsProps) {
   return (
-    <div className={`flex space-x-2 lg:space-x-4 ${className}`}>
+    <div className={cn('flex space-x-2 lg:space-x-4', className)}>
       {socialLinks.map((social) => (
         <a
           key={social.name}

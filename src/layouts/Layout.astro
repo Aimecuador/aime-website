@@ -5,6 +5,7 @@ import Footer from '@/components/Footer.astro';
 import '@fontsource-variable/open-sans';
 import openSansWoff2 from '@fontsource-variable/open-sans/files/open-sans-latin-wght-normal.woff2?url';
 import { WhatsAppButton } from '@/components/WhatsappButton';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -49,6 +50,7 @@ const { title = defaultTitle, description } = Astro.props;
     <meta name="twitter:image" content="https://www.aimecuador.org/images/og-image.png">
 
     <title>{title}</title>
+    <ClientRouter />
   </head>
   <body>
     <Header client:load />
