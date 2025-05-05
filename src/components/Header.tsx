@@ -75,13 +75,12 @@ export default function Header() {
 
       <div
         className={cn(
-          "w-full transition-all bg-white duration-300 ease-in-out border-b border-b-gray-200",
-          isScrolled ? "py-2" : "py-4"
+          "w-full transition-all bg-white duration-300 ease-in-out border-b border-b-gray-200 py-3 lg:py-2"
         )}
       >
         <div className="container mx-auto">
           <div className="flex items-center justify-between">
-            <a href="/" className={cn("aspect[800/682] w-auto", isScrolled ? "h-[55px]" : "h-[70px]")}>
+            <a href="/" className={cn("aspect[800/682] w-auto", isScrolled ? "h-[55px]" : "h-[55px] lg:h-[70px]")}>
               <img
                 src={"/aime-logo-sin-texto.jpg"}
                 alt="AIME logo"

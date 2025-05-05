@@ -1,0 +1,56 @@
+# ----------------------------------------------------------------------
+# Redirección a HTTPS
+# ----------------------------------------------------------------------
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ----------------------------------------------------------------------
+# Evitar listado de directorios
+# ----------------------------------------------------------------------
+Options -Indexes
+
+# ----------------------------------------------------------------------
+# Proteger archivos sensibles
+# ----------------------------------------------------------------------
+<FilesMatch "\.(env|json|log|md|lock|gitignore|gitattributes|gitkeep|xml|yml)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# Proteger .htaccess
+<Files .htaccess>
+  Order Allow,Deny
+  Deny from all
+</Files>
+
+# ----------------------------------------------------------------------
+# Cabeceras de seguridad
+# ----------------------------------------------------------------------
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "no-referrer-when-downgrade"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  Header set Cross-Origin-Resource-Policy "same-origin"
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Bloquear rutas comunes de CMS y escaneos maliciosos
+# ----------------------------------------------------------------------
+RedirectMatch 403 ^/(wp-admin|wp-login|xmlrpc\.php|administrator|admin|cpanel|phpmyadmin|setup|server-status|webmail|webdav|\.git|\.svn|\.env)
+
+# ----------------------------------------------------------------------
+# Bloquear bots maliciosos conocidos (user-agents)
+# ----------------------------------------------------------------------
+SetEnvIfNoCase User-Agent "libwww-perl" bad_bot
+SetEnvIfNoCase User-Agent "MJ12bot" bad_bot
+SetEnvIfNoCase User-Agent "AhrefsBot" bad_bot
+SetEnvIfNoCase User-Agent "semrushbot" bad_bot
+SetEnvIfNoCase User-Agent "wget" bad_bot
+SetEnvIfNoCase User-Agent "curl" bad_bot
+SetEnvIfNoCase User-Agent "python-requests" bad_bot
+Order Allow,Deny
+Allow from all
+Deny from env=bad_bot
