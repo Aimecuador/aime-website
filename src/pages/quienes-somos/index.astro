@@ -10,6 +10,7 @@ import {
   CheckCircle,
   ChevronRight,
 } from "lucide-react";
+import { Image } from 'astro:assets';
 ---
 
 <Layout title="Quiénes Somos | AIME" description="Conoce la historia, misión, visión y valores de la Asociación de Ingenieros de Minas del Ecuador.">
@@ -42,8 +43,8 @@ import {
             </p>
           </div>
         </div>
-        <div class="relative rounded-lg overflow-hidden shadow-lg">
-          <img
+        <div class="relative overflow-hidden shadow-lg">
+          <Image
             src="/images/nosotros/directiva-aime.webp"
             alt="Directiva de AIME"
             class="w-full h-auto"
@@ -57,13 +58,13 @@ import {
     <section id="historia" class="mb-16">
       <div class="grid gap-8 md:grid-cols-2 items-center">
         <div class="order-2 md:order-1">
-          <div class="relative rounded-lg overflow-hidden shadow-lg">
-            <img
+          <div class="relative overflow-hidden shadow-lg">
+            <Image
               src="/images/nosotros/historia-aime.webp"
               alt="Fundación histórica de AIME"
               class="object-cover w-full h-auto"
-              width={800}
-              height={600}
+              width={1200}
+              height={800}
             />
           </div>
         </div>
@@ -103,7 +104,7 @@ import {
         </span>
       </div>
       <div class="grid gap-8 md:grid-cols-2">
-        <div class="bg-muted p-8 rounded-lg shadow-sm border-l-4 border-primary">
+        <div class="bg-muted p-8 shadow-md hover:shadow-xl border-l-4 border-primary">
           <div class="flex items-center gap-3 mb-4">
             <Compass className="h-6 w-6 text-primary" />
             <h2 class="text-2xl font-bold">Misión</h2>
@@ -115,7 +116,7 @@ import {
             sostenible.
           </p>
         </div>
-        <div class="bg-muted p-8 rounded-lg shadow-sm border-l-4 border-primary">
+        <div class="bg-muted p-8 shadow-md hover:shadow-xl border-l-4 border-primary">
           <div class="flex items-center gap-3 mb-4">
             <Target className="h-6 w-6 text-primary" />
             <h2 class="text-2xl font-bold">Visión</h2>
