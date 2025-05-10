@@ -146,8 +146,8 @@ export default function Header() {
 
           <div
             className={cn(
-              "absolute top-full left-0 w-full h-[100vh] z-30 bg-black bg-opacity-50 transition-opacity duration-300 xl:hidden",
-              isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+              "absolute top-full left-0 w-full h-[100vh] z-30 bg-black bg-opacity-65 transition-opacity duration-300 xl:hidden",
+              isMenuOpen ? "opacity-100 visible backdrop-blur-sm" : "opacity-0 invisible"
             )}
             onClick={() => setIsMenuOpen(false)}
           />
