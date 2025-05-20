@@ -51,7 +51,7 @@ const carouselItems: CarouselItem[] = [
     imageXXL: "/images/home/hero-1-xl.webp",
     primaryButton: {
       text: "Ver noticias",
-      href: "/noticias",
+      href: "/revista",
     },
   }
 ];

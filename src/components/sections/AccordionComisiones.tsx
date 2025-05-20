@@ -49,7 +49,7 @@ const comisiones = [
       "Asesorar a los miembros de la Asociación en problemáticas geotécnicas que requieran criterio técnico especializado.",
     ],
     director: {
-      nombre: "(Ingeniero Carlos Mendoza)",
+      nombre: "Ingeniero Marlon Ponce",
       cargo:
         "Director Ejecutivo Comisión Técnicas de Geotecnia y Mecánica de Rocas",
       foto: "/placeholder.svg?height=200&width=200&text=Ing.+Mendoza",
@@ -162,7 +162,6 @@ export function AccordionComisiones() {
           <AccordionItem key={comision.id} value={comision.id}>
             <AccordionTrigger className="p-4 hover:no-underline data-[state=open]:bg-muted group">
               <div className="flex items-center gap-3">
-                {comision.icon}
                 <div className="flex flex-col items-start">
                   <h2 className="text-xl font-semibold text-left group-data-[state=open]:text-primary transition-colors">
                     {comision.title}
@@ -178,14 +177,8 @@ export function AccordionComisiones() {
               <div className="pt-2 pb-4">
                 {/* Director de la comisión */}
                 <div className="flex flex-col sm:flex-row gap-4 mb-6 p-4 rounded-lg">
-                  <div className="flex-shrink-0">
-                    <img
-                      src={comision.director.foto || "/placeholder.svg"}
-                      alt={`Foto de ${comision.director.nombre}`}
-                      width={100}
-                      height={100}
-                      className="rounded-full object-cover"
-                    />
+                  <div className="flex-shrink-0 grid place-items-center">
+                    {comision.icon}
                   </div>
                   <div className="flex flex-col justify-center">
                     <h3 className="text-lg font-semibold text-primary">

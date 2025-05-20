@@ -1,16 +1,16 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import HeroCarousel from '@/components/HeroCarousel';
-import LogoMarquee from '@/components/LogoMarquee';
-import ButtonLink from '@/components/ui/ButtonLink.astro';
-import { ChevronRight } from 'lucide-react';
-import { Image } from 'astro:assets';
-import { FacebookGallery } from '@/components/sections/FacebookGallery';
-import { FacebookNews } from '@/components/sections/FacebookNews';
-import AimeEvents from '@/components/sections/AimeEvents.astro';
+import Layout from "@/layouts/Layout.astro";
+import HeroCarousel from "@/components/HeroCarousel";
+import LogoMarquee from "@/components/LogoMarquee";
+import ButtonLink from "@/components/ui/ButtonLink.astro";
+import { ChevronRight } from "lucide-react";
+import { Image } from "astro:assets";
+import { FacebookGallery } from "@/components/sections/FacebookGallery";
+import { FacebookNews } from "@/components/sections/FacebookNews";
+import AimeEvents from "@/components/sections/AimeEvents.astro";
 
 const avalLogos = [
-{
+  {
     name: "Maccaferri logo",
     image: "/images/convenios/logos/maccaferri.jpg",
   },
@@ -26,7 +26,7 @@ const avalLogos = [
     name: "Teincomin logo",
     image: "/images/convenios/logos/teincomin.png",
   },
-]
+];
 
 const logos = [
   {
@@ -43,7 +43,8 @@ const logos = [
   },
   {
     name: "Camara de la pequeña minería del Ecuador logo",
-    image: "/images/convenios/logos/camara-de-la-pequena-mineria-del-ecuador.png",
+    image:
+      "/images/convenios/logos/camara-de-la-pequena-mineria-del-ecuador.png",
   },
   {
     name: "QCS logo",
@@ -72,32 +73,11 @@ const logos = [
 ];
 ---
 
-<Layout title="AIME - Asociación de Ingenieros de Minas del Ecuador" description="Somos una organización técnica científica que agrupa a profesionales de la industria minera ecuatoriana, con reconocimiento a nivel nacional e internacional. ¡Forjemos juntos un futuro exitoso!">
-
+<Layout
+  title="AIME - Asociación de Ingenieros de Minas del Ecuador"
+  description="Somos una organización técnica científica que agrupa a profesionales de la industria minera ecuatoriana, con reconocimiento a nivel nacional e internacional. ¡Forjemos juntos un futuro exitoso!"
+>
   <HeroCarousel client:load />
-
-  <!-- Aval Section -->
-  <section class="py-8">
-    <div class="container">
-      <div class="text-center mb-8 flex items-center space-x-2 justify-center">
-        <div class="h-1 w-10 md:w-20 bg-primary"></div>
-        <h2 class="text-[22px] font-bold tracking-tighter sm:text-3xl">Empresas Adherentes</h2>
-        <div class="h-1 w-10 md:w-20 bg-primary"></div>
-      </div>
-    </div>
-    <div class="bg-muted px-6 py-10 grid grid-cols-2 gap-6 items-center justify-items-center lg:flex lg:justify-center lg:gap-20">
-      {avalLogos.map((logo) => (
-        <Image
-          src={logo.image}
-          alt={logo.name}
-          loading="eager"
-          width={150}
-          height={80}
-          class="max-h-[70px] w-auto object-contain"
-        />
-      ))}
-    </div>
-  </section>
 
   <!-- Noticias Section -->
   <section class="py-10">
@@ -107,22 +87,18 @@ const logos = [
           <div class="flex items-center space-x-2 mb-2">
             <div class="h-1 w-10 bg-primary"></div>
             <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-              Actividades
+              Revista
             </span>
           </div>
           <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mt-4">
-            Eventos
+            Última Publicación
           </h2>
           <p class="mt-4 text-muted-foreground max-w-3xl">
-            Mantente al día con las últimas novedades y eventos de AIME. <br> Participa en nuestros eventos y mantente actualizado con las últimas tendencias y avances en el sector minero.
+            Mantente informado con la publicación más reciente de AIME. Para ver más publicaciones visita nuestra sección de revista.
           </p>
         </div>
-        <ButtonLink href="/eventos" class="mt-4 md:mt-0 self-start md:self-auto group">
-          Ver todos los eventos
-          <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-        </ButtonLink>
       </div>
-      <AimeEvents limit={3} />
+      <FacebookNews client:load />
     </div>
   </section>
 
@@ -133,24 +109,37 @@ const logos = [
         <div>
           <div class="flex items-center space-x-2 mb-2">
             <div class="h-1 w-10 bg-primary"></div>
-            <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+            <span
+              class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
+            >
               Imágenes
             </span>
           </div>
-          <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+          <h2
+            class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
+          >
             Nuestra Galería
           </h2>
           <p class="mt-4 text-muted-foreground max-w-3xl">
-            Explora momentos destacados de nuestras actividades, eventos y proyectos mineros.
+            Explora momentos destacados de nuestras actividades, eventos y
+            proyectos mineros.
           </p>
         </div>
-        <ButtonLink href="/galeria" variant="outline" class="mt-4 mr-4 md:mt-0 self-start md:self-auto group">
+        <ButtonLink
+          href="/galeria"
+          variant="outline"
+          class="mt-4 mr-4 md:mt-0 self-start md:self-auto group"
+        >
           Ver galería completa
-          <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          <ChevronRight
+            className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+          />
         </ButtonLink>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
+      <div
+        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4"
+      >
         <FacebookGallery limit={8} client:load />
       </div>
     </div>
@@ -207,23 +196,54 @@ const logos = [
     </div>
   </section>
 -->
-  
+
   <!-- Convenios Interinstitucionales Section -->
-  <section class="py-16 md:py-24">
+  <!-- Aval Section -->
+  <section class="pt-16 pb-10 md:pt-24 md:pb-18">
     <div class="container">
-      <div class="text-center mb-12">
-        <div class="flex items-center space-x-2 mb-2 justify-center">
+       <div class="flex items-center space-x-2 mb-2 justify-center">
           <div class="h-1 w-10 bg-primary"></div>
-          <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+          <span
+            class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
+          >
             Alianzas estratégicas
           </span>
           <div class="h-1 w-10 bg-primary"></div>
         </div>
-        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+      <div class="text-center mb-8 flex items-center space-x-2 justify-center">
+        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl lg:text-5xl">
+          Empresas Adherentes
+        </h2>
+      </div>
+    </div>
+    <div
+      class="bg-muted px-6 py-10 grid grid-cols-2 gap-6 items-center justify-items-center lg:flex lg:justify-center lg:gap-20"
+    >
+      {
+        avalLogos.map((logo) => (
+          <Image
+            src={logo.image}
+            alt={logo.name}
+            loading="eager"
+            width={150}
+            height={80}
+            class="max-h-[70px] w-auto object-contain"
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="pt-0">
+    <div class="container">
+      <div class="text-center mb-12">
+        <h2 class="text-[22px] font-bold tracking-tighter sm:text-3xl">
           Convenios Interinstitucionales
         </h2>
         <p class="mt-4 text-muted-foreground max-w-3xl mx-auto">
-          Trabajamos en colaboración con instituciones académicas, gubernamentales y empresas del sector para fortalecer la industria minera ecuatoriana y promover el desarrollo profesional.
+          Trabajamos en colaboración con instituciones académicas,
+          gubernamentales y empresas del sector para fortalecer la industria
+          minera ecuatoriana y promover el desarrollo profesional.
         </p>
       </div>
     </div>
