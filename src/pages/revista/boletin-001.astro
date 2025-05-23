@@ -1,33 +1,43 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { ChevronDown, Download, ExternalLink, Newspaper, ArrowRight, ArrowLeft } from "lucide-react";
+import {
+  ChevronDown,
+  Download,
+  ExternalLink,
+  Newspaper,
+  ArrowRight,
+  ArrowLeft,
+} from "lucide-react";
 import ButtonLink from "@/components/ui/ButtonLink.astro";
 
 // Datos estructurados para Schema.org
 const schemaBoletinAime = {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "Boletín No.001 AIME 2025",
-  "description": "Boletín con las actividades destacadas del 2025, incluyendo resúmenes de eventos, logros institucionales y avances en el sector minero ecuatoriano",
-  "publisher": {
+  headline: "Boletín No.001 AIME 2025",
+  description:
+    "Boletín con las actividades destacadas del 2025, incluyendo resúmenes de eventos, logros institucionales y avances en el sector minero ecuatoriano",
+  publisher: {
     "@type": "Organization",
-    "name": "Asociación de Ingenieros de Minas del Ecuador (AIME)",
-    "logo": {
+    name: "Asociación de Ingenieros de Minas del Ecuador (AIME)",
+    logo: {
       "@type": "ImageObject",
-      "url": "https://aimecuador.org/aime-logo-sin-texto.jpg"
-    }
-  },  "url": "https://aimecuador.org/revista/boletin-001",
-  "mainEntityOfPage": "https://aimecuador.org/revista/boletin-001",
-  "contentUrl": "https://aimecuador.org/documentos/Boletin No.001 AIME 2025.pdf",
-  "datePublished": "2025-05-22",
-  "author": {
-    "@type": "Organization",
-    "name": "Asociación de Ingenieros de Minas del Ecuador (AIME)"
+      url: "https://aimecuador.org/aime-logo-sin-texto.jpg",
+    },
   },
-  "keywords": "minería, Ecuador, boletín, eventos mineros, AIME, actividades mineras",
-  "isAccessibleForFree": true,
-  "educationalUse": "reference",
-  "genre": "newsletter"
+  url: "https://aimecuador.org/revista/boletin-001",
+  mainEntityOfPage: "https://aimecuador.org/revista/boletin-001",
+  contentUrl: "https://aimecuador.org/documentos/Boletin No.001 AIME 2025.pdf",
+  datePublished: "2025-05-22",
+  author: {
+    "@type": "Organization",
+    name: "Asociación de Ingenieros de Minas del Ecuador (AIME)",
+  },
+  keywords:
+    "minería, Ecuador, boletín, eventos mineros, AIME, actividades mineras",
+  isAccessibleForFree: true,
+  educationalUse: "reference",
+  genre: "newsletter",
 };
 ---
 
@@ -37,8 +47,11 @@ const schemaBoletinAime = {
   image="/images/revista/boletin-preview.jpg"
   canonical="https://aimecuador.org/revista/boletin-001"
 >
-  <script type="application/ld+json" set:html={JSON.stringify(schemaBoletinAime)} />
-  
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(schemaBoletinAime)}
+  />
+
   <main class="py-12">
     <div class="container">
       <div class="flex items-center space-x-2 mb-6">
@@ -49,21 +62,27 @@ const schemaBoletinAime = {
           Publicación oficial
         </span>
       </div>
-      
+
       <nav class="mb-6 text-sm breadcrumbs" aria-label="Migas de pan">
         <ol class="flex items-center gap-2">
-          <li><a href="/" class="text-gray-500 hover:text-primary">Inicio</a></li>
+          <li>
+            <a href="/" class="text-gray-500 hover:text-primary">Inicio</a>
+          </li>
           <li class="text-gray-400">/</li>
-          <li><a href="/revista" class="text-gray-500 hover:text-primary">Publicaciones</a></li>
+          <li>
+            <a href="/revista" class="text-gray-500 hover:text-primary"
+              >Publicaciones</a>
+          </li>
           <li class="text-gray-400">/</li>
           <li class="text-primary font-medium">Boletín No.001</li>
         </ol>
       </nav>
-      
+
       <h1 class="text-4xl font-bold mb-4">Boletín No.001 AIME 2025</h1>
       <p class="text-lg mb-8 text-gray-800/90 max-w-3xl">
-        Nuestro boletín informativo con las actividades destacadas del 2025, incluyendo resúmenes de eventos, 
-        logros institucionales y avances en el sector minero ecuatoriano.
+        Nuestro boletín informativo con las actividades destacadas del 2025,
+        incluyendo resúmenes de eventos, logros institucionales y avances en el
+        sector minero ecuatoriano.
       </p>
 
       <div class="grid md:grid-cols-3 gap-8 mb-10">
@@ -73,12 +92,21 @@ const schemaBoletinAime = {
           >
             <div class="relative aspect-[3/4] w-full h-[700px]">
               <iframe
-                src="/documentos/Boletin No.001 AIME 2025.pdf#toolbar=0"
-                class="absolute inset-0 w-full h-full"
+                src={`https://docs.google.com/viewer?url=${encodeURIComponent("https://aimecuador.org/documentos/Boletin No.001 AIME 2025.pdf")}&embedded=true`}
+                class="absolute inset-0 w-full h-full border-0"
                 title="Boletín No.001 AIME 2025"
                 loading="eager"
-              >
-              </iframe>
+              ></iframe>
+              <noscript>
+                <div class="absolute inset-0 flex items-center justify-center bg-gray-100 p-4">
+                  <div class="text-center">
+                    <p class="mb-4">Tu navegador no puede mostrar el PDF incrustado.</p>
+                    <a href="/documentos/Boletin No.001 AIME 2025.pdf" class="text-primary hover:underline" target="_blank">
+                      Abrir PDF en nueva pestaña
+                    </a>
+                  </div>
+                </div>
+              </noscript>
             </div>
           </div>
         </div>
@@ -105,42 +133,47 @@ const schemaBoletinAime = {
               </ButtonLink>
             </div>
           </div>
-          
+
           <!-- Información adicional para SEO -->
           <div class="bg-muted p-6 rounded-lg">
             <h2 class="text-xl font-bold mb-4">Sobre este boletín</h2>
             <p class="text-sm mb-4">
-              El Boletín No.001 de AIME presenta las actividades más destacadas del año 2025, 
-              incluyendo resúmenes de eventos, logros institucionales y avances en el sector minero ecuatoriano.
+              El Boletín No.001 de AIME presenta las actividades más destacadas
+              del año 2025, incluyendo resúmenes de eventos, logros
+              institucionales y avances en el sector minero ecuatoriano.
             </p>
             <p class="text-sm">
-              Esta edición especial recoge información clave para profesionales del sector 
-              e incluye estadísticas actualizadas sobre la minería en Ecuador.
+              Esta edición especial recoge información clave para profesionales
+              del sector e incluye estadísticas actualizadas sobre la minería en
+              Ecuador.
             </p>
           </div>
         </div>
       </div>
-      
+
       <!-- Información adicional para SEO -->
       <div class="mt-12 pt-8 border-t">
         <h2 class="text-2xl font-bold mb-4">Acerca de los Boletines AIME</h2>
         <p class="mb-6">
-          Los Boletines AIME son publicaciones periódicas que documentan las actividades, logros y eventos 
-          organizados por la Asociación de Ingenieros de Minas del Ecuador. Sirven como registro histórico 
-          de la evolución del sector minero ecuatoriano y del impacto de AIME en el desarrollo 
-          profesional de sus miembros.
+          Los Boletines AIME son publicaciones periódicas que documentan las
+          actividades, logros y eventos organizados por la Asociación de
+          Ingenieros de Minas del Ecuador. Sirven como registro histórico de la
+          evolución del sector minero ecuatoriano y del impacto de AIME en el
+          desarrollo profesional de sus miembros.
         </p>
-        <p class="mb-6">
-          Cada boletín incluye información sobre:
-        </p>
+        <p class="mb-6">Cada boletín incluye información sobre:</p>
         <ul class="list-disc pl-6 mb-6 space-y-2">
-          <li>Eventos organizados por AIME y participación en eventos del sector</li>
+          <li>
+            Eventos organizados por AIME y participación en eventos del sector
+          </li>
           <li>Logros institucionales y reconocimientos</li>
           <li>Capacitaciones y programas de desarrollo profesional</li>
           <li>Colaboraciones con entidades públicas y privadas</li>
-          <li>Proyectos en curso y contribuciones al desarrollo minero sostenible</li>
+          <li>
+            Proyectos en curso y contribuciones al desarrollo minero sostenible
+          </li>
         </ul>
-        
+
         <div class="flex">
           <ButtonLink href="/revista" variant="outline" class="mr-4">
             <ArrowLeft className="mr-2 h-4 w-4" /> Volver a Publicaciones
