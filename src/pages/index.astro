@@ -92,7 +92,7 @@ const logos = [
             <span
               class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
             >
-              Revista
+              Novedades
             </span>
           </div>
           <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl mt-4">
@@ -133,7 +133,6 @@ const logos = [
         </div>
         <ButtonLink
           href="/galeria"
-          variant="outline"
           class="mt-4 mr-4 md:mt-0 self-start md:self-auto group"
         >
           Ver galería completa
@@ -144,7 +143,7 @@ const logos = [
       </div>
 
       <div
-        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4"
+        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"
       >
         <FacebookGallery limit={8} client:load />
       </div>
@@ -234,7 +233,7 @@ const logos = [
               loading="eager"
               width={150}
               height={80}
-              class="max-h-[70px] w-auto object-contain animate-duration-[800ms] animate-delay-200"
+              class="max-h-[70px] w-auto object-contain animate-duration-[800ms]"
               data-fade="up"
             />
           </a>
@@ -272,7 +271,7 @@ const logos = [
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.3 });
         images.forEach(img => observer.observe(img));
       }
     });

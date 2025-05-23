@@ -10,11 +10,19 @@ import { ClientRouter } from 'astro:transitions';
 interface Props {
   title: string;
   description: string;
+  image?: string;
+  canonical?: string;
 }
 
 const defaultTitle = "AIME - Asociación de Ingenieros de Minas del Ecuador";
+const defaultImage = "/images/og-image.png";
 
-const { title = defaultTitle, description } = Astro.props;
+const { 
+  title = defaultTitle, 
+  description, 
+  image = defaultImage,
+  canonical
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -34,20 +42,21 @@ const { title = defaultTitle, description } = Astro.props;
 
     <meta name="google-site-verification" content="AHGi01juJaOMubxgl2LaFloDJSdqlGl_uOLyvqbP3yw" />
     <meta name="description" content={description} />
-    <meta name="keywords" content="Ingeniería de minas, AIME Ecuador, minería responsable, ingeniería geológica, asociación de ingenieros">
+    <meta name="keywords" content="Ingeniería de minas, AIME Ecuador, minería responsable, ingeniería geológica, asociación de ingenieros, minería en Ecuador">
     <meta name="author" content="AIME - Asociación de Ingenieros de Minas del Ecuador">
     <meta name="robots" content="index, follow">
+    {canonical && <link rel="canonical" href={canonical} />}
 
-    <meta property="og:title" content="Asociación de Ingenieros de Minas del Ecuador - AIME">
-    <meta property="og:description" content="Impulsamos el desarrollo del sector minero en Ecuador con profesionalismo y responsabilidad.">
-    <meta property="og:image" content="https://www.aimecuador.org/images/og-image.png">
-    <meta property="og:url" content="https://www.aimecuador.org/">
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content={`https://www.aimecuador.org${image}`}>
+    <meta property="og:url" content={canonical || "https://www.aimecuador.org/"}>
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Asociación de Ingenieros de Minas del Ecuador - AIME">
-    <meta name="twitter:description" content="Descubre el trabajo de AIME en el desarrollo minero del país.">
-    <meta name="twitter:image" content="https://www.aimecuador.org/images/og-image.png">
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={`https://www.aimecuador.org${image}`}>
 
     <title>{title}</title>
     <ClientRouter />
