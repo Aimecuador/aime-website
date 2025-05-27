@@ -71,7 +71,8 @@ const schemaBoletinAime = {
           <li class="text-gray-400">/</li>
           <li>
             <a href="/revista" class="text-gray-500 hover:text-primary"
-              >Publicaciones</a>
+              >Publicaciones</a
+            >
           </li>
           <li class="text-gray-400">/</li>
           <li class="text-primary font-medium">Boletín No.001</li>
@@ -90,18 +91,25 @@ const schemaBoletinAime = {
           <div
             class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200"
           >
-            <div class="relative aspect-[3/4] w-full h-[700px]">
+            <div class="relative w-full h-[500px] md:h-[700px]">
               <iframe
                 src={`https://docs.google.com/viewer?url=${encodeURIComponent("https://aimecuador.org/documentos/Boletin No.001 AIME 2025.pdf")}&embedded=true`}
                 class="absolute inset-0 w-full h-full border-0"
                 title="Boletín No.001 AIME 2025"
-                loading="eager"
-              ></iframe>
+                loading="eager"></iframe>
               <noscript>
-                <div class="absolute inset-0 flex items-center justify-center bg-gray-100 p-4">
+                <div
+                  class="absolute inset-0 flex items-center justify-center bg-gray-100 p-4"
+                >
                   <div class="text-center">
-                    <p class="mb-4">Tu navegador no puede mostrar el PDF incrustado.</p>
-                    <a href="/documentos/Boletin No.001 AIME 2025.pdf" class="text-primary hover:underline" target="_blank">
+                    <p class="mb-4">
+                      Tu navegador no puede mostrar el PDF incrustado.
+                    </p>
+                    <a
+                      href="/documentos/Boletin No.001 AIME 2025.pdf"
+                      class="text-primary hover:underline"
+                      target="_blank"
+                    >
                       Abrir PDF en nueva pestaña
                     </a>
                   </div>
