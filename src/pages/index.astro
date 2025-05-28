@@ -1,7 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import HeroCarousel from "@/components/HeroCarousel";
-import LogoMarquee from "@/components/LogoMarquee";
 import ButtonLink from "@/components/ui/ButtonLink.astro";
 import { ChevronRight } from "lucide-react";
 import { Image } from "astro:assets";
@@ -31,47 +30,84 @@ const companyLogos = [
   },
 ];
 
-const logos = [
+const interinstitutionalAgreements = [
+  {
+    name: "Gobierno Autónomo Descentralizado Municipal del Cantón Ibarra",
+    image: "/images/convenios/interinstitucionales/municipio-Ibarra.png",
+    href: "https://www.ibarra.gob.ec/site/el-gad-municipal/",
+  },
+  {
+    name: "Facultad de Ingeniería en Geología, Minas, Petróleos y Ambiental de la Universidad Central del Ecuador",
+    image: "/images/convenios/interinstitucionales/figempa.png",
+    href: "https://www.uce.edu.ec/web/figempa",
+  },
+  {
+    name: "RUDN University",
+    image: "/images/convenios/interinstitucionales/rudn-university.png",
+    href: "https://www.rudn.ru/",
+  },
+  {
+    name: "Cámara de la Industria de la Construcción",
+    image: "/images/convenios/interinstitucionales/camicon.png",
+    href: "https://camicon.ec/web/",
+  },
+  {
+    name: "Seguridad y Salud Ocupacional",
+    image: "/images/convenios/interinstitucionales/consisso.jpg",
+    href: "https://consisso.com/",
+  },
+  {
+    name: "Instituto de Investigación Geológico y Energético",
+    image: "/images/convenios/interinstitucionales/iige.png",
+    href: "https://www.geoenergia.gob.ec/",
+  },
+];
+
+const cooperationAgreements = [
+  {
+    name: "Alianza para el Emprendimiento e Innovación",
+    image:
+      "/images/convenios/cooperacion/alianza-emprendimiento-innovacion.png",
+    href: "https://www.aei.ec/",
+  },
+  {
+    name: "CAMIPE",
+    image: "/images/convenios/cooperacion/camipe.png",
+  },
+  {
+    name: "QCS Servicios Profesionales",
+    image: "/images/convenios/cooperacion/qcs.png",
+    href: "https://qcs.com.ec/",
+  },
+  {
+    name: "Universidad Técnica de Machachi",
+    image: "/images/convenios/cooperacion/universidad-tecnica-de-machachi.png",
+    href: "https://www.utmachala.edu.ec/portalwp/",
+  },
+  {
+    name: "Cámara de la Pequeña Minería",
+    image:
+      "/images/convenios/cooperacion/camara-de-la-pequena-mineria-del-ecuador.png",
+  },
   {
     name: "Intermodal Solutions Group logo",
-    image: "/images/convenios/logos/intermodal-solutions-group.png",
+    image: "/images/convenios/cooperacion/intermodal-solutions-group.png",
+    href: "https://pittoship.com/",
   },
   {
-    name: "Ministerio de Energía y Minas logo",
-    image: "/images/convenios/logos/ministerio_de_energia_y_minas.png",
+    name: "Women In Mining",
+    image: "/images/convenios/cooperacion/women-in-mining.png",
+    href: "https://www.wimecuador.com/",
   },
   {
-    name: "Ministerio de las telecomunicaciones y de la Sociedad de la Información logo",
-    image: "/images/convenios/logos/mintel.png",
+    name: "Universidad Nacional de Loja",
+    image: "/images/convenios/cooperacion/universidad-nacional-de-loja.png",
+    href: "https://www.unl.edu.ec/",
   },
   {
-    name: "Camara de la pequeña minería del Ecuador logo",
-    image:
-      "/images/convenios/logos/camara-de-la-pequena-mineria-del-ecuador.png",
-  },
-  {
-    name: "QCS logo",
-    image: "/images/convenios/logos/qcs.png",
-  },
-  {
-    name: "Ibarra ciudad blanca logo",
-    image: "/images/convenios/logos/ciudad-blanca.png",
-  },
-  {
-    name: "RUDN University logo",
-    image: "/images/convenios/logos/rudn-university.png",
-  },
-  {
-    name: "Universidad Nacional de Loja logo",
-    image: "/images/convenios/logos/universidad-nacional-de-loja.png",
-  },
-  {
-    name: "Universidad Técnica de Machala logo",
-    image: "/images/convenios/logos/universidad-tecninca-de-machala.png",
-  },
-  {
-    name: "Women in Mining logo",
-    image: "/images/convenios/logos/women-in-mining.png",
+    name: "Facultad de Ingeniería en Geología, Minas, Petróleos y Ambiental de la Universidad Central del Ecuador",
+    image: "/images/convenios/interinstitucionales/figempa.png",
+    href: "https://www.uce.edu.ec/web/figempa",
   },
 ];
 ---
@@ -142,9 +178,7 @@ const logos = [
         </ButtonLink>
       </div>
 
-      <div
-        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"
-      >
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         <FacebookGallery limit={8} client:load />
       </div>
     </div>
@@ -204,7 +238,7 @@ const logos = [
 
   <!-- Convenios Interinstitucionales Section -->
   <!-- Aval Section -->
-  <section class="pt-16 pb-10 md:pt-24 md:pb-18">
+  <section class="pt-16 pb-10 md:pb-18">
     <div class="container">
       <div class="flex items-center space-x-2 mb-2 justify-center">
         <div class="h-1 w-10 bg-primary"></div>
@@ -222,18 +256,23 @@ const logos = [
       </div>
     </div>
     <div
-      class="bg-muted mt-11 px-6 py-10 grid grid-cols-2 gap-6 items-center justify-items-center lg:flex lg:justify-center lg:gap-20"
+      class="bg-muted mt-14 px-6 py-10 grid grid-cols-2 gap-6 items-center justify-items-center lg:flex lg:justify-center lg:gap-20"
     >
       {
-        companyLogos.map((logo) => (
-          <a href={logo.href || "#"} target="_blank" rel="noopener noreferrer">
+        companyLogos.map((logo, index) => (
+          <a
+            href={logo.href || "#"}
+            target={logo.href ? "_blank" : ""}
+            rel="noopener noreferrer"
+            class="transition-transform duration-[250ms] hover:-translate-y-1"
+          >
             <Image
               src={logo.image}
               alt={logo.name}
               loading="eager"
               width={150}
               height={80}
-              class="max-h-[70px] w-auto object-contain animate-duration-[800ms]"
+              class={`w-auto object-contain animate-duration-[800ms] ${index === 0 ? "max-h-[60px]" : "max-h-20"}`}
               data-fade="up"
             />
           </a>
@@ -248,7 +287,48 @@ const logos = [
         <h2
           class="text-[22px] font-bold tracking-tighter sm:text-3xl md:text-4xl"
         >
-          Convenios Interinstitucionales
+          Relaciones Interinstitucionales
+        </h2>
+        <p class="mt-4 text-muted-foreground max-w-3xl mx-auto">
+          Establecemos alianzas estratégicas con entidades académicas y
+          gubernamentales para impulsar proyectos de investigación, formación y
+          desarrollo que beneficien al sector minero ecuatoriano.
+        </p>
+      </div>
+    </div>
+    <div
+      class="container px-6 pt-5 pb-14 grid grid-cols-2 md:grid-cols-3 gap-6 items-center justify-items-center"
+    >
+      {
+        interinstitutionalAgreements.map((logo, index) => (
+          <a
+            href={logo.href || "#"}
+            target={logo.href ? "_blank" : ""}
+            rel="noopener noreferrer"
+            class="transition-transform duration-[250ms] hover:-translate-y-1"
+          >
+            <Image
+              src={logo.image}
+              alt={logo.name}
+              loading="eager"
+              width={150}
+              height={80}
+              class={`w-auto object-contain animate-duration-[800ms] ${index === 3 ? "max-h-[70px]" : "max-h-24"} ${index === 5 ? "rounded-md" : ""}`}
+              data-fade="up"
+            />
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="pt-0">
+    <div class="container">
+      <div class="text-center mb-12">
+        <h2
+          class="text-[22px] font-bold tracking-tighter sm:text-3xl md:text-4xl"
+        >
+          Convenios de Cooperación
         </h2>
         <p class="mt-4 text-muted-foreground max-w-3xl mx-auto">
           Trabajamos en colaboración con instituciones académicas,
@@ -257,22 +337,48 @@ const logos = [
         </p>
       </div>
     </div>
-    <LogoMarquee logos={logos} speed={40} client:load />
+    <div
+      class="container px-6 pt-5 pb-14 grid grid-cols-2 lg:flex lg:flex-wrap lg:justify-center gap-6 items-center justify-items-center lg:gap-20"
+    >
+      {
+        cooperationAgreements.map((logo, index) => (
+          <a
+            href={logo.href || "#"}
+             target={logo.href ? "_blank" : ""}
+            rel="noopener noreferrer"
+            class="transition-transform duration-[250ms] hover:-translate-y-1"
+          >
+            <Image
+              src={logo.image}
+              alt={logo.name}
+              loading="eager"
+              width={150}
+              height={80}
+              class={`w-auto object-contain animate-duration-[800ms] ${index === 1 ? "max-h-[150px]" : "max-h-[90px]"}`}
+              data-fade="up"
+            />
+          </a>
+        ))
+      }
+    </div>
   </section>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener("DOMContentLoaded", () => {
       const images = document.querySelectorAll('img[data-fade="up"]');
       if (images.length) {
-        const observer = new window.IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('animate-fade-up');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.3 });
-        images.forEach(img => observer.observe(img));
+        const observer = new window.IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animate-fade-up");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.3 }
+        );
+        images.forEach((img) => observer.observe(img));
       }
     });
   </script>

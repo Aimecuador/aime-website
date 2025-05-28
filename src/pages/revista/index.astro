@@ -92,7 +92,9 @@ const publicaciones = [
         Accede a nuestras publicaciones digitales con artículos técnicos,
         entrevistas a profesionales destacados y las últimas innovaciones en el
         sector minero ecuatoriano.
-      </p>      <!-- Tarjetas de publicaciones -->
+      </p>      
+
+      <!-- Tarjetas de publicaciones -->
       <div class="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 mb-12">
         {
           publicaciones.map((pub) => (
@@ -109,12 +111,12 @@ const publicaciones = [
                     class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                   />
                   <div
-                    class="absolute inset-x0 bottom-0 h-fit bg-black/65 group-hover:backdrop-blur-sm"
+                    class="absolute inset-x0 bottom-0 h-fit bg-black/70 group-hover:backdrop-blur-sm"
                   >
                     <div class="p-4 text-white">
                       <h2 class="text-2xl font-bold mb-2">{pub.titulo}</h2>
                       <div
-                        class="overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-48 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 ease-out group-hover:delay-100"
+                        class=""
                       >
                         <p class={pub.textoClase + " mt-2"}>
                           {pub.descripcion}
