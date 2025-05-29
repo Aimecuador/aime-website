@@ -29,7 +29,7 @@ const carouselItems: CarouselItem[] = [
   {
     title: "Asociación de Ingenieros de Minas del Ecuador",
     description:
-      "Promoviendo el desarrollo sostenible de la <strong>minería en Ecuador</strong> a través de la excelencia profesional y la innovación.",
+      "Somos una organización técnica científica que agrupa a profesionales de la industria minera ecuatoriana, con reconocimiento a nivel nacional e internacional. <strong>¡Forjemos juntos un futuro exitoso!</strong>",
     imageMobile: "/images/home/hero-1-sm.webp",
     imageXL: "/images/home/hero-1-lg.webp",
     imageXXL: "/images/home/hero-1-xl.webp",
@@ -42,18 +42,6 @@ const carouselItems: CarouselItem[] = [
       href: "/quienes-somos",
     },
   },
-  {
-    title: "Últimas Noticias",
-    description:
-      "Mantente <strong>informado</strong> sobre las últimas novedades de las actividades que realiza AIME. Noticias, eventos y más.",
-    imageMobile: "/images/home/hero-1-sm.webp",
-    imageXL: "/images/home/hero-1-lg.webp",
-    imageXXL: "/images/home/hero-1-xl.webp",
-    primaryButton: {
-      text: "Ver noticias",
-      href: "/revista",
-    },
-  }
 ];
 
 export default function HeroCarousel() {
@@ -87,6 +75,7 @@ export default function HeroCarousel() {
     }, 400);
   };
 
+  /*
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isAnimating) {
@@ -96,6 +85,7 @@ export default function HeroCarousel() {
 
     return () => clearInterval(interval);
   }, [isAnimating]);
+  */
 
   const handleTouchStart = (e: TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -179,7 +169,7 @@ export default function HeroCarousel() {
   return (
     <section
       id="inicio"
-      className="relative h-[500px] md:h-[380px] py-10 overflow-hidden cursor-grab active:cursor-grabbing"
+      className="relative h-[82dvh] overflow-hidden cursor-grab active:cursor-grabbing mt-[2dvh]"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -210,55 +200,58 @@ export default function HeroCarousel() {
       ))}
 
       <div className="container relative z-10 h-full flex flex-col justify-center">
-        <div
-          className={`max-w-3xl space-y-5 text-white transition-all duration-500 ${
-            isAnimating
-              ? "opacity-0 translate-y-4"
-              : "opacity-100 translate-y-0"
-          }`}
-        >
-          <div className="flex items-center space-x-2">
-            <div className="h-1 w-10 bg-primary"></div>
-            <span className="text-sm font-medium uppercase tracking-wider">
-              AIME Ecuador
-            </span>
-          </div>
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">
-            {currentItem.title}
-          </h1>
-          <p className="text-lg md:text-xl">{parse(currentItem.description)}</p>
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 pt-4">
-            {currentItem.primaryButton && (
-              <Button
-                size="lg"
-                className="transition-all duration-300 hover:scale-105"
-                asChild
-              >
-                <a href={currentItem.primaryButton.href}>
-                  {currentItem.primaryButton.text}
-                </a>
-              </Button>
-            )}
-            {currentItem.secondaryButton && (
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-background/20 hover:bg-background/40 transition-all duration-300 hover:scale-105 group"
-                asChild
-              >
-                <a
-                  href={currentItem.secondaryButton.href}
-                  className="flex items-center"
+        {carouselItems.map((item, index) => (
+          <div
+            key={index}
+            className={`max-w-3xl h-[70%] flex flex-col justify-around space-y-5 text-white transition-all duration-500 ${
+              index === currentIndex && !isAnimating ? "opacity-100" : "opacity-0 absolute"
+            }`}
+          >
+            <div className={`flex items-center space-x-2 ${index === currentIndex ? "animate-fade-right animate-delay-100 animate-duration-700" : ""}`}>
+              <div className="h-1 w-10 bg-primary"></div>
+              <span className="text-sm font-medium uppercase tracking-wider">
+                AIME Ecuador
+              </span>
+            </div>
+            <h1 className={`text-4xl font-bold tracking-tighter sm:text-5xl lg:text-[55px] ${index === currentIndex ? "animate-fade-up animate-delay-200 animate-duration-700" : ""}`}>
+              {item.title}
+            </h1>
+            <p className={`text-lg md:text-xl ${index === currentIndex ? "animate-fade-up animate-delay-300 animate-duration-700" : ""}`}>
+              {parse(item.description)}
+            </p>
+            <div className={`flex flex-col sm:flex-row gap-2 sm:gap-4 pt-4 ${index === currentIndex ? "animate-fade-up animate-delay-300 animate-duration-500" : ""}`}>
+              {item.primaryButton && (
+                <Button
+                  size="lg"
+                  className={`transition-all duration-300 hover:scale-105 ${index === currentIndex ? "animate-pulse animate-once animate-ease-in-out" : ""}`}
+                  asChild
                 >
-                  {currentItem.secondaryButton.text}{" "}
-                  {currentItem.secondaryButton.text === "Conoce más" && (
-                    <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  )}
-                </a>
-              </Button>
-            )}
+                  <a href={item.primaryButton.href}>
+                    {item.primaryButton.text}
+                  </a>
+                </Button>
+              )}
+              {item.secondaryButton && (
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className={`bg-background/20 hover:bg-background/40 transition-all duration-300 hover:scale-105 group ${index === currentIndex ? "animate-pulse animate-once animate-ease-in-out animate-delay-100" : ""}`}
+                  asChild
+                >
+                  <a
+                    href={item.secondaryButton.href}
+                    className="flex items-center"
+                  >
+                    {item.secondaryButton.text}{" "}
+                    {item.secondaryButton.text === "Conoce más" && (
+                      <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    )}
+                  </a>
+                </Button>
+              )}
+            </div>
           </div>
-        </div>
+        ))}
       </div>
 
       <div className="absolute pt-4 bottom-4 left-0 right-0 z-10 flex justify-center space-x-2">

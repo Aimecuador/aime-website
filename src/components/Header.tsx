@@ -70,11 +70,11 @@ export default function Header() {
     <header className="fixed w-full top-0 z-40 font-medium">
       <div
         className={cn(
-          "bg-primary transition-all duration-300 ease-in-out",
-          isScrolled ? "opacity-0 h-0 overflow-hidden" : "opacity-100 h-10"
+          "bg-primary transition-all duration-300 ease-in-out grid place-items-center",
+          isScrolled ? "opacity-0 h-0 overflow-hidden" : "opacity-100 h-[6dvh]"
         )}
       >
-        <div className="container mx-auto flex items-center justify-end h-10">
+        <div className="container mx-auto flex items-center justify-end">
           <SocialIcons
             className="space-x-1"
             iconClassName="size-5"
@@ -85,7 +85,8 @@ export default function Header() {
 
       <div
         className={cn(
-          "w-full transition-all bg-white duration-300 ease-in-out border-b border-b-gray-200 py-3 lg:py-2"
+          "w-full transition-all bg-white duration-300 ease-in-out border-b border-b-gray-200 grid place-items-center",
+          isScrolled ? "h-[10dvh]" : "h-[12dvh]"
         )}
       >
         <div className="container">
@@ -104,7 +105,7 @@ export default function Header() {
               />
             </a>
 
-            <nav className="hidden xl:flex items-center gap-5">
+            <nav className="hidden xl:flex items-center gap-7 text-[16.5px]">
               {menuItems.map((item) =>
                 item.dropdown ? (
                   <div
@@ -165,7 +166,15 @@ export default function Header() {
               )}
             </nav>
 
-            <Button className="hidden xl:inline-block">Hazte Miembro</Button>
+            <Button className="hidden xl:inline-block" asChild>
+              <a
+                href="https://wa.me/593968204060?text=Hola%2C%20me%20interesa%20obtener%20informaci%C3%B3n%20sobre%20c%C3%B3mo%20unirme%20a%20AIME.%20%C2%BFPodr%C3%ADan%20brindarme%20detalles%20%3F%20Gracias."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="inline-block mt-[2px]">Únete a AIME</span>
+              </a>
+            </Button>
 
             <button
               type="button"
@@ -250,7 +259,15 @@ export default function Header() {
               )}
 
               <div className="border-t border-gray-200 pt-4 pb-3">
-                <Button>Hazte Miembro</Button>
+                <Button className="xl:hidden" asChild>
+                  <a
+                    href="https://wa.me/593968204060?text=Hola%2C%20me%20interesa%20obtener%20informaci%C3%B3n%20sobre%20c%C3%B3mo%20unirme%20a%20AIME.%20%C2%BFPodr%C3%ADan%20brindarme%20detalles%20%3F%20Gracias."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="inline-block mt-[2px]">Únete a AIME</span>
+                  </a>
+                </Button>
               </div>
             </nav>
           </div>
