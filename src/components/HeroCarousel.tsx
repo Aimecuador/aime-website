@@ -223,7 +223,7 @@ export default function HeroCarousel() {
               {item.primaryButton && (
                 <Button
                   size="lg"
-                  className={`transition-all duration-300 hover:scale-105 ${index === currentIndex ? "animate-pulse animate-once animate-ease-in-out" : ""}`}
+                  className={`transition-all duration-300 hover:scale-105 ${index === currentIndex ? "animate-pulse animate-duration-300 animate-once animate-ease-in-out" : ""}`}
                   asChild
                 >
                   <a href={item.primaryButton.href}>

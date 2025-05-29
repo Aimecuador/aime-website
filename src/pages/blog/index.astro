@@ -74,13 +74,15 @@ const blogPosts = [
         >
           <CardHeader>
             <div class="relative w-full overflow-hidden">
-              <Image
+              <a href={`/blog/${post.slug}`}>
+                <Image
                 src={post.image}
                 alt={post.title}
                 width={600}
                 height={400}
                 class="w-full transition-transform duration-500 group-hover:scale-110"
               />
+              </a>
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end pointer-events-none"></div>
             </div>
           </CardHeader>
@@ -89,14 +91,11 @@ const blogPosts = [
               <Calendar className="h-4 w-4 mr-2 text-primary" />
               <span>{post.date}</span>
             </div>
-            <CardTitle className="text-2xl font-semibold leading-none tracking-tight mb-2.5 line-clamp-2">
+            <CardTitle className="text-2xl font-semibold leading-none tracking-tight mb-2 line-clamp-3">
               {post.title}
             </CardTitle>
-            <p class="text-muted-foreground line-clamp-3">
-              {post.excerpt}
-            </p>
           </CardContent>
-          <CardFooter className='mt-2'>
+          <CardFooter>
             <a
               href={`/blog/${post.slug}`}
               class="group/link flex items-center hover:underline text-sm text-blue-600 hover:text-primary"
