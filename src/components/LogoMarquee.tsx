@@ -4,11 +4,13 @@ interface LogoMarqueeProps {
   logos: {
     name: string;
     image: string;
+    href?: string;
+    scale?: number;
   }[];
   speed?: number;
 }
 
-export default function LogoMarquee({ logos, speed = 30 }: LogoMarqueeProps) {
+export function LogoMarquee({ logos, speed = 50 }: LogoMarqueeProps) {
   const [isPaused, setIsPaused] = useState(false);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const currentPositionRef = useRef(0);
@@ -47,21 +49,27 @@ export default function LogoMarquee({ logos, speed = 30 }: LogoMarqueeProps) {
   }, [isPaused, speed]);
 
   return (
-    <div className="w-full overflow-hidden h-36">
-      <div
-        ref={marqueeRef}
-        className="flex whitespace-nowrap gap-12"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-      >
+    <div
+      className="w-full overflow-hidden h-40 mt-5"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <div ref={marqueeRef} className="flex whitespace-nowrap gap-12">
         {duplicatedLogos.map((logo, index) => (
-          <img
-            src={logo.image || "/placeholder.svg"}
-            alt={logo.name}
-            width={120}
-            height={80}
-            className="max-h-24 w-auto object-contain"
-          />
+          <a
+            key={`${logo.name}-${index}`}
+            href={logo.href || "#"}
+            target={logo.href ? "_blank" : ""}
+            className="flex items-center justify-center transition-transform duration-[250ms] hover:scale-95"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={logo.image || "/placeholder.svg"}
+              alt={logo.name}
+              className="h-[85px] min-w-32 max-w-max object-contain"
+              style={{ transform: `scale(${logo.scale || 1})` }}
+            />
+          </a>
         ))}
       </div>
     </div>

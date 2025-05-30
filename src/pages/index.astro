@@ -1,11 +1,12 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import HeroCarousel from "@/components/HeroCarousel";
+import Hero from "@/components/Hero.astro";
 import ButtonLink from "@/components/ui/ButtonLink.astro";
 import { ChevronRight } from "lucide-react";
 import { Image } from "astro:assets";
 import { FacebookGallery } from "@/components/sections/FacebookGallery";
 import { FacebookNews } from "@/components/sections/FacebookNews";
+import { LogoMarquee } from "@/components/LogoMarquee";
 
 const companyLogos = [
   {
@@ -45,11 +46,12 @@ const interinstitutionalAgreements = [
     name: "RUDN University",
     image: "/images/convenios/interinstitucionales/rudn-university.png",
     href: "https://www.rudn.ru/",
+    scale: 0.8,
   },
   {
-    name: "Cámara de la Industria de la Construcción",
-    image: "/images/convenios/interinstitucionales/camicon.png",
-    href: "https://camicon.ec/web/",
+    name: "Escuela Superior Politécnica del Litoral",
+    image: "/images/convenios/cooperacion/espol.png",
+    href: "https://www.espol.edu.ec/es",
   },
   {
     name: "Seguridad y Salud Ocupacional",
@@ -73,11 +75,13 @@ const cooperationAgreements = [
   {
     name: "CAMIPE",
     image: "/images/convenios/cooperacion/camipe.png",
+    scale: 1.2,
   },
   {
     name: "QCS Servicios Profesionales",
     image: "/images/convenios/cooperacion/qcs.png",
     href: "https://qcs.com.ec/",
+    scale: 0.9,
   },
   {
     name: "Universidad Técnica de Machachi",
@@ -88,26 +92,29 @@ const cooperationAgreements = [
     name: "Cámara de la Pequeña Minería",
     image:
       "/images/convenios/cooperacion/camara-de-la-pequena-mineria-del-ecuador.png",
+    scale: 1.05,
   },
   {
     name: "Intermodal Solutions Group logo",
     image: "/images/convenios/cooperacion/intermodal-solutions-group.png",
     href: "https://pittoship.com/",
+    scale: 1.1,
+  },
+  {
+    name: "Cámara de la Industria de la Construcción",
+    image: "/images/convenios/interinstitucionales/camicon.png",
+    href: "https://camicon.ec/web/",
+    scale: 0.75,
   },
   {
     name: "Women In Mining",
-    image: "/images/convenios/cooperacion/women-in-mining.png",
+    image: "/images/convenios/cooperacion/women-in-mining.jpg",
     href: "https://www.wimecuador.com/",
   },
   {
     name: "Universidad Nacional de Loja",
     image: "/images/convenios/cooperacion/universidad-nacional-de-loja.png",
     href: "https://www.unl.edu.ec/",
-  },
-  {
-    name: "Facultad de Ingeniería en Geología, Minas, Petróleos y Ambiental de la Universidad Central del Ecuador",
-    image: "/images/convenios/interinstitucionales/figempa.png",
-    href: "https://www.uce.edu.ec/web/figempa",
   },
 ];
 ---
@@ -116,7 +123,7 @@ const cooperationAgreements = [
   title="AIME - Asociación de Ingenieros de Minas del Ecuador"
   description="Somos una organización técnica científica que agrupa a profesionales de la industria minera ecuatoriana, con reconocimiento a nivel nacional e internacional. ¡Forjemos juntos un futuro exitoso!"
 >
-  <HeroCarousel client:load />
+  <Hero />
 
   <!-- Noticias Section -->
   <section class="py-10">
@@ -281,13 +288,13 @@ const cooperationAgreements = [
     </div>
   </section>
 
-  <section class="pt-0">
+  <section class="pt-5">
     <div class="container">
       <div class="text-center mb-12">
         <h2
           class="text-[22px] font-bold tracking-tighter sm:text-3xl md:text-4xl"
         >
-          Relaciones Interinstitucionales
+          Convenios Interinstitucionales
         </h2>
         <p class="mt-4 text-muted-foreground max-w-3xl mx-auto">
           Establecemos alianzas estratégicas con entidades académicas y
@@ -296,71 +303,10 @@ const cooperationAgreements = [
         </p>
       </div>
     </div>
-    <div
-      class="container px-6 pt-5 pb-14 grid grid-cols-2 md:grid-cols-3 gap-6 items-center justify-items-center"
-    >
-      {
-        interinstitutionalAgreements.map((logo, index) => (
-          <a
-            href={logo.href || "#"}
-            target={logo.href ? "_blank" : ""}
-            rel="noopener noreferrer"
-            class="transition-transform duration-[250ms] hover:-translate-y-1"
-          >
-            <Image
-              src={logo.image}
-              alt={logo.name}
-              loading="eager"
-              width={150}
-              height={80}
-              class={`w-auto object-contain animate-duration-[800ms] ${index === 3 ? "max-h-[70px]" : "max-h-24"} ${index === 5 ? "rounded-md" : ""}`}
-              data-fade="up"
-            />
-          </a>
-        ))
-      }
-    </div>
-  </section>
-
-  <section class="pt-0">
-    <div class="container">
-      <div class="text-center mb-12">
-        <h2
-          class="text-[22px] font-bold tracking-tighter sm:text-3xl md:text-4xl"
-        >
-          Convenios de Cooperación
-        </h2>
-        <p class="mt-4 text-muted-foreground max-w-3xl mx-auto">
-          Trabajamos en colaboración con instituciones académicas,
-          gubernamentales y empresas del sector para fortalecer la industria
-          minera ecuatoriana y promover el desarrollo profesional.
-        </p>
-      </div>
-    </div>
-    <div
-      class="container px-6 pt-5 pb-14 grid grid-cols-2 lg:flex lg:flex-wrap lg:justify-center gap-6 items-center justify-items-center lg:gap-20"
-    >
-      {
-        cooperationAgreements.map((logo, index) => (
-          <a
-            href={logo.href || "#"}
-             target={logo.href ? "_blank" : ""}
-            rel="noopener noreferrer"
-            class="transition-transform duration-[250ms] hover:-translate-y-1"
-          >
-            <Image
-              src={logo.image}
-              alt={logo.name}
-              loading="eager"
-              width={150}
-              height={80}
-              class={`w-auto object-contain animate-duration-[800ms] ${index === 1 ? "max-h-[150px]" : "max-h-[90px]"}`}
-              data-fade="up"
-            />
-          </a>
-        ))
-      }
-    </div>
+    <LogoMarquee
+      logos={[...interinstitutionalAgreements, ...cooperationAgreements]}
+      client:visible
+    />
   </section>
 
   <script>

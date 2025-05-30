@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import SocialIcons from "./SocialIcons";
 import { cn } from "../lib/utils";
 import { Button } from "./ui/button";
 
@@ -25,6 +24,11 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [headerClassname, setHeaderClassname] = useState(
+    isScrolled
+      ? "h-[10dvh] bg-white text-foreground shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]"
+      : "h-[15dvh] bg-transparent text-white"
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,6 +38,22 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (window.location.pathname === "/") {
+      const homeHeaderClass = isScrolled
+        ? "h-[10dvh] bg-white text-foreground shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]"
+        : "h-[15dvh] bg-transparent text-white";
+
+      setHeaderClassname(homeHeaderClass);
+    } else {
+      const homeHeaderClass = isScrolled
+        ? "h-[10dvh] bg-white text-foreground shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]"
+        : "h-[15dvh] shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]";
+
+      setHeaderClassname(homeHeaderClass);
+    }
+  }, [isScrolled]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -70,23 +90,8 @@ export default function Header() {
     <header className="fixed w-full top-0 z-40 font-medium">
       <div
         className={cn(
-          "bg-primary transition-all duration-300 ease-in-out grid place-items-center",
-          isScrolled ? "opacity-0 h-0 overflow-hidden" : "opacity-100 h-[6dvh]"
-        )}
-      >
-        <div className="container mx-auto flex items-center justify-end">
-          <SocialIcons
-            className="space-x-1"
-            iconClassName="size-5"
-            iconColor="text-white rounded-full p-1.5 hover:bg-secondary"
-          />
-        </div>
-      </div>
-
-      <div
-        className={cn(
-          "w-full transition-all bg-white duration-300 ease-in-out border-b border-b-gray-200 grid place-items-center",
-          isScrolled ? "h-[10dvh]" : "h-[12dvh]"
+          "w-full transition-all duration-300 ease-in-out grid place-items-center",
+          headerClassname
         )}
       >
         <div className="container">
@@ -95,17 +100,19 @@ export default function Header() {
               href="/"
               className={cn(
                 "aspect-[800/682] w-auto",
-                isScrolled ? "h-[55px]" : "h-[55px] lg:h-[70px]"
+                isScrolled
+                  ? "h-[55px]"
+                  : "h-[55px] lg:h-[70px] p-1 bg-white rounded-md"
               )}
             >
               <img
                 src={"/aime-logo-sin-texto.jpg"}
                 alt="AIME logo"
-                className="h-full w-full"
+                className="h-full w-full object-contain"
               />
             </a>
 
-            <nav className="hidden xl:flex items-center gap-7 text-[16.5px]">
+            <nav className="hidden xl:flex items-center gap-6 text-base">
               {menuItems.map((item) =>
                 item.dropdown ? (
                   <div
@@ -116,7 +123,7 @@ export default function Header() {
                   >
                     <button
                       type="button"
-                      className="font-se text-gray-800 transition-colors py-2 hover:text-primary flex items-center gap-1"
+                      className="p-2 hover:text-primary flex items-center gap-1"
                       aria-haspopup="true"
                     >
                       {item.name}
@@ -137,7 +144,11 @@ export default function Header() {
                       </svg>
                     </button>
                     <div
-                      className={`absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg transition-all duration-200 z-50 ${
+                      className={`absolute left-0 mt-2 w-48 border rounded-md shadow-lg transition-all duration-200 z-50 divide-y px-5 py-1 ${
+                        isScrolled
+                          ? "bg-white text-foreground border-gray-200 divide-gray-200"
+                          : "backdrop-blur-md border-gray-400 divide-gray-400"
+                      } ${
                         isDropdownOpen
                           ? "opacity-100 visible translate-y-0"
                           : "opacity-0 invisible -translate-y-2"
@@ -147,7 +158,7 @@ export default function Header() {
                         <a
                           key={subitem.name}
                           href={subitem.href}
-                          className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors"
+                          className="block hover:text-primary p-2"
                         >
                           {subitem.name}
                         </a>
@@ -158,7 +169,7 @@ export default function Header() {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="font-se text-gray-800 transition-colors py-2 hover:text-primary"
+                    className="font-se p-2 hover:text-primary"
                   >
                     {item.name}
                   </a>
@@ -184,9 +195,21 @@ export default function Header() {
               aria-label="Abrir menú"
             >
               <div className={`hamburger ${isMenuOpen ? "active" : ""}`}>
-                <span className="hamburger-line"></span>
-                <span className="hamburger-line"></span>
-                <span className="hamburger-line"></span>
+                <span
+                  className={`${
+                    isScrolled ? "hamburger-line" : "hamburger-line-transparent"
+                  }`}
+                ></span>
+                <span
+                  className={`${
+                    isScrolled ? "hamburger-line" : "hamburger-line-transparent"
+                  }`}
+                ></span>
+                <span
+                  className={`${
+                    isScrolled ? "hamburger-line" : "hamburger-line-transparent"
+                  }`}
+                ></span>
               </div>
             </button>
           </div>

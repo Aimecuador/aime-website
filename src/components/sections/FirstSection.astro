@@ -1,0 +1,7 @@
+---
+const pathname = Astro.url.pathname;
+---
+
+<div class={`${pathname === "/" ? "" : "mt-[120px]"}`}>
+  <slot />
+</div>

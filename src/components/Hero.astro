@@ -1,0 +1,81 @@
+---
+import { ChevronRight } from "lucide-react";
+import SocialIcons from "./SocialIcons";
+import { Image } from "astro:assets";
+---
+
+<div class="relative overflow-hidden">
+  <div class="absolute inset-0 z-10 bg-black/70"></div>
+  <div
+    class="absolute overflow-hidden inset-0 z-0 transition-opacity duration-1000"
+  >
+    <picture>
+      <source
+        media="(min-width: 1024px)"
+        srcset="/images/home/hero-1-xl.webp"
+      />
+      <source media="(min-width: 640px)" srcset="/images/home/hero-1-lg.webp" />
+      <Image
+        src="/images/home/hero-1-sm.webp"
+        alt="Minería en Ecuador"
+        width={1920}
+        height={1080}
+        loading="eager"
+        class="object-cover w-full h-full"
+      />
+    </picture>
+  </div>
+  <section
+    id="inicio"
+    class="h-[90dvh] overflow-hidden mt-[110px] xl:mt-[85px]"
+  >
+    <div class="container grid items-center relative z-10 h-full">
+      <div
+        class="max-w-3xl mx-auto h-[80%] md:h-[70%] flex flex-col justify-around text-white text-center"
+      >
+        <div class="flex justify-center items-center space-x-2">
+          <div class="h-1 w-10 bg-primary"></div>
+          <span class="font-medium uppercase tracking-wider">
+            AIME
+          </span>
+          <div class="h-1 w-10 bg-primary"></div>
+        </div>
+        <h1
+          class="text-4xl font-bold tracking-tighter sm:text-5xl lg:text-[55px] animate-fade-up animate-delay-200 animate-duration-700"
+        >
+          Asociación de Ingenieros de Minas del Ecuador
+        </h1>
+        <p
+          class="text-lg md:text-2xl animate-fade-up animate-delay-300 animate-duration-700"
+        >
+          Promoviendo el desarrollo <strong>sostenible</strong> de la minería en
+          Ecuador
+        </p>
+        <div
+          class="flex flex-col sm:flex-row gap-2 sm:gap-4 pt-4 animate-fade-up animate-delay-300 animate-duration-500 justify-center"
+        >
+          <a
+            href="/contacto"
+            class="inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-base font-medium text-white transition-all duration-300 hover:scale-105 animate-pulse animate-duration-300 animate-once animate-ease-in-out"
+          >
+            Contáctanos
+          </a>
+          <a
+            href="/quienes-somos"
+            class="inline-flex h-11 items-center justify-center rounded-md border border-input bg-background/20 hover:bg-background/40 px-8 text-base font-medium transition-all duration-300 hover:scale-105 group"
+          >
+            Conoce más
+            <ChevronRight
+              className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </a>
+        </div>
+
+        <SocialIcons
+          className="justify-center mt-7"
+          iconColor="rounded-full hover:text-white bg-transparent p-1.5 hover:bg-primary"
+        />
+      </div>
+    </div>
+  </section>
+</div>
