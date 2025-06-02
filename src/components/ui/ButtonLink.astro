@@ -1,7 +1,7 @@
 ---
 interface Props {
   href: string;
-  variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link';
+  variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link' | 'outline-dark';
   size?: 'default' | 'sm' | 'lg' | 'icon';
   class?: string;
   target?: string;
@@ -31,6 +31,7 @@ const {
     variant === 'secondary' && 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
     variant === 'ghost' && 'hover:bg-accent hover:text-accent-foreground',
     variant === 'link' && 'text-primary underline-offset-4 hover:underline',
+    variant === 'outline-dark' && 'text-black border border-black/50 hover:text-black hover:bg-primary',
     size === 'default' && 'h-10 px-4 py-2',
     size === 'sm' && 'h-9 px-3',
     size === 'lg' && 'h-11 px-8',
