@@ -144,11 +144,7 @@ export default function Header() {
                       </svg>
                     </button>
                     <div
-                      className={`absolute left-0 mt-2 w-48 border rounded-md shadow-lg transition-all duration-200 z-50 divide-y px-5 py-1 ${
-                        isScrolled
-                          ? "bg-white text-foreground border-gray-200 divide-gray-200"
-                          : "backdrop-blur-md border-gray-400 divide-gray-400"
-                      } ${
+                      className={`absolute left-0 mt-2 w-48 border rounded-md shadow-lg transition-all duration-200 z-50 divide-y px-5 py-1 bg-white text-foreground border-gray-200 divide-gray-200 ${
                         isDropdownOpen
                           ? "opacity-100 visible translate-y-0"
                           : "opacity-0 invisible -translate-y-2"

@@ -1,12 +1,40 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Hero from "@/components/Hero.astro";
-import ButtonLink from "@/components/ui/ButtonLink.astro";
-import { ChevronRight } from "lucide-react";
 import { Image } from "astro:assets";
-import { FacebookGallery } from "@/components/sections/FacebookGallery";
-import { FacebookNews } from "@/components/sections/FacebookNews";
 import { LogoMarquee } from "@/components/LogoMarquee";
+import ButtonLink from "@/components/ui/ButtonLink.astro";
+
+const upcomingEventsAndNews = [
+  {
+    title: "Curso de Seguridad Minera",
+    image: "/images/eventos/proximos-eventos/seguridad-minera.jpeg",
+    date: "23 - 25 Junio de 2025",
+  },
+  {
+    title: "XI Cumbre Internacional Minera",
+    image:
+      "/images/eventos/proximos-eventos/xi-cumbre-internacional-minera.jpeg",
+    date: "4- 5 Septiembre de 2025",
+  }
+];
+
+const upcomingEvents = [
+  {
+    title: "Curso de Seguridad Minera",
+    date: "23 - 25 Junio de 2025",
+    description: "-",
+    month: "jun",
+    day: "23"
+  },
+  {
+    title: "XI Cumbre Internacional Minera",
+    date: "4 - 5 Septiembre de 2025",
+    description: "Machala, Ecuador",
+    month: "sep",
+    day: "04"
+  },
+];
 
 const companyLogos = [
   {
@@ -125,69 +153,112 @@ const cooperationAgreements = [
 >
   <Hero />
 
-  <!-- Noticias Section -->
-  <section class="py-10">
+  <section class="py-16 bg-[#FCBF29]">
     <div class="container mx-auto">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+      <h2
+        class="text-3xl font-bold tracking-tighter sm:text-4xl mb-10 text-center text-gray-900"
+      >
+        PRÓXIMOS EVENTOS
+      </h2>
+
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-wrap justify-center gap-8 md:gap-12 lg:gap-16">
+          {
+            upcomingEvents.map((event) => (
+              <div
+                class="group max-w-[380px] flex-shrink-0 hover:scale-[1.02] transition-transform duration-300"
+              >
+                <div class="flex flex-col bg-[#f6ca45] rounded-lg overflow-hidden shadow-md">
+                  <div class="p-6 flex gap-4">
+                    <div class="flex-shrink-0">
+                      <div class="text-center">
+                        <div>
+                          <div class="text-4xl font-bold text-gray-900">
+                            {event.day}
+                          </div>
+                          <div class="text-sm font-medium text-gray-600">
+                            {event.month}.
+                          </div>
+                          <div class="text-xs text-gray-500 mt-1">2025</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ml-2">
+                      <h3 class="font-bold text-lg text-gray-900">
+                        {event.title}
+                      </h3>
+                      <p class="text-sm text-gray-700 mt-1">
+                        {event.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="text-center mt-10">
+          <ButtonLink
+            href="/eventos"
+            variant="outline"
+            class="text-black border border-black/50 hover:text-black"
+          >
+            Ver todos los eventos
+          </ButtonLink>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-center mb-12">
         <div>
-          <div class="flex items-center space-x-2 mb-2">
+          <div class="flex items-center justify-center space-x-2 mb-2">
             <div class="h-1 w-10 bg-primary"></div>
             <span
               class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
             >
               Novedades
             </span>
+            <div class="h-1 w-10 bg-primary"></div>
           </div>
           <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl mt-4">
-            Última Noticia
+            ÚLTIMAS NOTICIAS Y EVENTOS
           </h2>
-          <p class="mt-4 text-muted-foreground max-w-3xl">
-            Mantente informado con la publicación más reciente de AIME. Para ver
-            más publicaciones visita nuestra sección de revista.
-          </p>
         </div>
       </div>
-      <FacebookNews client:load />
-    </div>
-  </section>
 
-  <!-- Galería Section -->
-  <section class="py-16 md:py-24 bg-muted">
-    <div class="container">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-        <div>
-          <div class="flex items-center space-x-2 mb-2">
-            <div class="h-1 w-10 bg-primary"></div>
-            <span
-              class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
+      <!-- Grid de Últimas Noticias y Eventos -->
+      <div
+        class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 lg:gap-16 xl:flex xl:justify-center xl:gap-24"
+      >
+        {
+          upcomingEventsAndNews.map((event) => (
+            <button
+              class="xl:max-w-[300px] min-[1800px]:max-w-full hover:scale-[1.02] transition-transform duration-300"
+              data-image-src={event.image}
+              data-image-alt={event.title}
+              aria-label={`Ver imagen ampliada: ${event.title}`}
             >
-              Imágenes
-            </span>
-          </div>
-          <h2
-            class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
-          >
-            Nuestra Galería
-          </h2>
-          <p class="mt-4 text-muted-foreground max-w-3xl">
-            Explora momentos destacados de nuestras actividades, eventos y
-            proyectos mineros.
-          </p>
-        </div>
-        <ButtonLink
-          href="/galeria"
-          class="mt-4 mr-4 md:mt-0 self-start md:self-auto group"
-        >
-          Ver galería completa
-          <ChevronRight
-            className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-          />
-        </ButtonLink>
+              <Image
+                src={event.image}
+                alt={event.title}
+                width={300}
+                height={225}
+                class="w-full h-full xl:h-auto object-cover rounded-md"
+              />
+              <div class="mt-2">
+                <h3 class="font-bold text-lg">{event.title}</h3>
+                <p class="text-sm text-muted-foreground mt-1">{event.date}</p>
+              </div>
+            </button>
+          ))
+        }
       </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-        <FacebookGallery limit={8} client:load />
-      </div>
+      
+      <div id="imageModalContainer"></div>
     </div>
   </section>
 
@@ -209,50 +280,19 @@ const cooperationAgreements = [
           AIME ofrece una variedad de servicios y actividades para apoyar a los profesionales de la minería y promover el desarrollo sostenible del sector.
         </p>
       </div>
-
-      <div class="grid gap-8 md:grid-cols-2">
-        <div class="bg-muted rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:bg-muted/70">
-          <div class="text-4xl mb-4">🎓</div>
-          <h3 class="text-xl font-semibold mb-3">
-            Capacitación y asistencia técnica
-          </h3>
-          <p class="text-muted-foreground mb-4">
-            Organizamos seminarios, conferencias y talleres dirigidos a profesionales del sector minero, enfocados en seguridad en operaciones, minería responsable y construcción.
-          </p>
-          <ButtonLink href="/servicios" variant="outline" class="group">
-            Ver más
-            <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </ButtonLink>
-        </div>
-
-        <div class="bg-muted rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:bg-muted/70">
-          <div class="text-4xl mb-4">🤝</div>
-          <h3 class="text-xl font-semibold mb-3">
-            Convenios de cooperación
-          </h3>
-          <p class="text-muted-foreground mb-4">
-            Colaboramos con entidades gubernamentales y otras organizaciones para promover el desarrollo de proyectos y actividades en el ámbito geológico-minero.
-          </p>
-          <ButtonLink href="/servicios" variant="outline" class="group">
-            Ver más
-            <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </ButtonLink>
-        </div>
-      </div>
     </div>
   </section>
 -->
 
   <!-- Convenios Interinstitucionales Section -->
-  <!-- Aval Section -->
-  <section class="pt-16 pb-10 md:pb-18">
+  <section class="pt-5 pb-10 md:pb-18">
     <div class="container">
       <div class="flex items-center space-x-2 mb-2 justify-center">
         <div class="h-1 w-10 bg-primary"></div>
         <span
           class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
         >
-          Alianzas estratégicas
+          Nuestros Aliados
         </span>
         <div class="h-1 w-10 bg-primary"></div>
       </div>
@@ -325,6 +365,82 @@ const cooperationAgreements = [
           { threshold: 0.3 }
         );
         images.forEach((img) => observer.observe(img));
+      }
+
+      // Lógica para el manejo de la modal de imagen
+      const imageButtons = document.querySelectorAll('button[data-image-src]');
+      const modalContainer = document.getElementById('imageModalContainer');
+      
+      if (imageButtons.length && modalContainer) {
+        imageButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const src = button.getAttribute('data-image-src');
+            const alt = button.getAttribute('data-image-alt') || 'Imagen ampliada';
+            
+            if (src) {
+              // Crear modal manualmente
+              const modal = document.createElement('div');
+              modal.className = 'fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-4 backdrop-blur-sm';
+              modal.setAttribute('role', 'dialog');
+              modal.setAttribute('aria-modal', 'true');
+              modal.setAttribute('aria-label', 'Visor de imagen');
+              
+              const modalContent = document.createElement('div');
+              modalContent.className = 'relative max-w-5xl w-full pt-2';
+              
+              const closeButton = document.createElement('button');
+              closeButton.type = 'button';
+              closeButton.className = 'absolute -top-10 right-0 lg:-top-5 hover:text-white text-gray-300 transition-colors';
+              closeButton.setAttribute('aria-label', 'Cerrar imagen');
+              closeButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+              
+              const image = document.createElement('img');
+              image.src = src;
+              image.alt = alt;
+              image.className = 'w-full h-auto max-h-[90svh] object-contain';
+              
+              // Ensamblar la modal
+              modalContent.appendChild(closeButton);
+              modalContent.appendChild(image);
+              modal.appendChild(modalContent);
+              
+              // Manejar cierre de modal
+              const closeModal = () => {
+                document.body.classList.remove('overflow-hidden');
+                modal.remove();
+              };
+              
+              closeButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeModal();
+              });
+              
+              modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                  closeModal();
+                }
+              });
+              
+              image.addEventListener('click', (e) => {
+                e.stopPropagation();
+              });
+              
+              // Manejo de tecla Escape
+              const handleEscape = (e: KeyboardEvent) => {
+                if (e.key === 'Escape') {
+                  closeModal();
+                  document.removeEventListener('keydown', handleEscape);
+                }
+              };
+              
+              document.addEventListener('keydown', handleEscape);
+              
+              // Mostrar modal
+              document.body.classList.add('overflow-hidden');
+              modalContainer.appendChild(modal);
+            }
+          });
+        });
       }
     });
   </script>
