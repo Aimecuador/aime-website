@@ -32,14 +32,11 @@ fetch(
               ${lastPost.message || "Última noticia"}
             </a>
             <p class="text-sm text-muted-foreground mt-1">
-              ${new Date(lastPost.created_time).toLocaleDateString(
-                "es-EC",
-                {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                }
-              )}
+              ${new Date(lastPost.created_time).toLocaleDateString("es-EC", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
             </p>
           </div>
         </article>
