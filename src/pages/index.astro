@@ -4,6 +4,7 @@ import Hero from "@/components/Hero.astro";
 import { Image } from "astro:assets";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import ButtonLink from "@/components/ui/ButtonLink.astro";
+import { FacebookNew } from "@/components/sections/FacebookNew";
 
 const upcomingEventsAndNews = [
   {
@@ -249,6 +250,8 @@ const cooperationAgreements = [
             </article>
           ))
         }
+
+        <FacebookNew client:load />
       </div>
 
       <div id="imageModalContainer"></div>
@@ -319,8 +322,6 @@ const cooperationAgreements = [
       client:visible
     />
   </section>
-
-  <script is:inline src="/scripts/facebookPostLoader.js"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {

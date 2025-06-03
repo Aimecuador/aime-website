@@ -38,3 +38,8 @@ export function extractGalleryImages(post: FacebookPost): string[] {
 
   return images;
 }
+
+export async function getLastPost () {
+  const posts = await fetchFacebookPosts();
+  return posts.find(post => post.permalink_url);
+}
