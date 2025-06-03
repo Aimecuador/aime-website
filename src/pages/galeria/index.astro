@@ -1,8 +1,6 @@
 ---
 import { FacebookGallery } from "@/components/sections/FacebookGallery";
-import ButtonLink from "@/components/ui/ButtonLink.astro";
 import Layout from "@/layouts/Layout.astro";
-import { ChevronRight } from "lucide-react";
 ---
 
 <Layout title="Galería | AIME" description="Explora nuestra galería de imágenes y videos que reflejan el trabajo y compromiso de AIME en el desarrollo del sector minero en Ecuador.">
@@ -25,9 +23,7 @@ import { ChevronRight } from "lucide-react";
         </div>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         <FacebookGallery client:visible />
-      </div>
     </div>
   </section>
 </Layout>

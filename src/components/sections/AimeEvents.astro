@@ -94,47 +94,25 @@ const eventsToRender = limit ? events.slice(0, limit) : events;
 <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
   {
     eventsToRender.map((event) => (
-      <Card
-        key={event.id}
-        className="overflow-hidden group transition-all duration-300 flex flex-col"
-      >
-        <div class="relative overflow-hidden">
-          <a href={`/eventos/${event.slug}`}>
-            <Image
-              width={600}
-              height={400}
-              src={event.image}
-              alt={event.title}
-              class="object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-          </a>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end pointer-events-none" />
-        </div>
-        <CardHeader className="py-1.5 space-y-2.5">
-          <CardDescription className="flex items-center gap-2">
-            <div class="flex items-center mt-2">
-              <Calendar className="h-4 w-4 mr-1 text-primary" />
-              <span>{event.date}</span>
-            </div>
-            <div class="flex items-center mt-1">
-              <MapPin className="h-4 w-4 mr-1 text-primary" />
-              <span class="mt-[0.5px]">{event.location}</span>
-            </div>
-          </CardDescription>
-          <CardTitle className="line-clamp-3 transition-colors duration-300 hover:text-primary">
-            {event.title}
-          </CardTitle>
-        </CardHeader>
-        <CardFooter className="pt-2">
-          <a
-            href={`/eventos/${event.slug}`}
-            class="group/link flex items-center justify-center hover:underline text-sm text-blue-600 hover:text-primary"
-          >
-            Ver más
-            <ChevronRight className="h-4 w-4 m-2 transition-transform duration-300 group-hover/link:translate-x-1" />
-          </a>
-        </CardFooter>
-      </Card>
+      <article class="overflow-hidden group transition-all duration-300 flex flex-col">
+        <a href={`/eventos/${event.slug}`} class="rounded-md overflow-hidden">
+          <Image
+            width={400}
+            height={200}
+            src={event.image}
+            alt={event.title}
+            class="object-cover size-full transition-transform duration-500 group-hover:scale-110 rounded-md"
+          />
+        </a>
+
+        <h3 class="line-clamp-2 text-lg font-bold mt-2 transition-colors duration-300 hover:text-primary">
+          {event.title}
+        </h3>
+
+        <p class="flex items-center text-sm mt-1.5 text-muted-foreground">
+          {event.date}
+        </p>
+      </article>
     ))
   }
 </div>

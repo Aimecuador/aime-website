@@ -84,13 +84,14 @@ const interinstitutionalAgreements = [
   },
   {
     name: "Seguridad y Salud Ocupacional",
-    image: "/images/convenios/interinstitucionales/consisso.jpg",
+    image: "/images/convenios/interinstitucionales/consisso.png",
     href: "https://consisso.com/",
   },
   {
     name: "Instituto de Investigación Geológico y Energético",
-    image: "/images/convenios/interinstitucionales/iige.png",
+    image: "/images/convenios/interinstitucionales/iige.jpeg",
     href: "https://www.geoenergia.gob.ec/",
+    scale: 0.8,
   },
 ];
 
@@ -144,6 +145,14 @@ const cooperationAgreements = [
     name: "Universidad Nacional de Loja",
     image: "/images/convenios/cooperacion/universidad-nacional-de-loja.png",
     href: "https://www.unl.edu.ec/",
+    scale: 0.9,
+  },
+  {
+    name: "Ministerio de Energía y Minas",
+    image:
+      "/images/convenios/interinstitucionales/ministerio-de-energia-y-minas.jpeg",
+    href: "https://www.recursosyenergia.gob.ec/",
+    scale: 0.9,
   },
 ];
 ---
@@ -166,7 +175,7 @@ const cooperationAgreements = [
         <div class="flex flex-wrap justify-center gap-8 md:gap-12 lg:gap-16">
           {
             upcomingEvents.map((event) => (
-              <div class="group max-w-[380px] hover:scale-[1.02] transition-transform duration-300">
+              <div class="group max-w-[380px] hover:scale-[1.02] transition-transform duration-300 hover:cursor-pointer">
                 <div class="flex bg-[#f6ca45] rounded-lg overflow-hidden shadow-md p-6 gap-4">
                   <div class="text-center">
                     <div>
@@ -224,7 +233,7 @@ const cooperationAgreements = [
       <!-- Grid de Últimas Noticias y Eventos -->
       <div
         id="eventsAndNewsGrid"
-        class="mt-4 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-6 md:gap-10 lg:gap-16 xl:gap-24"
+        class="mt-16 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-6 md:gap-10 lg:gap-16 xl:gap-24"
       >
         {
           upcomingEventsAndNews.map((event) => (
@@ -302,7 +311,7 @@ const cooperationAgreements = [
     </div>
   </section>
 
-  <section class="pt-5">
+  <section class="pt-5 mb-14">
     <div class="container">
       <div class="text-center mb-12">
         <h2

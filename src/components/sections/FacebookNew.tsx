@@ -5,7 +5,7 @@ import type { FacebookPost } from "types";
 export function FacebookNew() {
   const [post, setPost] = useState<FacebookPost>();
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getLastPost()
@@ -13,7 +13,7 @@ export function FacebookNew() {
         setPost(post);
       })
       .catch((_) => {
-        setError("Error al obtener la última publicación de Facebook");
+        setError("Error al obtener la noticia");
       })
       .finally(() => {
         setLoading(false);
@@ -49,7 +49,7 @@ export function FacebookNew() {
       <div className="mt-2">
         <a
           href={post.permalink_url}
-          className="font-bold text-lg line-clamp-4 hover:text-primary hover:underline transition-colors duration-100"
+          className="font-bold text-lg line-clamp-4 hover:text-blue-500 hover:underline"
         >
           {post.message || "Última noticia"}
         </a>

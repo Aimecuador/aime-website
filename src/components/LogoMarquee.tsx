@@ -10,7 +10,7 @@ interface LogoMarqueeProps {
   speed?: number;
 }
 
-export function LogoMarquee({ logos, speed = 50 }: LogoMarqueeProps) {
+export function LogoMarquee({ logos, speed = 55 }: LogoMarqueeProps) {
   const [isPaused, setIsPaused] = useState(false);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const currentPositionRef = useRef(0);
@@ -50,7 +50,7 @@ export function LogoMarquee({ logos, speed = 50 }: LogoMarqueeProps) {
 
   return (
     <div
-      className="w-full overflow-hidden h-40 mt-5"
+      className="w-full overflow-hidden h-28 mt-5 grid place-items-center"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
