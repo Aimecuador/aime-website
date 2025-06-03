@@ -1,9 +1,11 @@
+import type { FacebookPost } from "types";
+
 export async function fetchFacebookPosts() {
   const url = 'https://raw.githubusercontent.com/Aimecuador/AimeFacebookPosts/refs/heads/main/posts.json';
 
   try {
     const response = await fetch(url);
-    const data = await response.json();
+    const data: FacebookPost[] = await response.json();
 
     if (!response.ok) {
       throw new Error('Error al obtener las publicaciones');
@@ -14,30 +16,6 @@ export async function fetchFacebookPosts() {
     throw error; 
   }
 }
-
-export type FacebookPost = {
-  attachments?: {
-    data: {
-      type: string;
-      media?: {
-        image?: {
-          src: string;
-        };
-      };
-      subattachments?: {
-        data: {
-          type: string;
-          media?: {
-            image?: {
-              src: string;
-            };
-          };
-        }[];
-      };
-    }[];
-  };
-};
-
 
 export function extractGalleryImages(post: FacebookPost): string[] {
   const images: string[] = [];
