@@ -51,18 +51,6 @@ const publicaciones = [
       "Avances tecnológicos en extracción"
     ],
     textoClase: "text-white/90", // Clase para el texto de la descripción
-  },
-  {
-    id: "boletin",
-    titulo: "Boletín No.001 AIME",
-    edicion: "Edición 2025",
-    url: "/revista/boletin-001",
-    urlDescarga: "/documentos/Boletin No.001 AIME 2025.pdf",
-    imagen: "/images/revista/boletin-001.jpg",
-    alt: "Boletín No.001 AIME 2025",
-    descripcion: "Nuestro boletín informativo con las actividades destacadas del año, incluyendo resúmenes de eventos, logros institucionales y avances en el sector minero ecuatoriano.",
-    temas: [], // El boletín no tiene temas listados
-    textoClase: "text-sm text-white/90", // Clase para el texto de la descripción
   }
 ];
 ---
@@ -99,7 +87,7 @@ const publicaciones = [
         {
           publicaciones.map((pub) => (
             <article
-              class="bg-white shadow-lg overflow-hidden border border-gray-200 flex flex-col h-full group"
+              class="bg-white shadow-lg overflow-hidden border border-gray-200 flex flex-col h-full group rounded-md"
             >
               <div class="relative h-96">
                 <a href={pub.url} class="block w-full h-full">

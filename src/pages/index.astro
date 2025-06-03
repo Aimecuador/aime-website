@@ -332,110 +332,108 @@ const cooperationAgreements = [
     />
   </section>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const images = document.querySelectorAll('img[data-fade="up"]');
-      if (images.length) {
-        const observer = new window.IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("animate-fade-up");
-                observer.unobserve(entry.target);
+  <script is:inline>
+    const images = document.querySelectorAll('img[data-fade="up"]');
+    if (images.length) {
+      const observer = new window.IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate-fade-up");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+      images.forEach((img) => observer.observe(img));
+    }
+
+    // Lógica para el manejo de la modal de imagen
+    const modalContainer = document.getElementById("imageModalContainer");
+    const imageButtons = document.querySelectorAll("article[data-image-src]");
+
+    if (imageButtons.length && modalContainer) {
+      imageButtons.forEach((button) => {
+        button.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            button.click();
+          }
+        });
+
+        button.addEventListener("click", () => {
+          console.log("Abrir modal de imagen");
+          const src = button.getAttribute("data-image-src");
+          const alt =
+            button.getAttribute("data-image-alt") || "Imagen ampliada";
+
+          if (src) {
+            const modal = document.createElement("div");
+            modal.className =
+              "fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-4 backdrop-blur-sm";
+            modal.setAttribute("role", "dialog");
+            modal.setAttribute("aria-modal", "true");
+            modal.setAttribute("aria-label", "Visor de imagen");
+
+            const modalContent = document.createElement("div");
+            modalContent.className = "relative max-w-5xl w-full pt-2";
+
+            const closeButton = document.createElement("button");
+            closeButton.type = "button";
+            closeButton.className =
+              "absolute -top-10 right-0 lg:-top-5 hover:text-white text-gray-300 transition-colors";
+            closeButton.setAttribute("aria-label", "Cerrar imagen");
+            closeButton.innerHTML =
+              '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+
+            const image = document.createElement("img");
+            image.src = src;
+            image.alt = alt;
+            image.className = "w-full h-auto max-h-[90svh] object-contain";
+
+            // Ensamblar la modal
+            modalContent.appendChild(closeButton);
+            modalContent.appendChild(image);
+            modal.appendChild(modalContent);
+
+            // Manejar cierre de modal
+            const closeModal = () => {
+              document.body.classList.remove("overflow-hidden");
+              modal.remove();
+            };
+
+            closeButton.addEventListener("click", (e) => {
+              e.stopPropagation();
+              closeModal();
+            });
+
+            modal.addEventListener("click", (e) => {
+              if (e.target === modal) {
+                closeModal();
               }
             });
-          },
-          { threshold: 0.3 }
-        );
-        images.forEach((img) => observer.observe(img));
-      }
 
-      // Lógica para el manejo de la modal de imagen
-      const modalContainer = document.getElementById("imageModalContainer");
-      const imageButtons: NodeListOf<HTMLButtonElement> =
-        document.querySelectorAll("article[data-image-src]");
+            image.addEventListener("click", (e) => {
+              e.stopPropagation();
+            });
 
-      if (imageButtons.length && modalContainer) {
-        imageButtons.forEach((button) => {
-          button.addEventListener("keydown", (e: KeyboardEvent) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              button.click();
-            }
-          });
-
-          button.addEventListener("click", () => {
-            const src = button.getAttribute("data-image-src");
-            const alt =
-              button.getAttribute("data-image-alt") || "Imagen ampliada";
-
-            if (src) {
-              const modal = document.createElement("div");
-              modal.className =
-                "fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-4 backdrop-blur-sm";
-              modal.setAttribute("role", "dialog");
-              modal.setAttribute("aria-modal", "true");
-              modal.setAttribute("aria-label", "Visor de imagen");
-
-              const modalContent = document.createElement("div");
-              modalContent.className = "relative max-w-5xl w-full pt-2";
-
-              const closeButton = document.createElement("button");
-              closeButton.type = "button";
-              closeButton.className =
-                "absolute -top-10 right-0 lg:-top-5 hover:text-white text-gray-300 transition-colors";
-              closeButton.setAttribute("aria-label", "Cerrar imagen");
-              closeButton.innerHTML =
-                '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
-
-              const image = document.createElement("img");
-              image.src = src;
-              image.alt = alt;
-              image.className = "w-full h-auto max-h-[90svh] object-contain";
-
-              // Ensamblar la modal
-              modalContent.appendChild(closeButton);
-              modalContent.appendChild(image);
-              modal.appendChild(modalContent);
-
-              // Manejar cierre de modal
-              const closeModal = () => {
-                document.body.classList.remove("overflow-hidden");
-                modal.remove();
-              };
-
-              closeButton.addEventListener("click", (e) => {
-                e.stopPropagation();
+            // Manejo de tecla Escape
+            const handleEscape = (e) => {
+              if (e.key === "Escape") {
                 closeModal();
-              });
+                document.removeEventListener("keydown", handleEscape);
+              }
+            };
 
-              modal.addEventListener("click", (e) => {
-                if (e.target === modal) {
-                  closeModal();
-                }
-              });
+            document.addEventListener("keydown", handleEscape);
 
-              image.addEventListener("click", (e) => {
-                e.stopPropagation();
-              });
-
-              // Manejo de tecla Escape
-              const handleEscape = (e: KeyboardEvent) => {
-                if (e.key === "Escape") {
-                  closeModal();
-                  document.removeEventListener("keydown", handleEscape);
-                }
-              };
-
-              document.addEventListener("keydown", handleEscape);
-
-              // Mostrar modal
-              document.body.classList.add("overflow-hidden");
-              modalContainer.appendChild(modal);
-            }
-          });
+            // Mostrar modal
+            document.body.classList.add("overflow-hidden");
+            modalContainer.appendChild(modal);
+          }
         });
-      }
-    });
+      });
+    }
   </script>
 </Layout>

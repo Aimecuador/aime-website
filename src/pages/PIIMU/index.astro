@@ -9,7 +9,6 @@ import {
   Globe,
   Building,
   Target,
-  Compass,
   Calendar,
   CheckCircle,
   Handshake,
@@ -17,7 +16,9 @@ import {
   Network,
   Leaf,
   Users,
-ChevronRight,
+  ChevronRight,
+  ExternalLink,
+  Download,
 } from 'lucide-react';
 import { AccordionBasesPIIMU } from '@/components/sections/AccordionBasesPIIMU';
 
@@ -359,6 +360,86 @@ const beneficiarios = [
             <p>{beneficiario.descripcion}</p>
           </div>
         ))}
+      </div>
+    </section>
+
+    {/* Boletín PIIMU */}
+    <section class="mb-16">
+      <div class="text-center mb-10">
+        <div class="flex items-center space-x-2 mb-2 justify-center">
+          <div class="h-1 w-10 bg-primary"></div>
+          <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">Publicación</span>
+          <div class="h-1 w-10 bg-primary"></div>
+        </div>
+        <h2 class="text-3xl font-bold">Boletín No.001 PIIMU 2025</h2>
+        <p class="mt-4 text-muted-foreground max-w-3xl mx-auto">
+          Nuestro boletín informativo con las actividades destacadas del PIIMU, incluyendo resúmenes de eventos, 
+          logros y avances del programa de intercambio.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-10">
+        <div class="md:col-span-2">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+            <div class="relative w-full h-[500px] md:h-[700px]">
+              <iframe
+                src={`https://docs.google.com/viewer?url=${encodeURIComponent("https://aimecuador.org/documentos/Boletin No.001 AIME 2025.pdf")}&embedded=true`}
+                class="absolute inset-0 w-full h-full border-0"
+                title="Boletín No.001 PIIMU 2025"
+                loading="eager"></iframe>
+              <noscript>
+                <div class="absolute inset-0 flex items-center justify-center bg-gray-100 p-4">
+                  <div class="text-center">
+                    <p class="mb-4">Tu navegador no puede mostrar el PDF incrustado.</p>
+                    <a
+                      href="/documentos/Boletin No.001 AIME 2025.pdf"
+                      class="text-primary hover:underline"
+                      target="_blank"
+                    >
+                      Abrir PDF en nueva pestaña
+                    </a>
+                  </div>
+                </div>
+              </noscript>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-muted p-6 rounded-lg">
+            <h2 class="text-xl font-bold mb-4">Opciones de visualización</h2>
+            <div class="space-y-4">
+              <ButtonLink
+                href="/documentos/Boletin No.001 AIME 2025.pdf"
+                target="_blank"
+                variant="default"
+                class="w-full justify-center"
+              >
+                <ExternalLink className="mr-2 h-4 w-4" /> Ver en pantalla completa
+              </ButtonLink>
+              <ButtonLink
+                href="/documentos/Boletin No.001 AIME 2025.pdf"
+                download="Boletin-No.001-PIIMU-2025.pdf"
+                variant="outline"
+                class="w-full justify-center"
+              >
+                <Download className="mr-2 h-4 w-4" /> Descargar PDF
+              </ButtonLink>
+            </div>
+          </div>
+
+          <div class="bg-muted p-6 rounded-lg">
+            <h2 class="text-xl font-bold mb-4">Sobre este boletín</h2>
+            <p class="text-sm mb-4">
+              El Boletín No.001 del PIIMU presenta las actividades más destacadas del programa, 
+              incluyendo intercambios realizados, testimonios de participantes y proyecciones futuras.
+            </p>
+            <p class="text-sm">
+              Esta edición especial recoge información clave sobre las experiencias de estudiantes 
+              ecuatorianos en universidades internacionales a través del PIIMU.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
