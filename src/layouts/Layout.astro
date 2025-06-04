@@ -108,4 +108,52 @@ const {
     font-family: "Open Sans Variable", sans-serif;
     scroll-behavior: smooth;
   }
+
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 80rem;
+    padding-top: 0.5rem;
+  }
+
+  .modal-close-btn {
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+    color: #d1d5db; /* text-gray-300 */
+    transition: color 0.2s;
+  }
+
+  @media (min-width: 1024px) {
+    .modal-close-btn {
+      top: -1.25rem;
+    }
+  }
+
+  .modal-close-btn:hover {
+    color: white;
+  }
+
+  .modal-image {
+    width: 100%;
+    height: auto;
+    max-height: 90svh;
+    object-fit: contain;
+  }
+
+  body.overflow-hidden {
+    overflow: hidden;
+  }
 </style>
