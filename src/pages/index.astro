@@ -375,17 +375,17 @@ const cooperationAgreements = [
               modal.setAttribute("aria-label", "Visor de imagen");
 
               modal.innerHTML = `
-              <div class="modal-content">
-                <button type="button" aria-label="Cerrar imagen" class="modal-close-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
-                  </svg>
-                </button>
-                <img src="${src}" alt="${alt}" class="modal-image" />
-              </div>
-            `;
+                <div class="modal-content">
+                  <button type="button" aria-label="Cerrar imagen" class="modal-close-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                  </button>
+                  <img src="${src}" alt="${alt}" class="modal-image" />
+                </div>
+              `;
 
               const closeButton = modal.querySelector("button");
               const image = modal.querySelector("img");
