@@ -30,6 +30,10 @@ export default function Header() {
       : "h-[15dvh] bg-transparent text-white"
   );
 
+  const [hamburgerLineClass, setHamburgerLineClass] = useState(
+    isScrolled ? "hamburger-line" : "hamburger-line-transparent"
+  );
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 80);
@@ -45,13 +49,17 @@ export default function Header() {
         ? "h-[10dvh] bg-white text-foreground shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]"
         : "h-[15dvh] bg-transparent text-white";
 
+      const homeHamburgerLineClass = isScrolled ? "hamburger-line" : "hamburger-line-transparent";
+
       setHeaderClassname(homeHeaderClass);
+      setHamburgerLineClass(homeHamburgerLineClass);
     } else {
       const homeHeaderClass = isScrolled
         ? "h-[10dvh] bg-white text-foreground shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]"
         : "h-[15dvh] shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]";
 
       setHeaderClassname(homeHeaderClass);
+      setHamburgerLineClass('hamburger-line');
     }
   }, [isScrolled]);
 
@@ -191,21 +199,12 @@ export default function Header() {
               aria-label="Abrir menú"
             >
               <div className={`hamburger ${isMenuOpen ? "active" : ""}`}>
-                <span
-                  className={`${
-                    isScrolled ? "hamburger-line" : "hamburger-line-transparent"
-                  }`}
-                ></span>
-                <span
-                  className={`${
-                    isScrolled ? "hamburger-line" : "hamburger-line-transparent"
-                  }`}
-                ></span>
-                <span
-                  className={`${
-                    isScrolled ? "hamburger-line" : "hamburger-line-transparent"
-                  }`}
-                ></span>
+                {[...Array(3)].map((_, index) => (
+                  <span
+                    key={index}
+                    className={hamburgerLineClass}
+                  />
+                ))}
               </div>
             </button>
           </div>
