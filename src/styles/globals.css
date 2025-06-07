@@ -87,13 +87,13 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
   }
 }
 
 @layer components {
   .hamburger {
-    @apply relative w-6 h-6 cursor-pointer;
+    @apply relative h-6 w-6 cursor-pointer;
   }
 
   .hamburger-line {

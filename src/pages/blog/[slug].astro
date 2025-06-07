@@ -1,130 +1,143 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import ButtonLink from '@/components/ui/ButtonLink.astro';
-import { ArrowLeft, Calendar, User, Tag } from 'lucide-react';
+import Layout from '@/layouts/Layout.astro'
+import { Image } from 'astro:assets'
+import ButtonLink from '@/components/ui/ButtonLink.astro'
+import { ArrowLeft, Calendar, User, Tag } from 'lucide-react'
 
 export const blogPosts = [
   {
     id: 1,
-    title: "Congreso Universitario de Minería Ecuamining, Salinas 2024",
-    date: "30 de octubre de 2024",
-    author: "Equipo AIME",
-    categories: ["Eventos", "Educación", "Minería Sostenible"],
-    slug: "aime-congreso-ecuamining-salinas-2024",
-    imageUrl: "/images/blogs/congreso-ecuamining.webp",
+    title: 'Congreso Universitario de Minería Ecuamining, Salinas 2024',
+    date: '30 de octubre de 2024',
+    author: 'Equipo AIME',
+    categories: ['Eventos', 'Educación', 'Minería Sostenible'],
+    slug: 'aime-congreso-ecuamining-salinas-2024',
+    imageUrl: '/images/blogs/congreso-ecuamining.webp',
   },
   {
     id: 2,
-    title: "AIME y Viceministerio de Minas fortalecen la minería responsable en Ecuador",
-    date: "25 de octubre de 2024",
-    author: "Equipo AIME",
-    categories: ["Cooperación Institucional", "Minería Responsable"],
-    slug: "aime-viceministerio-mineria-responsable-ecuador",
-    imageUrl: "/images/blogs/mineria-responsable.webp",
+    title:
+      'AIME y Viceministerio de Minas fortalecen la minería responsable en Ecuador',
+    date: '25 de octubre de 2024',
+    author: 'Equipo AIME',
+    categories: ['Cooperación Institucional', 'Minería Responsable'],
+    slug: 'aime-viceministerio-mineria-responsable-ecuador',
+    imageUrl: '/images/blogs/mineria-responsable.webp',
   },
   {
     id: 3,
     title:
-      "Impulso a la minería responsable: Reflexiones del I Simposio Internacional sobre el potencial minero de Ecuador",
-    date: "11 de octubre de 2024",
-    author: "Equipo AIME",
-    categories: ["Simposio", "Minería Sostenible", "Marco Legal"],
-    slug: "impulso-mineria-responsable-simposio-ecuador",
-    imageUrl: "/images/blogs/simposio-internacional.webp",
+      'Impulso a la minería responsable: Reflexiones del I Simposio Internacional sobre el potencial minero de Ecuador',
+    date: '11 de octubre de 2024',
+    author: 'Equipo AIME',
+    categories: ['Simposio', 'Minería Sostenible', 'Marco Legal'],
+    slug: 'impulso-mineria-responsable-simposio-ecuador',
+    imageUrl: '/images/blogs/simposio-internacional.webp',
   },
   {
     id: 4,
-    title: "Explorando la innovación y el conocimiento en el II Seminario de Geotecnia y Mecánica de Rocas",
-    date: "28 de noviembre de 2024",
-    author: "Equipo AIME",
-    categories: ["Seminarios", "Geotecnia", "Innovación"],
-    slug: "innovacion-seminario-geotecnia-mecanica-rocas",
-    imageUrl: "/images/blogs/seminario-geotecnia.webp",
+    title:
+      'Explorando la innovación y el conocimiento en el II Seminario de Geotecnia y Mecánica de Rocas',
+    date: '28 de noviembre de 2024',
+    author: 'Equipo AIME',
+    categories: ['Seminarios', 'Geotecnia', 'Innovación'],
+    slug: 'innovacion-seminario-geotecnia-mecanica-rocas',
+    imageUrl: '/images/blogs/seminario-geotecnia.webp',
   },
-];
+]
 
 export function getStaticPaths() {
   return blogPosts.map((post) => ({
     params: { slug: post.slug },
-  }));
+  }))
 }
 
-const { slug } = Astro.params;
-const post = blogPosts.find((post) => post.slug === slug);
+const { slug } = Astro.params
+const post = blogPosts.find((post) => post.slug === slug)
 
 if (!post) {
-  return Astro.redirect('/404');
+  return Astro.redirect('/404')
 }
 
 // Encontrar índice del post actual para navegación
-const currentIndex = blogPosts.findIndex((p) => p.slug === slug);
-const prevPost = currentIndex > 0 ? blogPosts[currentIndex - 1] : null;
-const nextPost = currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
+const currentIndex = blogPosts.findIndex((p) => p.slug === slug)
+const prevPost = currentIndex > 0 ? blogPosts[currentIndex - 1] : null
+const nextPost =
+  currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null
 ---
 
 <Layout title={`${post.title} | AIME`} description={post.title}>
   <main class="container mx-auto py-12">
     <div class="mb-8">
       <ButtonLink href="/blog" variant="ghost" class="group">
-        <ArrowLeft className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
+        <ArrowLeft
+          className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1"
+        />
         Volver al blog
       </ButtonLink>
     </div>
 
-    <article class="max-w-4xl mx-auto">
+    <article class="mx-auto max-w-4xl">
       <header class="mb-8 text-center">
-        <h1 class="text-3xl md:text-4xl font-bold mb-8">{post.title}</h1>
-        <div class="flex flex-wrap items-center justify-center gap-4 text-muted-foreground">
+        <h1 class="mb-8 text-3xl font-bold md:text-4xl">{post.title}</h1>
+        <div
+          class="flex flex-wrap items-center justify-center gap-4 text-muted-foreground"
+        >
           <div class="flex items-center">
-            <Calendar className="h-4 w-4 mr-2 text-primary" />
+            <Calendar className="mr-2 h-4 w-4 text-primary" />
             <span>{post.date}</span>
           </div>
           <div class="flex items-center">
-            <User className="h-4 w-4 mr-2 text-primary" />
+            <User className="mr-2 h-4 w-4 text-primary" />
             <span>{post.author}</span>
           </div>
           <div class="flex items-center">
-            <Tag className="h-4 w-4 mr-2 text-primary" />
-            <span>{post.categories.join(", ")}</span>
+            <Tag className="mr-2 h-4 w-4 text-primary" />
+            <span>{post.categories.join(', ')}</span>
           </div>
         </div>
       </header>
 
       <div class="mb-8">
-        <div class="relative w-full max-w-4xl mx-auto pt-5 rounded-lg overflow-hidden shadow-md">
+        <div
+          class="relative mx-auto w-full max-w-4xl overflow-hidden rounded-lg pt-5 shadow-md"
+        >
           <Image
             src={post.imageUrl}
             alt={post.title}
             width={1200}
             height={800}
-            class="object-contain w-full h-auto"
+            class="h-auto w-full object-contain"
           />
         </div>
       </div>
 
       <div class="mt-12 flex justify-between">
-        {prevPost && (
-          <ButtonLink
-            href={`/blog/${prevPost.slug}`}
-            variant="outline"
-            class="group"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
-            Anterior
-          </ButtonLink>
-        )}
+        {
+          prevPost && (
+            <ButtonLink
+              href={`/blog/${prevPost.slug}`}
+              variant="outline"
+              class="group"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
+              Anterior
+            </ButtonLink>
+          )
+        }
 
-        {nextPost && (
-          <ButtonLink
-            href={`/blog/${nextPost.slug}`}
-            variant="outline"
-            class="group ml-auto"
-          >
-            Siguiente
-            <ArrowLeft className="ml-2 h-4 w-4 rotate-180 transition-transform duration-300 group-hover:translate-x-1" />
-          </ButtonLink>
-        )}
+        {
+          nextPost && (
+            <ButtonLink
+              href={`/blog/${nextPost.slug}`}
+              variant="outline"
+              class="group ml-auto"
+            >
+              Siguiente
+              <ArrowLeft className="ml-2 h-4 w-4 rotate-180 transition-transform duration-300 group-hover:translate-x-1" />
+            </ButtonLink>
+          )
+        }
       </div>
     </article>
   </main>

@@ -1,7 +1,7 @@
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import react from "@astrojs/react";
-import * as path from "path";
+import { defineConfig } from 'astro/config'
+import tailwind from '@astrojs/tailwind'
+import react from '@astrojs/react'
+import * as path from 'path'
 
 export default defineConfig({
   integrations: [tailwind(), react()],
@@ -9,8 +9,8 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        "@": path.resolve("src"),
+        '@': path.resolve('src'),
       },
     },
   },
-});
+})

@@ -1,13 +1,13 @@
 ---
-import { ChevronRight } from "lucide-react";
-import SocialIcons from "./SocialIcons";
-import { Image } from "astro:assets";
+import { ChevronRight } from 'lucide-react'
+import SocialIcons from './SocialIcons'
+import { Image } from 'astro:assets'
 ---
 
 <div class="relative overflow-hidden">
   <div class="absolute inset-0 z-10 bg-black/70"></div>
   <div
-    class="absolute overflow-hidden inset-0 z-0 transition-opacity duration-1000"
+    class="absolute inset-0 z-0 overflow-hidden transition-opacity duration-1000"
   >
     <picture>
       <source
@@ -21,7 +21,7 @@ import { Image } from "astro:assets";
         width={1920}
         height={1080}
         loading="eager"
-        class="object-cover w-full h-full"
+        class="h-full w-full object-cover"
       />
     </picture>
   </div>
@@ -29,40 +29,38 @@ import { Image } from "astro:assets";
     id="inicio"
     class="h-[100dvh] overflow-hidden pt-[11dvh] lg:pt-[13dvh]"
   >
-    <div class="container grid items-center relative z-10 h-full">
+    <div class="container relative z-10 grid h-full items-center">
       <div
-        class="max-w-3xl mx-auto h-[80%] md:h-[70%] max-h-[500px] flex flex-col justify-around text-white text-center"
+        class="mx-auto flex h-[80%] max-h-[500px] max-w-3xl flex-col justify-around text-center text-white md:h-[70%]"
       >
-        <div class="flex justify-center items-center space-x-2">
+        <div class="flex items-center justify-center space-x-2">
           <div class="h-1 w-10 bg-primary"></div>
-          <span class="font-medium uppercase tracking-wider">
-            AIME
-          </span>
+          <span class="font-medium uppercase tracking-wider"> AIME </span>
           <div class="h-1 w-10 bg-primary"></div>
         </div>
         <h1
-          class="text-4xl font-bold tracking-tighter sm:text-5xl lg:text-[55px] animate-fade-up animate-delay-200 animate-duration-700"
+          class="animate-fade-up text-4xl font-bold tracking-tighter animate-delay-200 animate-duration-700 sm:text-5xl lg:text-[55px]"
         >
           Asociación de Ingenieros de Minas del Ecuador
         </h1>
         <p
-          class="text-lg md:text-2xl animate-fade-up animate-delay-300 animate-duration-700"
+          class="animate-fade-up text-lg animate-delay-300 animate-duration-700 md:text-2xl"
         >
           Promoviendo el desarrollo <strong>sostenible</strong> de la minería en
           Ecuador
         </p>
         <div
-          class="flex flex-col sm:flex-row gap-2 sm:gap-4 pt-4 animate-fade-up animate-delay-300 animate-duration-500 justify-center"
+          class="flex animate-fade-up flex-col justify-center gap-2 pt-4 animate-delay-300 animate-duration-500 sm:flex-row sm:gap-4"
         >
           <a
             href="/contacto"
-            class="inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-base font-medium text-white transition-all duration-300 hover:scale-105 animate-pulse animate-duration-300 animate-once animate-ease-in-out"
+            class="inline-flex h-11 animate-pulse items-center justify-center rounded-md bg-primary px-8 text-base font-medium text-white transition-all duration-300 animate-duration-300 animate-once animate-ease-in-out hover:scale-105"
           >
             Contáctanos
           </a>
           <a
             href="/quienes-somos"
-            class="inline-flex h-11 items-center justify-center rounded-md border border-input bg-background/20 hover:bg-background/40 px-8 text-base font-medium transition-all duration-300 hover:scale-105 group"
+            class="group inline-flex h-11 items-center justify-center rounded-md border border-input bg-background/20 px-8 text-base font-medium transition-all duration-300 hover:scale-105 hover:bg-background/40"
           >
             Conoce más
             <ChevronRight
@@ -72,7 +70,7 @@ import { Image } from "astro:assets";
         </div>
 
         <SocialIcons
-          className="justify-center mt-7"
+          className="mt-7 justify-center"
           iconColor="rounded-full hover:text-white bg-transparent p-1.5 hover:bg-primary"
         />
       </div>

@@ -1,105 +1,107 @@
-import { useState, useEffect } from "react";
-import { cn } from "../lib/utils";
-import { Button } from "./ui/button";
+import { useState, useEffect } from 'react'
+import { cn } from '../lib/utils'
+import { Button } from './ui/button'
 
 const menuItems = [
-  { name: "Inicio", href: "/" },
-  { name: "Quienes Somos", href: "/quienes-somos" },
-  { name: "Comisiones Técnicas", href: "/comisiones-tecnicas" },
+  { name: 'Inicio', href: '/' },
+  { name: 'Quienes Somos', href: '/quienes-somos' },
+  { name: 'Comisiones Técnicas', href: '/comisiones-tecnicas' },
   {
-    name: "Eventos",
+    name: 'Eventos',
     dropdown: [
-      { name: "Eventos", href: "/eventos" },
-      { name: "Galería", href: "/galeria" },
-      { name: "PIIMU", href: "/PIIMU" },
-      { name: "Revista", href: "/revista" },
+      { name: 'Eventos', href: '/eventos' },
+      { name: 'Galería', href: '/galeria' },
+      { name: 'PIIMU', href: '/PIIMU' },
+      { name: 'Revista', href: '/revista' },
     ],
   },
-  { name: "Minería para todos", href: "/mineria-para-todos" },
-  { name: "Blog", href: "/blog" },
-  { name: "Contacto", href: "/contacto" },
-];
+  { name: 'Minería para todos', href: '/mineria-para-todos' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Contacto', href: '/contacto' },
+]
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [headerClassname, setHeaderClassname] = useState(
     isScrolled
-      ? "h-[10dvh] bg-white text-foreground shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]"
-      : "h-[15dvh] bg-transparent text-white"
-  );
+      ? 'h-[10dvh] bg-white text-foreground shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]'
+      : 'h-[15dvh] bg-transparent text-white',
+  )
 
   const [hamburgerLineClass, setHamburgerLineClass] = useState(
-    isScrolled ? "hamburger-line" : "hamburger-line-transparent"
-  );
+    isScrolled ? 'hamburger-line' : 'hamburger-line-transparent',
+  )
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80);
-    };
+      setIsScrolled(window.scrollY > 80)
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   useEffect(() => {
-    if (window.location.pathname === "/") {
+    if (window.location.pathname === '/') {
       const homeHeaderClass = isScrolled
-        ? "h-[10dvh] bg-white text-foreground shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]"
-        : "h-[15dvh] bg-transparent text-white";
+        ? 'h-[10dvh] bg-white text-foreground shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]'
+        : 'h-[15dvh] bg-transparent text-white'
 
-      const homeHamburgerLineClass = isScrolled ? "hamburger-line" : "hamburger-line-transparent";
+      const homeHamburgerLineClass = isScrolled
+        ? 'hamburger-line'
+        : 'hamburger-line-transparent'
 
-      setHeaderClassname(homeHeaderClass);
-      setHamburgerLineClass(homeHamburgerLineClass);
+      setHeaderClassname(homeHeaderClass)
+      setHamburgerLineClass(homeHamburgerLineClass)
     } else {
       const homeHeaderClass = isScrolled
-        ? "h-[10dvh] bg-white text-foreground shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]"
-        : "h-[15dvh] shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]";
+        ? 'h-[10dvh] bg-white text-foreground shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]'
+        : 'h-[15dvh] shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]'
 
-      setHeaderClassname(homeHeaderClass);
-      setHamburgerLineClass('hamburger-line');
+      setHeaderClassname(homeHeaderClass)
+      setHamburgerLineClass('hamburger-line')
     }
-  }, [isScrolled]);
+  }, [isScrolled])
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      const mobileMenu = document.getElementById("mobile-menu");
-      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById('mobile-menu')
+      const mobileMenuButton = document.getElementById('mobile-menu-button')
 
       if (mobileMenu && mobileMenuButton) {
-        const target = event.target as Node;
+        const target = event.target as Node
         const isClickInside =
-          mobileMenu.contains(target) || mobileMenuButton.contains(target);
+          mobileMenu.contains(target) || mobileMenuButton.contains(target)
 
         if (!isClickInside && isMenuOpen) {
-          setIsMenuOpen(false);
+          setIsMenuOpen(false)
         }
       }
-    };
+    }
 
     const handleResize = () => {
       if (window.innerWidth >= 1280 && isMenuOpen) {
-        setIsMenuOpen(false);
+        setIsMenuOpen(false)
       }
-    };
+    }
 
-    document.addEventListener("click", handleClickOutside);
-    window.addEventListener("resize", handleResize);
+    document.addEventListener('click', handleClickOutside)
+    window.addEventListener('resize', handleResize)
 
     return () => {
-      document.removeEventListener("click", handleClickOutside);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [isMenuOpen]);
+      document.removeEventListener('click', handleClickOutside)
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [isMenuOpen])
 
   return (
-    <header className="fixed w-full top-0 z-40 font-medium">
+    <header className="fixed top-0 z-40 w-full font-medium">
       <div
         className={cn(
-          "w-full transition-all duration-300 ease-in-out grid place-items-center",
-          headerClassname
+          'grid w-full place-items-center transition-all duration-300 ease-in-out',
+          headerClassname,
         )}
       >
         <div className="container">
@@ -107,20 +109,20 @@ export default function Header() {
             <a
               href="/"
               className={cn(
-                "aspect-[800/682] w-auto",
+                'aspect-[800/682] w-auto',
                 isScrolled
-                  ? "h-[55px]"
-                  : "h-[55px] lg:h-[70px] p-1 bg-white rounded-md"
+                  ? 'h-[55px]'
+                  : 'h-[55px] rounded-md bg-white p-1 lg:h-[70px]',
               )}
             >
               <img
-                src={"/aime-logo-sin-texto.jpg"}
+                src={'/aime-logo-sin-texto.jpg'}
                 alt="AIME logo"
                 className="h-full w-full object-contain"
               />
             </a>
 
-            <nav className="hidden xl:flex items-center gap-6 text-base">
+            <nav className="hidden items-center gap-6 text-base xl:flex">
               {menuItems.map((item) =>
                 item.dropdown ? (
                   <div
@@ -131,13 +133,13 @@ export default function Header() {
                   >
                     <button
                       type="button"
-                      className="p-2 hover:text-primary flex items-center gap-1"
+                      className="flex items-center gap-1 p-2 hover:text-primary"
                       aria-haspopup="true"
                     >
                       {item.name}
                       <svg
-                        className={`w-4 h-4 transition-transform duration-200 ${
-                          isDropdownOpen ? "rotate-180" : ""
+                        className={`h-4 w-4 transition-transform duration-200 ${
+                          isDropdownOpen ? 'rotate-180' : ''
                         }`}
                         fill="none"
                         stroke="currentColor"
@@ -152,17 +154,17 @@ export default function Header() {
                       </svg>
                     </button>
                     <div
-                      className={`absolute left-0 mt-2 w-48 border rounded-md shadow-lg transition-all duration-200 z-50 divide-y px-5 py-1 bg-white text-foreground border-gray-200 divide-gray-200 ${
+                      className={`absolute left-0 z-50 mt-2 w-48 divide-y divide-gray-200 rounded-md border border-gray-200 bg-white px-5 py-1 text-foreground shadow-lg transition-all duration-200 ${
                         isDropdownOpen
-                          ? "opacity-100 visible translate-y-0"
-                          : "opacity-0 invisible -translate-y-2"
+                          ? 'visible translate-y-0 opacity-100'
+                          : 'invisible -translate-y-2 opacity-0'
                       }`}
                     >
                       {item.dropdown.map((subitem) => (
                         <a
                           key={subitem.name}
                           href={subitem.href}
-                          className="block hover:text-primary p-2"
+                          className="block p-2 hover:text-primary"
                         >
                           {subitem.name}
                         </a>
@@ -177,7 +179,7 @@ export default function Header() {
                   >
                     {item.name}
                   </a>
-                )
+                ),
               )}
             </nav>
 
@@ -187,7 +189,7 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="inline-block mt-[2px]">Únete a AIME</span>
+                <span className="mt-[2px] inline-block">Únete a AIME</span>
               </a>
             </Button>
 
@@ -198,12 +200,9 @@ export default function Header() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Abrir menú"
             >
-              <div className={`hamburger ${isMenuOpen ? "active" : ""}`}>
+              <div className={`hamburger ${isMenuOpen ? 'active' : ''}`}>
                 {[...Array(3)].map((_, index) => (
-                  <span
-                    key={index}
-                    className={hamburgerLineClass}
-                  />
+                  <span key={index} className={hamburgerLineClass} />
                 ))}
               </div>
             </button>
@@ -212,26 +211,26 @@ export default function Header() {
           <div
             id="mobile-menu"
             className={cn(
-              "absolute top-full left-0 z-40 w-full border-gray-200 bg-white ease-out xl:hidden transform transition-all duration-300",
+              'absolute left-0 top-full z-40 w-full transform border-gray-200 bg-white transition-all duration-300 ease-out xl:hidden',
               isMenuOpen
-                ? "translate-y-0 opacity-100 visible"
-                : "-translate-y-6 opacity-0 invisible"
+                ? 'visible translate-y-0 opacity-100'
+                : 'invisible -translate-y-6 opacity-0',
             )}
           >
-            <nav className="space-y-1 px-5 pt-2 pb-3">
+            <nav className="space-y-1 px-5 pb-3 pt-2">
               {menuItems.map((item) =>
                 item.dropdown ? (
                   <div key={item.name}>
                     <button
                       type="button"
-                      className="w-full text-left py-2 text-base font-medium text-gray-700 hover:bg-gray-50 flex items-center justify-between"
+                      className="flex w-full items-center justify-between py-2 text-left text-base font-medium text-gray-700 hover:bg-gray-50"
                       onClick={() => setIsDropdownOpen((prev) => !prev)}
                       aria-haspopup="true"
                     >
                       {item.name}
                       <svg
-                        className={`w-4 h-4 transition-transform duration-200 ${
-                          isDropdownOpen ? "rotate-180" : ""
+                        className={`h-4 w-4 transition-transform duration-200 ${
+                          isDropdownOpen ? 'rotate-180' : ''
                         }`}
                         fill="none"
                         stroke="currentColor"
@@ -246,10 +245,10 @@ export default function Header() {
                       </svg>
                     </button>
                     <div
-                      className={`pl-4 border-l border-gray-200 transition-all duration-200 overflow-hidden ${
+                      className={`overflow-hidden border-l border-gray-200 pl-4 transition-all duration-200 ${
                         isDropdownOpen
-                          ? "max-h-60 opacity-100 visible"
-                          : "max-h-0 opacity-0 invisible"
+                          ? 'visible max-h-60 opacity-100'
+                          : 'invisible max-h-0 opacity-0'
                       }`}
                     >
                       {item.dropdown.map((subitem) => (
@@ -273,17 +272,17 @@ export default function Header() {
                   >
                     {item.name}
                   </a>
-                )
+                ),
               )}
 
-              <div className="border-t border-gray-200 pt-4 pb-3">
+              <div className="border-t border-gray-200 pb-3 pt-4">
                 <Button className="xl:hidden" asChild>
                   <a
                     href="https://wa.me/593968204060?text=Hola%2C%20me%20interesa%20obtener%20informaci%C3%B3n%20sobre%20c%C3%B3mo%20unirme%20a%20AIME.%20%C2%BFPodr%C3%ADan%20brindarme%20detalles%20%3F%20Gracias."
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <span className="inline-block mt-[2px]">Únete a AIME</span>
+                    <span className="mt-[2px] inline-block">Únete a AIME</span>
                   </a>
                 </Button>
               </div>
@@ -292,15 +291,15 @@ export default function Header() {
 
           <div
             className={cn(
-              "absolute top-full left-0 w-full h-[100vh] z-30 bg-black bg-opacity-65 transition-opacity duration-300 xl:hidden",
+              'absolute left-0 top-full z-30 h-[100vh] w-full bg-black bg-opacity-65 transition-opacity duration-300 xl:hidden',
               isMenuOpen
-                ? "opacity-100 visible backdrop-blur-sm"
-                : "opacity-0 invisible"
+                ? 'visible opacity-100 backdrop-blur-sm'
+                : 'invisible opacity-0',
             )}
             onClick={() => setIsMenuOpen(false)}
           />
         </div>
       </div>
     </header>
-  );
+  )
 }

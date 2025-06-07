@@ -1,43 +1,43 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import Layout from '@/layouts/Layout.astro'
 import {
   ChevronDown,
   Download,
   ExternalLink,
   BookOpen,
   ArrowRight,
-} from "lucide-react";
-import ButtonLink from "@/components/ui/ButtonLink.astro";
+} from 'lucide-react'
+import ButtonLink from '@/components/ui/ButtonLink.astro'
 
 // Datos estructurados para Schema.org
 const schemaRevistaAime = {
-  "@context": "https://schema.org",
-  "@type": "TechArticle",
-  headline: "Revista AIME",
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: 'Revista AIME',
   description:
-    "Revista digital con artículos técnicos, entrevistas a profesionales y las últimas innovaciones en el sector minero ecuatoriano",
+    'Revista digital con artículos técnicos, entrevistas a profesionales y las últimas innovaciones en el sector minero ecuatoriano',
   publisher: {
-    "@type": "Organization",
-    name: "Asociación de Ingenieros de Minas del Ecuador (AIME)",
+    '@type': 'Organization',
+    name: 'Asociación de Ingenieros de Minas del Ecuador (AIME)',
     logo: {
-      "@type": "ImageObject",
-      url: "https://aimecuador.org/aime-logo-sin-texto.jpg",
+      '@type': 'ImageObject',
+      url: 'https://aimecuador.org/aime-logo-sin-texto.jpg',
     },
   },
-  url: "https://aimecuador.org/revista/revista-aime",
-  mainEntityOfPage: "https://aimecuador.org/revista/revista-aime",
-  contentUrl: "https://aimecuador.org/documentos/revista.pdf",
-  datePublished: "2025-05-01",
+  url: 'https://aimecuador.org/revista/revista-aime',
+  mainEntityOfPage: 'https://aimecuador.org/revista/revista-aime',
+  contentUrl: 'https://aimecuador.org/documentos/revista.pdf',
+  datePublished: '2025-05-01',
   author: {
-    "@type": "Organization",
-    name: "Asociación de Ingenieros de Minas del Ecuador (AIME)",
+    '@type': 'Organization',
+    name: 'Asociación de Ingenieros de Minas del Ecuador (AIME)',
   },
   keywords:
-    "minería, Ecuador, ingeniería minera, sostenibilidad, desarrollo minero, AIME",
+    'minería, Ecuador, ingeniería minera, sostenibilidad, desarrollo minero, AIME',
   isAccessibleForFree: true,
-  educationalUse: "research",
-  genre: "technical publication",
-};
+  educationalUse: 'research',
+  genre: 'technical publication',
+}
 ---
 
 <Layout
@@ -53,7 +53,7 @@ const schemaRevistaAime = {
 
   <main class="py-12">
     <div class="container">
-      <div class="flex items-center space-x-2 mb-6">
+      <div class="mb-6 flex items-center space-x-2">
         <div class="h-1 w-10 bg-primary"></div>
         <span
           class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
@@ -62,7 +62,7 @@ const schemaRevistaAime = {
         </span>
       </div>
 
-      <nav class="mb-6 text-sm breadcrumbs" aria-label="Migas de pan">
+      <nav class="breadcrumbs mb-6 text-sm" aria-label="Migas de pan">
         <ol class="flex items-center gap-2">
           <li>
             <a href="/" class="text-gray-500 hover:text-primary">Inicio</a>
@@ -74,26 +74,26 @@ const schemaRevistaAime = {
             >
           </li>
           <li class="text-gray-400">/</li>
-          <li class="text-primary font-medium">Revista AIME</li>
+          <li class="font-medium text-primary">Revista AIME</li>
         </ol>
       </nav>
 
-      <h1 class="text-4xl font-bold mb-4">Revista AIME</h1>
-      <p class="text-lg mb-8 text-gray-800/90 max-w-3xl">
+      <h1 class="mb-4 text-4xl font-bold">Revista AIME</h1>
+      <p class="mb-8 max-w-3xl text-lg text-gray-800/90">
         Nuestra revista digital con artículos técnicos, entrevistas a
         profesionales destacados y las últimas innovaciones en el sector minero
         ecuatoriano.
       </p>
 
-      <div class="grid md:grid-cols-3 gap-8 mb-10">
+      <div class="mb-10 grid gap-8 md:grid-cols-3">
         <div class="md:col-span-2">
           <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200"
+            class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg"
           >
-            <div class="relative w-full h-[500px] md:h-[700px]">
+            <div class="relative h-[500px] w-full md:h-[700px]">
               <iframe
                 src="/documentos/revista.pdf#toolbar=0"
-                class="absolute inset-0 w-full h-full border-0"
+                class="absolute inset-0 h-full w-full border-0"
                 title="Revista AIME"
                 loading="eager"></iframe>
               <noscript>
@@ -119,8 +119,8 @@ const schemaRevistaAime = {
         </div>
 
         <div class="space-y-6">
-          <div class="bg-muted p-6 rounded-lg">
-            <h2 class="text-xl font-bold mb-4">Opciones de visualización</h2>
+          <div class="rounded-lg bg-muted p-6">
+            <h2 class="mb-4 text-xl font-bold">Opciones de visualización</h2>
             <div class="space-y-4">
               <ButtonLink
                 href="/documentos/revista.pdf"
@@ -142,15 +142,15 @@ const schemaRevistaAime = {
           </div>
 
           <!-- Información adicional para SEO -->
-          <div class="bg-muted p-6 rounded-lg">
-            <h2 class="text-xl font-bold mb-4">Sobre esta edición</h2>
-            <p class="text-sm mb-4">
+          <div class="rounded-lg bg-muted p-6">
+            <h2 class="mb-4 text-xl font-bold">Sobre esta edición</h2>
+            <p class="mb-4 text-sm">
               La revista oficial de AIME reúne las perspectivas más actualizadas
               sobre la industria minera en Ecuador, con informes técnicos y
               entrevistas exclusivas. Esta edición aborda temas como
               sostenibilidad, innovación tecnológica y buenas prácticas.
             </p>
-            <p class="text-sm mb-4">
+            <p class="mb-4 text-sm">
               Los editores han compilado las contribuciones de expertos a nivel
               nacional e internacional, presentando investigaciones recientes y
               análisis detallados sobre el desarrollo minero responsable en
@@ -166,8 +166,8 @@ const schemaRevistaAime = {
       </div>
 
       <!-- Información adicional para SEO -->
-      <div class="mt-12 pt-8 border-t">
-        <h2 class="text-2xl font-bold mb-4">Acerca de la Revista AIME</h2>
+      <div class="mt-12 border-t pt-8">
+        <h2 class="mb-4 text-2xl font-bold">Acerca de la Revista AIME</h2>
         <p class="mb-6">
           La Revista AIME es la publicación oficial de la Asociación de
           Ingenieros de Minas del Ecuador. Se enfoca en difundir conocimiento
@@ -177,7 +177,7 @@ const schemaRevistaAime = {
         <p class="mb-6">
           Con una periodicidad trimestral, la revista cubre temas como:
         </p>
-        <ul class="list-disc pl-6 mb-6 space-y-2">
+        <ul class="mb-6 list-disc space-y-2 pl-6">
           <li>Avances técnicos en ingeniería de minas</li>
           <li>Análisis de la legislación y normativa minera</li>
           <li>Entrevistas con líderes y expertos del sector</li>

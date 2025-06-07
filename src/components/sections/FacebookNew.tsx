@@ -1,66 +1,66 @@
-import { getLastPost } from "@/services/facebookPosts";
-import { useEffect, useState } from "react";
-import type { FacebookPost } from "types";
+import { getLastPost } from '@/services/facebookPosts'
+import { useEffect, useState } from 'react'
+import type { FacebookPost } from 'types'
 
 export function FacebookNew() {
-  const [post, setPost] = useState<FacebookPost>();
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [post, setPost] = useState<FacebookPost>()
+  const [error, setError] = useState<string | null>(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     getLastPost()
       .then((post) => {
-        setPost(post);
+        setPost(post)
       })
       .catch((_) => {
-        setError("Error al obtener la noticia");
+        setError('Error al obtener la noticia')
       })
       .finally(() => {
-        setLoading(false);
-      });
-  }, []);
+        setLoading(false)
+      })
+  }, [])
 
   if (error) {
-    return <div className="text-red-500">{error}</div>;
+    return <div className="text-red-500">{error}</div>
   }
 
   if (loading) {
-    return <div className="text-gray-500">Cargando...</div>;
+    return <div className="text-gray-500">Cargando...</div>
   }
 
   if (!post) {
-    return <div className="text-gray-500">No hay noticias disponibles</div>;
+    return <div className="text-gray-500">No hay noticias disponibles</div>
   }
 
   return (
-    <article className="w-full sm:max-w-[300px] hover:scale-[1.02] transition-transform duration-300">
+    <article className="w-full transition-transform duration-300 hover:scale-[1.02] sm:max-w-[300px]">
       <a
-        className="h-[300px] w-[300px] aspect-square"
+        className="aspect-square h-[300px] w-[300px]"
         href={post.permalink_url}
         target="_blank"
         rel="noopener noreferrer"
       >
         <img
           src={post.full_picture}
-          alt={post.message || "Última noticia"}
-          className="w-full h-full object-cover rounded-md"
+          alt={post.message || 'Última noticia'}
+          className="h-full w-full rounded-md object-cover"
         />
       </a>
       <div className="mt-2">
         <a
           href={post.permalink_url}
-          className="font-bold text-lg line-clamp-4 hover:text-blue-500 hover:underline"
+          className="line-clamp-4 text-lg font-bold hover:text-blue-500 hover:underline"
         >
-          {post.message || "Última noticia"}
+          {post.message || 'Última noticia'}
         </a>
-        <p className="text-sm text-muted-foreground mt-1">
-          {new Date(post.created_time).toLocaleDateString("es-EC", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
+        <p className="mt-1 text-sm text-muted-foreground">
+          {new Date(post.created_time).toLocaleDateString('es-EC', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
           })}
         </p>
       </div>
     </article>
-  );
+  )
 }

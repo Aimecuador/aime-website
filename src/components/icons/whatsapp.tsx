@@ -1,7 +1,7 @@
 export default function WhatsAppIcon({
-  className = "h-6 w-6",
+  className = 'h-6 w-6',
 }: {
-  className?: string;
+  className?: string
 }) {
   return (
     <svg
@@ -19,5 +19,5 @@ export default function WhatsAppIcon({
         fill="#FFF"
       />
     </svg>
-  );
+  )
 }

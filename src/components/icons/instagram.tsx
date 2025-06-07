@@ -1,4 +1,8 @@
-export default function InstagramIcon({ className = "h-6 w-6" }: { className?: string }) {
+export default function InstagramIcon({
+  className = 'h-6 w-6',
+}: {
+  className?: string
+}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -16,4 +20,3 @@ export default function InstagramIcon({ className = "h-6 w-6" }: { className?: s
     </svg>
   )
 }
-

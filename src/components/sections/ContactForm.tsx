@@ -1,35 +1,35 @@
-import { sendForm } from "@emailjs/browser";
-import { toast, Toaster } from "sonner";
-import { useRef, useState } from "react";
-import { Button } from "../ui/button";
+import { sendForm } from '@emailjs/browser'
+import { toast, Toaster } from 'sonner'
+import { useRef, useState } from 'react'
+import { Button } from '../ui/button'
 
 export function ContactForm() {
-  const formRef = useRef<HTMLFormElement>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formRef.current) return;
+    e.preventDefault()
+    if (!formRef.current) return
 
-    setIsLoading(true);
+    setIsLoading(true)
 
     try {
       await sendForm(
-        "service_375wdmailaimec",
-        "template_2l1yain",
+        'service_375wdmailaimec',
+        'template_2l1yain',
         formRef.current,
         {
-          publicKey: "J1bi8L7JAgIRcKcL6",
-        }
-      );
+          publicKey: 'J1bi8L7JAgIRcKcL6',
+        },
+      )
 
-      toast.success("Formulario enviado con éxito.");
+      toast.success('Formulario enviado con éxito.')
     } catch (error) {
-      toast.error("Hubo un error al enviar el formulario.");
+      toast.error('Hubo un error al enviar el formulario.')
     } finally {
-      setIsLoading(false);
+      setIsLoading(false)
     }
-  };
+  }
 
   return (
     <>
@@ -37,7 +37,7 @@ export function ContactForm() {
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        className="space-y-6 bg-muted p-6 rounded-md"
+        className="space-y-6 rounded-md bg-muted p-6"
       >
         <div className="grid gap-6 sm:grid-cols-2">
           <div className="space-y-2">
@@ -49,7 +49,7 @@ export function ContactForm() {
               name="name"
               type="text"
               required
-              className="w-full border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md"
+              className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               placeholder="Tu nombre"
             />
           </div>
@@ -62,7 +62,7 @@ export function ContactForm() {
               name="email"
               type="email"
               required
-              className="w-full border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md"
+              className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               placeholder="tu@email.com"
             />
           </div>
@@ -76,7 +76,7 @@ export function ContactForm() {
             name="subject"
             type="text"
             required
-            className="w-full border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md"
+            className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             placeholder="Asunto de tu mensaje"
           />
         </div>
@@ -89,7 +89,7 @@ export function ContactForm() {
             name="message"
             required
             maxLength={600}
-            className="w-full min-h-[120px] border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 resize-none rounded-md"
+            className="min-h-[120px] w-full resize-none rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             placeholder="Tu mensaje"
           ></textarea>
         </div>
@@ -100,11 +100,11 @@ export function ContactForm() {
           disabled={isLoading}
         >
           {isLoading && <Spinner />}
-          {isLoading ? "Enviando mensaje..." : "Enviar mensaje"}
+          {isLoading ? 'Enviando mensaje...' : 'Enviar mensaje'}
         </Button>
       </form>
     </>
-  );
+  )
 }
 
 function Spinner() {
@@ -112,7 +112,7 @@ function Spinner() {
     <svg
       aria-hidden="true"
       role="status"
-      className="inline w-4 h-4 me-3 text-white animate-spin"
+      className="me-3 inline h-4 w-4 animate-spin text-white"
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -126,5 +126,5 @@ function Spinner() {
         fill="currentColor"
       />
     </svg>
-  );
+  )
 }

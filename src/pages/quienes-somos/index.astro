@@ -1,6 +1,6 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import { AccordionValores } from "@/components/sections/AccordionValores";
+import Layout from '@/layouts/Layout.astro'
+import { AccordionValores } from '@/components/sections/AccordionValores'
 import {
   Users,
   History,
@@ -9,25 +9,30 @@ import {
   Award,
   CheckCircle,
   ChevronRight,
-} from "lucide-react";
-import { Image } from 'astro:assets';
+} from 'lucide-react'
+import { Image } from 'astro:assets'
 ---
 
-<Layout title="Quiénes Somos | AIME" description="Conoce la historia, misión, visión y valores de la Asociación de Ingenieros de Minas del Ecuador.">
+<Layout
+  title="Quiénes Somos | AIME"
+  description="Conoce la historia, misión, visión y valores de la Asociación de Ingenieros de Minas del Ecuador."
+>
   <main class="container mx-auto py-12">
     <section class="mb-16">
-      <div class="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
+      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-8">
         <div>
-          <div class="flex items-center space-x-2 mb-6">
+          <div class="mb-6 flex items-center space-x-2">
             <div class="h-1 w-10 bg-primary"></div>
-            <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+            <span
+              class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
+            >
               Sobre Nosotros
             </span>
           </div>
-          <h1 class="text-4xl font-bold mb-8">Quiénes Somos</h1>
+          <h1 class="mb-8 text-4xl font-bold">Quiénes Somos</h1>
           <div class="space-y-4">
             <div class="flex items-start gap-3">
-              <Users className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+              <Users className="mt-1 h-6 w-6 flex-shrink-0 text-primary" />
               <p>
                 La Asociación de Ingenieros de Minas del Ecuador (AIME) es una
                 organización profesional que agrupa a los ingenieros en minas
@@ -36,10 +41,10 @@ import { Image } from 'astro:assets';
               </p>
             </div>
             <p>
-              Nuestro propósito es fomentar la excelencia profesional,
-              promover el intercambio de conocimientos, y fortalecer el rol
-              del ingeniero en minas como un actor clave en la sostenibilidad
-              y competitividad del sector minero nacional.
+              Nuestro propósito es fomentar la excelencia profesional, promover
+              el intercambio de conocimientos, y fortalecer el rol del ingeniero
+              en minas como un actor clave en la sostenibilidad y competitividad
+              del sector minero nacional.
             </p>
           </div>
         </div>
@@ -47,7 +52,7 @@ import { Image } from 'astro:assets';
           <Image
             src="/images/nosotros/directiva-aime.webp"
             alt="Directiva de AIME"
-            class="w-full h-auto rounded-md"
+            class="h-auto w-full rounded-md"
             width={1200}
             height={800}
           />
@@ -56,29 +61,31 @@ import { Image } from 'astro:assets';
     </section>
 
     <section id="historia" class="mb-16">
-      <div class="grid gap-8 md:grid-cols-2 items-center">
+      <div class="grid items-center gap-8 md:grid-cols-2">
         <div class="order-2 md:order-1">
           <div class="relative overflow-hidden shadow-lg">
             <Image
               src="/images/nosotros/historia-aime.webp"
               alt="Fundación histórica de AIME"
-              class="object-cover w-full h-auto rounded-md"
+              class="h-auto w-full rounded-md object-cover"
               width={1200}
               height={800}
             />
           </div>
         </div>
         <div class="order-1 md:order-2">
-          <div class="flex items-center space-x-2 mb-6">
+          <div class="mb-6 flex items-center space-x-2">
             <div class="h-1 w-10 bg-primary"></div>
-            <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+            <span
+              class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
+            >
               Nuestra Trayectoria
             </span>
           </div>
-          <h2 class="text-3xl font-bold mb-6">Historia</h2>
+          <h2 class="mb-6 text-3xl font-bold">Historia</h2>
           <div class="space-y-4">
             <div class="flex items-start gap-3">
-              <History className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+              <History className="mt-1 h-6 w-6 flex-shrink-0 text-primary" />
               <p>
                 La Asociación fue fundada en el año 1989 con el objetivo de
                 representar y apoyar a los profesionales de la ingeniería en
@@ -87,8 +94,8 @@ import { Image } from 'astro:assets';
               </p>
             </div>
             <p>
-              A lo largo de los años, ha trabajado en estrecha colaboración
-              con instituciones públicas, privadas y académicas, participando
+              A lo largo de los años, ha trabajado en estrecha colaboración con
+              instituciones públicas, privadas y académicas, participando
               activamente en el desarrollo del sector minero del país.
             </p>
           </div>
@@ -97,48 +104,56 @@ import { Image } from 'astro:assets';
     </section>
 
     <section id="mision-vision" class="mb-16">
-      <div class="flex items-center space-x-2 mb-6">
+      <div class="mb-6 flex items-center space-x-2">
         <div class="h-1 w-10 bg-primary"></div>
-        <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+        <span
+          class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
+        >
           Nuestro Propósito
         </span>
       </div>
       <div class="grid gap-8 md:grid-cols-2">
-        <div class="bg-muted p-8 shadow-md hover:shadow-xl border-l-4 border-primary">
-          <div class="flex items-center gap-3 mb-4">
+        <div
+          class="border-l-4 border-primary bg-muted p-8 shadow-md hover:shadow-xl"
+        >
+          <div class="mb-4 flex items-center gap-3">
             <Compass className="h-6 w-6 text-primary" />
             <h2 class="text-2xl font-bold">Misión</h2>
           </div>
           <p>
             Promover el desarrollo integral de los ingenieros en minas del
-            Ecuador, fomentando la ética profesional, la actualización técnica
-            y científica, y el compromiso con una minería responsable y
+            Ecuador, fomentando la ética profesional, la actualización técnica y
+            científica, y el compromiso con una minería responsable y
             sostenible.
           </p>
         </div>
-        <div class="bg-muted p-8 shadow-md hover:shadow-xl border-l-4 border-primary">
-          <div class="flex items-center gap-3 mb-4">
+        <div
+          class="border-l-4 border-primary bg-muted p-8 shadow-md hover:shadow-xl"
+        >
+          <div class="mb-4 flex items-center gap-3">
             <Target className="h-6 w-6 text-primary" />
             <h2 class="text-2xl font-bold">Visión</h2>
           </div>
           <p>
             Ser una organización líder y referente en el ámbito minero
             ecuatoriano, reconocida por su compromiso con la excelencia
-            profesional, la innovación y la defensa de los principios técnicos
-            y éticos de la ingeniería en minas.
+            profesional, la innovación y la defensa de los principios técnicos y
+            éticos de la ingeniería en minas.
           </p>
         </div>
       </div>
     </section>
 
     <section id="valores" class="mb-16">
-      <div class="flex items-center space-x-2 mb-6">
+      <div class="mb-6 flex items-center space-x-2">
         <div class="h-1 w-10 bg-primary"></div>
-        <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+        <span
+          class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
+        >
           Nuestros Principios
         </span>
       </div>
-      <div class="flex items-center gap-3 mb-6">
+      <div class="mb-6 flex items-center gap-3">
         <Award className="h-6 w-6 text-primary" />
         <h2 class="text-3xl font-bold">Valores y Principios</h2>
       </div>
@@ -147,44 +162,62 @@ import { Image } from 'astro:assets';
     </section>
 
     <section id="objetivos" class="mb-16">
-      <div class="flex items-center space-x-2 mb-6">
+      <div class="mb-6 flex items-center space-x-2">
         <div class="h-1 w-10 bg-primary"></div>
-        <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+        <span
+          class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
+        >
           Nuestras Metas
         </span>
       </div>
-      <div class="flex items-center gap-3 mb-6">
+      <div class="mb-6 flex items-center gap-3">
         <CheckCircle className="h-6 w-6 text-primary" />
         <h2 class="text-3xl font-bold">Objetivos</h2>
       </div>
-      <div class="bg-muted p-8 rounded-lg shadow-sm">
+      <div class="rounded-lg bg-muted p-8 shadow-sm">
         <ul class="space-y-4">
-          {[
-            "Representar y respaldar los intereses de los ingenieros en minas a nivel nacional e internacional.",
-            "Impulsar la formación continua y el desarrollo profesional de sus miembros.",
-            "Promover la investigación, la innovación y el uso de tecnologías en la ingeniería de minas.",
-            "Fomentar espacios de diálogo y colaboración con los diferentes actores del sector minero.",
-            "Contribuir al desarrollo de una minería sustentable y alineada con los objetivos del país.",
-          ].map((objetivo, index) => (
-            <li class="flex items-start gap-3 group">
-              <ChevronRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5 transition-transform duration-300 group-hover:translate-x-1" />
-              <p>{objetivo}</p>
-            </li>
-          ))}
+          {
+            [
+              'Representar y respaldar los intereses de los ingenieros en minas a nivel nacional e internacional.',
+              'Impulsar la formación continua y el desarrollo profesional de sus miembros.',
+              'Promover la investigación, la innovación y el uso de tecnologías en la ingeniería de minas.',
+              'Fomentar espacios de diálogo y colaboración con los diferentes actores del sector minero.',
+              'Contribuir al desarrollo de una minería sustentable y alineada con los objetivos del país.',
+            ].map((objetivo, index) => (
+              <li class="group flex items-start gap-3">
+                <ChevronRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5 transition-transform duration-300 group-hover:translate-x-1" />
+                <p>{objetivo}</p>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </section>
 
     <section id="documentos" class="mb-16">
-      <div class="flex items-center space-x-2 mb-6">
+      <div class="mb-6 flex items-center space-x-2">
         <div class="h-1 w-10 bg-primary"></div>
-        <span class="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+        <span
+          class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
+        >
           Normativa
         </span>
       </div>
-      <div class="flex items-center gap-3 mb-6">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+      <div class="mb-6 flex items-center gap-3">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="text-primary"
+        >
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+          ></path>
           <path d="M14 2v6h6"></path>
           <path d="M16 13H8"></path>
           <path d="M16 17H8"></path>
@@ -192,13 +225,28 @@ import { Image } from 'astro:assets';
         </svg>
         <h2 class="text-3xl font-bold">Estatutos y Reglamentos</h2>
       </div>
-      
+
       <div class="grid gap-6 md:grid-cols-2">
-        <div class="bg-muted rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+        <div
+          class="overflow-hidden rounded-lg bg-muted shadow-md transition-shadow duration-300 hover:shadow-xl"
+        >
           <div class="p-6">
-            <div class="flex items-center gap-3 mb-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <div class="mb-3 flex items-center gap-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-primary"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                ></path>
                 <path d="M14 2v6h6"></path>
                 <path d="M16 13H8"></path>
                 <path d="M16 17H8"></path>
@@ -207,14 +255,26 @@ import { Image } from 'astro:assets';
               <h3 class="text-xl font-bold">Estatutos AIME</h3>
             </div>
             <p class="mb-6 text-muted-foreground">
-              Documento oficial que establece los fundamentos legales, estructura organizativa y principios de funcionamiento de la Asociación de Ingenieros de Minas del Ecuador.
+              Documento oficial que establece los fundamentos legales,
+              estructura organizativa y principios de funcionamiento de la
+              Asociación de Ingenieros de Minas del Ecuador.
             </p>
-            <a 
-              href="/documentos/ESTATUTOS AIME 2023 DEFINITIVO.pdf" 
-              download 
-              class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/80 transition-colors"
+            <a
+              href="/documentos/ESTATUTOS AIME 2023 DEFINITIVO.pdf"
+              download
+              class="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-white transition-colors hover:bg-primary/80"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="7 10 12 15 17 10"></polyline>
                 <line x1="12" y1="15" x2="12" y2="3"></line>
@@ -224,11 +284,26 @@ import { Image } from 'astro:assets';
           </div>
         </div>
 
-        <div class="bg-muted rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+        <div
+          class="overflow-hidden rounded-lg bg-muted shadow-md transition-shadow duration-300 hover:shadow-xl"
+        >
           <div class="p-6">
-            <div class="flex items-center gap-3 mb-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <div class="mb-3 flex items-center gap-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-primary"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                ></path>
                 <path d="M14 2v6h6"></path>
                 <path d="M16 13H8"></path>
                 <path d="M16 17H8"></path>
@@ -237,14 +312,26 @@ import { Image } from 'astro:assets';
               <h3 class="text-xl font-bold">Reglamento Interno</h3>
             </div>
             <p class="mb-6 text-muted-foreground">
-              Conjunto de normas que rigen el funcionamiento interno de la organización, detallando procesos, derechos y obligaciones de los miembros de AIME.
+              Conjunto de normas que rigen el funcionamiento interno de la
+              organización, detallando procesos, derechos y obligaciones de los
+              miembros de AIME.
             </p>
-            <a 
-              href="/documentos/REGLAMENTO INTERNO DE LA AIME.pdf" 
-              download 
-              class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/80 transition-colors"
+            <a
+              href="/documentos/REGLAMENTO INTERNO DE LA AIME.pdf"
+              download
+              class="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-white transition-colors hover:bg-primary/80"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="7 10 12 15 17 10"></polyline>
                 <line x1="12" y1="15" x2="12" y2="3"></line>

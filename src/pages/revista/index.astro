@@ -1,58 +1,59 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { ArrowRight } from "lucide-react";
-import { Image } from "astro:assets";
+import Layout from '@/layouts/Layout.astro'
+import { ArrowRight } from 'lucide-react'
+import { Image } from 'astro:assets'
 
 // Datos estructurados para Schema.org
 const schemaPublicacionesAime = {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  headline: "Publicaciones AIME",
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  headline: 'Publicaciones AIME',
   description:
-    "Accede a las publicaciones oficiales de la Asociación de Ingenieros de Minas del Ecuador (AIME): revista técnica y boletines informativos.",
+    'Accede a las publicaciones oficiales de la Asociación de Ingenieros de Minas del Ecuador (AIME): revista técnica y boletines informativos.',
   publisher: {
-    "@type": "Organization",
-    name: "Asociación de Ingenieros de Minas del Ecuador (AIME)",
+    '@type': 'Organization',
+    name: 'Asociación de Ingenieros de Minas del Ecuador (AIME)',
     logo: {
-      "@type": "ImageObject",
-      url: "https://aimecuador.org/aime-logo-sin-texto.jpg",
+      '@type': 'ImageObject',
+      url: 'https://aimecuador.org/aime-logo-sin-texto.jpg',
     },
   },
-  url: "https://aimecuador.org/revista",
-  dateModified: new Date().toISOString().split("T")[0],
+  url: 'https://aimecuador.org/revista',
+  dateModified: new Date().toISOString().split('T')[0],
   hasPart: [
     {
-      "@type": "TechArticle",
-      headline: "Revista AIME",
-      url: "https://aimecuador.org/revista/revista-aime",
+      '@type': 'TechArticle',
+      headline: 'Revista AIME',
+      url: 'https://aimecuador.org/revista/revista-aime',
     },
     {
-      "@type": "TechArticle",
-      headline: "Boletín No.001 AIME 2025",
-      url: "https://aimecuador.org/revista/boletin-001",
+      '@type': 'TechArticle',
+      headline: 'Boletín No.001 AIME 2025',
+      url: 'https://aimecuador.org/revista/boletin-001',
     },
   ],
-};
+}
 
 // Datos de publicaciones
 const publicaciones = [
   {
-    id: "revista",
-    titulo: "Revista AIME",
-    edicion: "Edición 2025",
-    url: "/revista/revista-aime",
-    urlDescarga: "/documentos/revista.pdf",
-    imagen: "/images/revista/revista-aime.jpg",
-    alt: "Revista AIME",
-    descripcion: "Nuestra revista digital con artículos técnicos, entrevistas a profesionales destacados y las últimas innovaciones en el sector minero ecuatoriano.",
+    id: 'revista',
+    titulo: 'Revista AIME',
+    edicion: 'Edición 2025',
+    url: '/revista/revista-aime',
+    urlDescarga: '/documentos/revista.pdf',
+    imagen: '/images/revista/revista-aime.jpg',
+    alt: 'Revista AIME',
+    descripcion:
+      'Nuestra revista digital con artículos técnicos, entrevistas a profesionales destacados y las últimas innovaciones en el sector minero ecuatoriano.',
     temas: [
-      "Innovaciones en minería sostenible",
-      "Entrevistas con líderes del sector",
-      "Avances tecnológicos en extracción"
+      'Innovaciones en minería sostenible',
+      'Entrevistas con líderes del sector',
+      'Avances tecnológicos en extracción',
     ],
-    textoClase: "text-white/90", // Clase para el texto de la descripción
-  }
-];
+    textoClase: 'text-white/90', // Clase para el texto de la descripción
+  },
+]
 ---
 
 <Layout
@@ -67,7 +68,7 @@ const publicaciones = [
 
   <main class="py-12">
     <div class="container">
-      <div class="flex items-center space-x-2 mb-6">
+      <div class="mb-6 flex items-center space-x-2">
         <div class="h-1 w-10 bg-primary"></div>
         <span
           class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
@@ -75,38 +76,32 @@ const publicaciones = [
           Publicaciones oficiales
         </span>
       </div>
-      <h1 class="text-4xl font-bold mb-4">Publicaciones AIME</h1>
-      <p class="text-lg mb-8 text-gray-800/90 max-w-3xl">
+      <h1 class="mb-4 text-4xl font-bold">Publicaciones AIME</h1>
+      <p class="mb-8 max-w-3xl text-lg text-gray-800/90">
         Accede a nuestras publicaciones digitales con artículos técnicos,
         entrevistas a profesionales destacados y las últimas innovaciones en el
         sector minero ecuatoriano.
-      </p>      
+      </p>
 
       <!-- Tarjetas de publicaciones -->
-      <div class="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 mb-12">
+      <div class="mb-12 grid gap-8 md:grid-cols-2 md:gap-12 lg:gap-20">
         {
           publicaciones.map((pub) => (
-            <article
-              class="bg-white shadow-lg overflow-hidden border border-gray-200 flex flex-col h-full group rounded-md"
-            >
+            <article class="group flex h-full flex-col overflow-hidden rounded-md border border-gray-200 bg-white shadow-lg">
               <div class="relative h-96">
-                <a href={pub.url} class="block w-full h-full">
+                <a href={pub.url} class="block h-full w-full">
                   <Image
                     src={pub.imagen}
                     alt={pub.alt}
                     width={600}
                     height={600}
-                    class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                    class="h-full w-full object-cover transition-all duration-500 group-hover:scale-105"
                   />
-                  <div
-                    class="absolute inset-x0 bottom-0 h-fit bg-black/70 group-hover:backdrop-blur-sm"
-                  >
+                  <div class="inset-x0 absolute bottom-0 h-fit bg-black/70 group-hover:backdrop-blur-sm">
                     <div class="p-4 text-white">
-                      <h2 class="text-2xl font-bold mb-2">{pub.titulo}</h2>
-                      <div
-                        class=""
-                      >
-                        <p class={pub.textoClase + " mt-2"}>
+                      <h2 class="mb-2 text-2xl font-bold">{pub.titulo}</h2>
+                      <div class="">
+                        <p class={pub.textoClase + ' mt-2'}>
                           {pub.descripcion}
                         </p>
                       </div>
@@ -114,12 +109,10 @@ const publicaciones = [
                   </div>
                 </a>
                 {pub.temas && pub.temas.length > 0 && (
-                  <ul class="text-sm space-y-2 text-gray-700">
+                  <ul class="space-y-2 text-sm text-gray-700">
                     {pub.temas.map((tema) => (
                       <li class="flex items-start">
-                        <ArrowRight
-                          className="h-4 w-4 text-primary mt-1 mr-2 flex-shrink-0"
-                        />
+                        <ArrowRight className="h-4 w-4 text-primary mt-1 mr-2 flex-shrink-0" />
                         <span>{tema}</span>
                       </li>
                     ))}
@@ -128,22 +121,28 @@ const publicaciones = [
               </div>
             </article>
           ))
-        }     
-        
+        }
+
         <!-- Enlaces directos para SEO -->
         <div class="mt-8">
           <h2 class="sr-only">Enlaces a nuestras publicaciones</h2>
           <ul class="sr-only">
-            {publicaciones.map((pub) => (
-              <>
-                <li><a href={pub.url}>{pub.titulo} - {pub.edicion}</a></li>
-                {pub.urlDescarga && (
+            {
+              publicaciones.map((pub) => (
+                <>
                   <li>
-                    <a href={pub.urlDescarga}>Descargar {pub.titulo} (PDF)</a>
+                    <a href={pub.url}>
+                      {pub.titulo} - {pub.edicion}
+                    </a>
                   </li>
-                )}
-              </>
-            ))}
+                  {pub.urlDescarga && (
+                    <li>
+                      <a href={pub.urlDescarga}>Descargar {pub.titulo} (PDF)</a>
+                    </li>
+                  )}
+                </>
+              ))
+            }
           </ul>
         </div>
       </div>

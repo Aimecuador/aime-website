@@ -1,8 +1,7 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import ButtonLink from "@/components/ui/ButtonLink.astro";
-import { Home, ArrowLeft, Search, FileQuestion } from "lucide-react";
-
+import Layout from '@/layouts/Layout.astro'
+import ButtonLink from '@/components/ui/ButtonLink.astro'
+import { Home, ArrowLeft, Search, FileQuestion } from 'lucide-react'
 ---
 
 <Layout
@@ -12,41 +11,59 @@ import { Home, ArrowLeft, Search, FileQuestion } from "lucide-react";
   <main class="pb-16 pt-10">
     <div class="container">
       <div class="flex flex-col items-center justify-center text-center">
-        <!-- Número 404 estilizado -->        <div class="relative mb-8">
-          <h1 class="text-[120px] md:text-[180px] lg:text-[220px] font-bold text-primary/10 leading-none">
+        <!-- Número 404 estilizado -->
+        <div class="relative mb-8">
+          <h1
+            class="text-[120px] font-bold leading-none text-primary/10 md:text-[180px] lg:text-[220px]"
+          >
             404
           </h1>
         </div>
 
         <!-- Mensaje principal -->
-        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-secondary">
+        <h2
+          class="mb-4 text-2xl font-bold text-secondary md:text-3xl lg:text-4xl"
+        >
           ¡Vaya! Esta página parece haberse extraviado
         </h2>
-        <p class="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-          Lo sentimos, la página que estás buscando no existe o ha sido movida. 
-          Es posible que hayas seguido un enlace desactualizado o que hayas escrito 
-          una URL incorrecta.
+        <p class="mx-auto mb-10 max-w-2xl text-lg text-gray-600 md:text-xl">
+          Lo sentimos, la página que estás buscando no existe o ha sido movida.
+          Es posible que hayas seguido un enlace desactualizado o que hayas
+          escrito una URL incorrecta.
         </p>
 
         <!-- Ilustración minera -->
-        <div class="w-full max-w-md mx-auto mb-10">
-          <div class="bg-muted rounded-lg p-6 shadow-inner">
-            <div class="flex gap-4 mb-6 items-center">
-              <div class="bg-primary/20 p-3 rounded-full">
-                <FileQuestion className="w-8 h-8 text-primary-dark" />
+        <div class="mx-auto mb-10 w-full max-w-md">
+          <div class="rounded-lg bg-muted p-6 shadow-inner">
+            <div class="mb-6 flex items-center gap-4">
+              <div class="rounded-full bg-primary/20 p-3">
+                <FileQuestion className="text-primary-dark h-8 w-8" />
               </div>
               <div class="flex-1 text-left">
-                <h3 class="text-lg font-semibold">¿Necesitas ayuda para encontrar algo?</h3>
-                <p class="text-sm text-gray-600">Utiliza los enlaces a continuación para encontrar lo que buscas.</p>
+                <h3 class="text-lg font-semibold">
+                  ¿Necesitas ayuda para encontrar algo?
+                </h3>
+                <p class="text-sm text-gray-600">
+                  Utiliza los enlaces a continuación para encontrar lo que
+                  buscas.
+                </p>
               </div>
             </div>
-            
-            <div class="flex flex-col md:flex-row gap-3 justify-center">
-              <ButtonLink href="/" variant="default" class="flex items-center justify-center gap-2">
-                <Home className="w-4 h-4" /> Ir a inicio
+
+            <div class="flex flex-col justify-center gap-3 md:flex-row">
+              <ButtonLink
+                href="/"
+                variant="default"
+                class="flex items-center justify-center gap-2"
+              >
+                <Home className="h-4 w-4" /> Ir a inicio
               </ButtonLink>
-              <ButtonLink href="/contacto" variant="outline" class="flex items-center justify-center gap-2">
-                <ArrowLeft className="w-4 h-4" /> Contactar con nosotros
+              <ButtonLink
+                href="/contacto"
+                variant="outline"
+                class="flex items-center justify-center gap-2"
+              >
+                <ArrowLeft className="h-4 w-4" /> Contactar con nosotros
               </ButtonLink>
             </div>
           </div>

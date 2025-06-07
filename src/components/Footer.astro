@@ -1,21 +1,21 @@
 ---
-import { Image } from "astro:assets";
-import SocialIcons from "./SocialIcons";
+import { Image } from 'astro:assets'
+import SocialIcons from './SocialIcons'
 ---
 
 <footer class="border-t bg-secondary text-white">
   <div class="container py-8 md:py-12">
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       <div>
-        <div class="flex items-center gap-2 mb-4">
+        <div class="mb-4 flex items-center gap-2">
           <div>
             <Image
-            src="/aime-logo-sin-texto.jpg"
-            alt="AIME Logo"
-            width={60}
-            height={60}
-            class="p-2 bg-white rounded"
-          />
+              src="/aime-logo-sin-texto.jpg"
+              alt="AIME Logo"
+              width={60}
+              height={60}
+              class="rounded bg-white p-2"
+            />
           </div>
           <span class="text-xl font-bold tracking-tight">AIME</span>
         </div>
@@ -33,12 +33,10 @@ import SocialIcons from "./SocialIcons";
         </div>
       </div>
       <div class="md:pl-16">
-        <h3 class="text-sm font-medium mb-4">Enlaces Rápidos</h3>
+        <h3 class="mb-4 text-sm font-medium">Enlaces Rápidos</h3>
         <ul class="space-y-2 text-sm">
           <li>
-            <a href="/" class="text-gray-300 hover:text-primary">
-              Inicio
-            </a>
+            <a href="/" class="text-gray-300 hover:text-primary"> Inicio </a>
           </li>
           <li>
             <a href="/nosotros" class="text-gray-300 hover:text-primary">
@@ -62,7 +60,7 @@ import SocialIcons from "./SocialIcons";
         </ul>
       </div>
       <div>
-        <h3 class="text-sm font-medium mb-4">Recursos</h3>
+        <h3 class="mb-4 text-sm font-medium">Recursos</h3>
         <ul class="space-y-2 text-sm">
           <li>
             <a href="/revista" class="text-gray-300 hover:text-primary">
@@ -75,22 +73,32 @@ import SocialIcons from "./SocialIcons";
             </a>
           </li>
           <li>
-            <a href="/documentos/ESTATUTOS AIME 2023 DEFINITIVO.pdf" download class="text-gray-300 hover:text-primary">
+            <a
+              href="/documentos/ESTATUTOS AIME 2023 DEFINITIVO.pdf"
+              download
+              class="text-gray-300 hover:text-primary"
+            >
               Estatutos
             </a>
           </li>
           <li>
-            <a href="/documentos/REGLAMENTO INTERNO DE LA AIME.pdf" download class="text-gray-300 hover:text-primary">
+            <a
+              href="/documentos/REGLAMENTO INTERNO DE LA AIME.pdf"
+              download
+              class="text-gray-300 hover:text-primary"
+            >
               Reglamento Interno
             </a>
           </li>
         </ul>
       </div>
     </div>
-    <div class="mt-8 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+    <div
+      class="mt-8 flex flex-col items-center justify-between gap-4 border-t border-gray-700 pt-8 md:flex-row"
+    >
       <p class="text-xs text-gray-300">
-        &copy; {new Date().getFullYear()} Asociación de Ingenieros de Minas del
-        Ecuador. Todos los derechos reservados.
+        &copy; {new Date().getFullYear()} Asociación de Ingenieros de Minas del Ecuador.
+        Todos los derechos reservados.
       </p>
     </div>
   </div>

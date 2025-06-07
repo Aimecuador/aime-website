@@ -1,32 +1,32 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { Image } from "astro:assets";
-import ButtonLink from "@/components/ui/ButtonLink.astro";
-import { Play, Calendar, Users, ExternalLink, Youtube } from "lucide-react";
+import Layout from '@/layouts/Layout.astro'
+import { Image } from 'astro:assets'
+import ButtonLink from '@/components/ui/ButtonLink.astro'
+import { Play, Calendar, Users, ExternalLink, Youtube } from 'lucide-react'
 
 const temporadas = [
   {
-    numero: "Primera",
-    fecha: "23 de septiembre de 2021",
+    numero: 'Primera',
+    fecha: '23 de septiembre de 2021',
     descripcion:
-      "Marcó el lanzamiento del programa con entrevistas y paneles sobre la situación de la minería en el país, sus desafíos y oportunidades.",
-    imagen: "/placeholder.svg?height=200&width=400&text=Primera+Temporada",
+      'Marcó el lanzamiento del programa con entrevistas y paneles sobre la situación de la minería en el país, sus desafíos y oportunidades.',
+    imagen: '/placeholder.svg?height=200&width=400&text=Primera+Temporada',
   },
   {
-    numero: "Segunda",
-    fecha: "8 de febrero de 2022",
+    numero: 'Segunda',
+    fecha: '8 de febrero de 2022',
     descripcion:
-      "Se transmitió todos los martes a las 19h00 a través de Facebook Live, consolidando el programa como un referente de educación minera digital.",
-    imagen: "/placeholder.svg?height=200&width=400&text=Segunda+Temporada",
+      'Se transmitió todos los martes a las 19h00 a través de Facebook Live, consolidando el programa como un referente de educación minera digital.',
+    imagen: '/placeholder.svg?height=200&width=400&text=Segunda+Temporada',
   },
   {
-    numero: "Tercera",
-    fecha: "Octubre de 2023",
+    numero: 'Tercera',
+    fecha: 'Octubre de 2023',
     descripcion:
-      "Con una frecuencia quincenal, mantuvo el enfoque técnico y educativo, e integró nuevas temáticas como transición energética, innovación y responsabilidad social.",
-    imagen: "/placeholder.svg?height=200&width=400&text=Tercera+Temporada",
+      'Con una frecuencia quincenal, mantuvo el enfoque técnico y educativo, e integró nuevas temáticas como transición energética, innovación y responsabilidad social.',
+    imagen: '/placeholder.svg?height=200&width=400&text=Tercera+Temporada',
   },
-];
+]
 ---
 
 <Layout
@@ -35,8 +35,8 @@ const temporadas = [
 >
   <main class="py-12">
     {/* Descripción del programa */}
-    <section class="mb-16 container mx-auto">
-      <div class="flex items-center space-x-2 mb-4">
+    <section class="container mx-auto mb-16">
+      <div class="mb-4 flex items-center space-x-2">
         <div class="h-1 w-10 bg-primary"></div>
         <span
           class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
@@ -45,15 +45,15 @@ const temporadas = [
         </span>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-12 items-center text-gray-800">
+      <div class="grid items-center gap-12 text-gray-800 lg:grid-cols-2">
         <div>
-          <div class="flex items-center gap-4 mb-6">
+          <div class="mb-6 flex items-center gap-4">
             <Image
               src="/images/mineria-para-todos/logo.jpeg"
               alt="Logo Minería para Todos"
               width={90}
               height={90}
-              class="w-[90px] h-[90px] object-cover"
+              class="h-[90px] w-[90px] object-cover"
             />
             <h2 class="text-3xl font-bold">¿Qué es Minería para Todos?</h2>
           </div>
@@ -79,7 +79,7 @@ const temporadas = [
               desarrollo del Ecuador.
             </p>
           </div>
-          <div class="flex flex-wrap gap-4 mt-8">
+          <div class="mt-8 flex flex-wrap gap-4">
             <ButtonLink href="#episodios" size="lg">
               <Play className="mr-2 h-4 w-4" /> Ver episodios
             </ButtonLink>
@@ -99,15 +99,15 @@ const temporadas = [
             alt="Minería para Todos"
             width={800}
             height={400}
-            class="object-cover w-full h-full rounded-md"
+            class="h-full w-full rounded-md object-cover"
           />
         </div>
       </div>
     </section>
 
     {/* Temporadas */}
-    <section class="mb-16 pt-10 container mx-auto">
-      <div class="flex items-center space-x-2 mb-6">
+    <section class="container mx-auto mb-16 pt-10">
+      <div class="mb-6 flex items-center space-x-2">
         <div class="h-1 w-10 bg-primary"></div>
         <span
           class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
@@ -115,15 +115,15 @@ const temporadas = [
           Evolución
         </span>
       </div>
-      <h2 class="text-3xl font-bold mb-8 flex items-center">
+      <h2 class="mb-8 flex items-center text-3xl font-bold">
         <Calendar className="mr-3 h-8 w-8 text-primary" />
         Temporadas
       </h2>
 
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="grid gap-6 md:grid-cols-3">
         {
           temporadas.map((temporada) => (
-            <article class="overflow-hidden transition-all duration-300 shadow-md hover:shadow-xl border p-4 flex flex-col gap-4">
+            <article class="flex flex-col gap-4 overflow-hidden border p-4 shadow-md transition-all duration-300 hover:shadow-xl">
               <div>
                 <h3 class="text-2xl font-bold">
                   <span class="text-primary">{temporada.numero}</span> Temporada
@@ -144,7 +144,7 @@ const temporadas = [
     {/* Episodios */}
     <section id="episodios" class="mb-16 scroll-mt-20 bg-muted py-12">
       <div class="container mx-auto">
-        <div class="flex items-center space-x-2 mb-6">
+        <div class="mb-6 flex items-center space-x-2">
           <div class="h-1 w-10 bg-primary"></div>
           <span
             class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
@@ -152,27 +152,27 @@ const temporadas = [
             Contenido
           </span>
         </div>
-        <h2 class="text-3xl font-bold mb-8 flex items-center">
+        <h2 class="mb-8 flex items-center text-3xl font-bold">
           <Play className="mr-3 h-8 w-8 text-primary" />
           Episodios
         </h2>
 
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div class="relative aspect-video overflow-hidden shadow-lg group">
+        <div class="grid items-center gap-12 md:grid-cols-2">
+          <div class="group relative aspect-video overflow-hidden shadow-lg">
             <Image
               src="/images/mineria-para-todos/video-preview.jpg"
               alt="Minería para Todos Video"
               width={800}
               height={450}
-              class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105 rounded-md"
+              class="h-full w-full rounded-md object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div
-              class="absolute inset-0 bg-black/50 flex items-center justify-center rounded-md"
+              class="absolute inset-0 flex items-center justify-center rounded-md bg-black/50"
             >
               <ButtonLink
                 href="https://www.facebook.com/AimeEcuador/videos/550865692879305"
                 size="lg"
-                class="bg-primary hover:bg-primary/90 text-white transition-transform duration-300 hover:scale-110"
+                class="bg-primary text-white transition-transform duration-300 hover:scale-110 hover:bg-primary/90"
                 target="_blank"
               >
                 <Play className="mr-2 h-5 w-5" /> Ver en Facebook
@@ -181,22 +181,22 @@ const temporadas = [
           </div>
 
           <div>
-            <h3 class="text-2xl font-bold mb-4">
+            <h3 class="mb-4 text-2xl font-bold">
               Playlist completa en YouTube
             </h3>
             <div class="space-y-4">
               <div class="flex items-start gap-3">
-                <Play className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+                <Play className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
                 <p>Más de 20 episodios con expertos del sector minero</p>
               </div>
               <div class="flex items-start gap-3">
-                <Users className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+                <Users className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
                 <p>
                   Entrevistas con profesionales nacionales e internacionales
                 </p>
               </div>
               <div class="flex items-start gap-3">
-                <Calendar className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+                <Calendar className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
                 <p>
                   Contenido organizado por temporadas para facilitar su
                   visualización
@@ -219,8 +219,8 @@ const temporadas = [
     </section>
 
     {/* Dónde verlo */}
-    <section class="mb-16 container mx-auto">
-      <div class="flex items-center space-x-2 mb-6">
+    <section class="container mx-auto mb-16">
+      <div class="mb-6 flex items-center space-x-2">
         <div class="h-1 w-10 bg-primary"></div>
         <span
           class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
@@ -228,23 +228,23 @@ const temporadas = [
           Acceso
         </span>
       </div>
-      <h2 class="text-3xl font-bold mb-8 flex items-center">
+      <h2 class="mb-8 flex items-center text-3xl font-bold">
         <ExternalLink className="mr-3 h-8 w-8 text-primary" />
         ¿Dónde verlo?
       </h2>
 
-      <div class="bg-muted p-8 rounded-xl">
-        <div class="flex flex-col md:flex-row items-center gap-8">
+      <div class="rounded-xl bg-muted p-8">
+        <div class="flex flex-col items-center gap-8 md:flex-row">
           <div class="flex-shrink-0">
             <div
-              class="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center"
+              class="flex h-24 w-24 items-center justify-center rounded-full bg-primary/20"
             >
               <Youtube className="h-12 w-12 text-primary" />
             </div>
           </div>
           <div class="flex-grow text-center md:text-left">
-            <h3 class="text-xl font-bold mb-2">Canal oficial de YouTube</h3>
-            <p class="text-lg mb-4">
+            <h3 class="mb-2 text-xl font-bold">Canal oficial de YouTube</h3>
+            <p class="mb-4 text-lg">
               Todos los episodios están disponibles en nuestro canal oficial.
               Suscríbete para no perderte ningún contenido nuevo.
             </p>
