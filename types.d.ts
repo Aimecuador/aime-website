@@ -5,6 +5,7 @@ export type FacebookPost = {
   permalink_url: string
   attachments?: {
     data: {
+      description?: string
       type: string
       media?: {
         image?: {

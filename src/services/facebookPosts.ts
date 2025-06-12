@@ -42,5 +42,5 @@ export function extractGalleryImages(post: FacebookPost): string[] {
 
 export async function getLastPost() {
   const posts = await fetchFacebookPosts()
-  return posts.find((post) => post.permalink_url)
+  return posts.find((post) => post.full_picture)
 }
