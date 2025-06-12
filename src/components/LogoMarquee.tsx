@@ -60,7 +60,7 @@ export function LogoMarquee({ logos, speed = 55 }: LogoMarqueeProps) {
             key={`${logo.name}-${index}`}
             href={logo.href || '#'}
             target={logo.href ? '_blank' : ''}
-            className="flex items-center justify-center transition-transform duration-[250ms] hover:scale-95"
+            className="flex items-center justify-center transition-transform duration-300 hover:scale-105"
             rel="noopener noreferrer"
           >
             <img

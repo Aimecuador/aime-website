@@ -1,39 +1,38 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import ButtonLink from '@/components/ui/ButtonLink.astro'
-import { Home, ArrowLeft, Search, FileQuestion } from 'lucide-react'
+import { Home, FileQuestion, ArrowRight } from 'lucide-react'
 ---
 
 <Layout
   title="Página no encontrada | AIME - Asociación de Ingenieros de Minas del Ecuador"
   description="Lo sentimos, la página que buscas no existe o ha sido movida."
 >
-  <main class="pb-16 pt-10">
+  <main class="pb-16 pt-10 bg-gradient-to-l from-white via-primary/5 to-white">
     <div class="container">
       <div class="flex flex-col items-center justify-center text-center">
         <!-- Número 404 estilizado -->
-        <div class="relative mb-8">
+        <div class="relative mb-5">
+          <p class="text-2xl font-bold text-center">OOPS!</p>
           <h1
-            class="text-[120px] font-bold leading-none text-primary/10 md:text-[180px] lg:text-[220px]"
+            class="bg-gradient-to-r from-primary/70 via-primary to-primary/60 bg-clip-text text-[120px] font-bold leading-none text-transparent md:text-[150px]"
           >
             404
           </h1>
         </div>
 
         <!-- Mensaje principal -->
-        <h2
-          class="mb-4 text-2xl font-bold text-secondary md:text-3xl lg:text-4xl"
-        >
+        <h2 class="mb-4 text-2xl font-bold text-secondary md:text-2xl">
           ¡Vaya! Esta página parece haberse extraviado
         </h2>
-        <p class="mx-auto mb-10 max-w-2xl text-lg text-gray-600 md:text-xl">
+        <p class="mx-auto mb-8 max-w-2xl text-gray-600">
           Lo sentimos, la página que estás buscando no existe o ha sido movida.
           Es posible que hayas seguido un enlace desactualizado o que hayas
           escrito una URL incorrecta.
         </p>
 
         <!-- Ilustración minera -->
-        <div class="mx-auto mb-10 w-full max-w-md">
+        <div class="mx-auto mb-10 w-full max-w-md shadow-md">
           <div class="rounded-lg bg-muted p-6 shadow-inner">
             <div class="mb-6 flex items-center gap-4">
               <div class="rounded-full bg-primary/20 p-3">
@@ -61,9 +60,11 @@ import { Home, ArrowLeft, Search, FileQuestion } from 'lucide-react'
               <ButtonLink
                 href="/contacto"
                 variant="outline"
-                class="flex items-center justify-center gap-2"
+                class="group flex items-center justify-center gap-2"
               >
-                <ArrowLeft className="h-4 w-4" /> Contactar con nosotros
+                Contactar con nosotros <ArrowRight
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                />
               </ButtonLink>
             </div>
           </div>
