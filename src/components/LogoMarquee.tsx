@@ -6,11 +6,12 @@ interface LogoMarqueeProps {
     image: string
     href?: string
     scale?: number
+    marginLeft?: number
   }[]
   speed?: number
 }
 
-export function LogoMarquee({ logos, speed = 55 }: LogoMarqueeProps) {
+export function LogoMarquee({ logos, speed = 75 }: LogoMarqueeProps) {
   const [isPaused, setIsPaused] = useState(false)
   const marqueeRef = useRef<HTMLDivElement>(null)
   const currentPositionRef = useRef(0)
@@ -54,7 +55,7 @@ export function LogoMarquee({ logos, speed = 55 }: LogoMarqueeProps) {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div ref={marqueeRef} className="flex gap-12 whitespace-nowrap">
+      <div ref={marqueeRef} className="flex whitespace-nowrap">
         {duplicatedLogos.map((logo, index) => (
           <a
             key={`${logo.name}-${index}`}
@@ -62,12 +63,15 @@ export function LogoMarquee({ logos, speed = 55 }: LogoMarqueeProps) {
             target={logo.href ? '_blank' : ''}
             className="flex items-center justify-center transition-transform duration-300 hover:scale-105"
             rel="noopener noreferrer"
+            style={{ marginLeft: logo.marginLeft || 0 }}
           >
             <img
               src={logo.image || '/placeholder.svg'}
               alt={logo.name}
               className="h-[85px] min-w-32 max-w-max object-contain"
-              style={{ transform: `scale(${logo.scale || 1})` }}
+              style={{
+                transform: `scale(${logo.scale || 1})`,
+              }}
             />
           </a>
         ))}
