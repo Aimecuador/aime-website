@@ -73,7 +73,7 @@ const blogPosts = [
     <div class="grid gap-6 md:gap-10 md:grid-cols-2 lg:grid-cols-3">
       {
         blogPosts.map((post) => (
-          <article class="group flex flex-col overflow-hidden rounded-md border border-gray-200 shadow-sm transition-shadow hover:shadow-lg">
+          <article class="group flex flex-col overflow-hidden rounded-md border border-gray-200 shadow-sm transition-shadow hover:shadow-lg pb-1">
             <a href={`/blog/${post.slug}`} class="overflow-hidden rounded-md">
               <Image
                 src={post.image}
@@ -89,7 +89,7 @@ const blogPosts = [
               </p>
               <a
                 href={`/blog/${post.slug}`}
-                class="mb-2 mt-2.5 line-clamp-3 text-2xl font-semibold leading-none tracking-tight transition-all duration-[50ms] hover:cursor-pointer hover:text-primary hover:underline"
+                class="mb-2 mt-2.5 line-clamp-3 text-2xl font-semibold leading-none tracking-tight transition-all duration-[50ms] hover:cursor-pointer hover:text-blue-500 hover:underline"
               >
                 {post.title}
               </a>

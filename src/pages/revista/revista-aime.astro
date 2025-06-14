@@ -3,7 +3,7 @@ import Layout from '@/layouts/Layout.astro'
 import {
   Download,
   ExternalLink,
-  ArrowRight,
+  ArrowLeft,
 } from 'lucide-react'
 import ButtonLink from '@/components/ui/ButtonLink.astro'
 
@@ -187,8 +187,8 @@ const schemaRevistaAime = {
         </ul>
 
         <div class="flex">
-          <ButtonLink href="/revista" variant="outline" class="mr-4">
-            <ArrowRight className="mr-2 h-4 w-4" /> Volver a Publicaciones
+          <ButtonLink href="/revista" variant="outline" class="mr-4 group">
+            <ArrowLeft className="mr-1 h-4 w-4 group-hover:-translate-x-1 transition-transform duration-300" /> Volver a Publicaciones
           </ButtonLink>
         </div>
       </div>

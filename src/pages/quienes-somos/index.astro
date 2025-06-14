@@ -19,7 +19,7 @@ import { Image } from 'astro:assets'
 >
   <main class="container mx-auto py-12">
     <section class="mb-16">
-      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-8">
+      <div class="grid items-center gap-12 lg:grid-cols-2">
         <div>
           <div class="mb-6 flex items-center space-x-2">
             <div class="h-1 w-10 bg-primary"></div>
@@ -61,7 +61,7 @@ import { Image } from 'astro:assets'
     </section>
 
     <section id="historia" class="mb-16">
-      <div class="grid items-center gap-8 md:grid-cols-2">
+      <div class="grid items-center gap-12 md:grid-cols-2">
         <div class="order-2 md:order-1">
           <div class="relative overflow-hidden shadow-lg">
             <Image
@@ -79,7 +79,7 @@ import { Image } from 'astro:assets'
             <span
               class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
             >
-              Nuestra Trayectoria
+              Trayectoria
             </span>
           </div>
           <h2 class="mb-6 text-3xl font-bold">Historia</h2>
@@ -103,18 +103,21 @@ import { Image } from 'astro:assets'
       </div>
     </section>
 
-    <section id="mision-vision" class="mb-16">
-      <div class="mb-6 flex items-center space-x-2">
+    <section class="mb-16">
+      <div class="mb-6 flex items-center justify-center space-x-2">
         <div class="h-1 w-10 bg-primary"></div>
         <span
           class="text-sm font-medium uppercase tracking-wider text-muted-foreground"
         >
-          Nuestro Propósito
+          Propósito
         </span>
+        <div class="h-1 w-10 bg-primary"></div>
       </div>
-      <div class="grid gap-8 md:grid-cols-2">
+      <div
+        class="mt-10 grid justify-items-center gap-8 md:grid-cols-2 lg:flex lg:justify-center lg:gap-20"
+      >
         <div
-          class="border-l-4 border-primary bg-muted p-8 shadow-md hover:shadow-xl"
+          class="max-w-sm rounded-md border-l-4 border-primary bg-muted p-8 shadow-md transition-shadow duration-300 hover:shadow-lg"
         >
           <div class="mb-4 flex items-center gap-3">
             <Compass className="h-6 w-6 text-primary" />
@@ -128,7 +131,7 @@ import { Image } from 'astro:assets'
           </p>
         </div>
         <div
-          class="border-l-4 border-primary bg-muted p-8 shadow-md hover:shadow-xl"
+          class="max-w-sm rounded-md border-l-4 border-primary bg-muted p-8 shadow-md transition-shadow duration-300 hover:shadow-lg"
         >
           <div class="mb-4 flex items-center gap-3">
             <Target className="h-6 w-6 text-primary" />
@@ -153,15 +156,12 @@ import { Image } from 'astro:assets'
           Nuestros Principios
         </span>
       </div>
-      <div class="mb-6 flex items-center gap-3">
-        <Award className="h-6 w-6 text-primary" />
-        <h2 class="text-3xl font-bold">Valores y Principios</h2>
-      </div>
 
+      <h2 class="mb-6 text-3xl font-bold">Valores y Principios</h2>
       <AccordionValores client:visible />
     </section>
 
-    <section id="objetivos" class="mb-16">
+    <section class="mb-16">
       <div class="mb-6 flex items-center space-x-2">
         <div class="h-1 w-10 bg-primary"></div>
         <span
@@ -170,10 +170,7 @@ import { Image } from 'astro:assets'
           Nuestras Metas
         </span>
       </div>
-      <div class="mb-6 flex items-center gap-3">
-        <CheckCircle className="h-6 w-6 text-primary" />
-        <h2 class="text-3xl font-bold">Objetivos</h2>
-      </div>
+      <h2 class="mb-6 text-3xl font-bold">Objetivos</h2>
       <div class="rounded-lg bg-muted p-8 shadow-sm">
         <ul class="space-y-4">
           {
@@ -183,7 +180,7 @@ import { Image } from 'astro:assets'
               'Promover la investigación, la innovación y el uso de tecnologías en la ingeniería de minas.',
               'Fomentar espacios de diálogo y colaboración con los diferentes actores del sector minero.',
               'Contribuir al desarrollo de una minería sustentable y alineada con los objetivos del país.',
-            ].map((objetivo, index) => (
+            ].map((objetivo) => (
               <li class="group flex items-start gap-3">
                 <ChevronRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5 transition-transform duration-300 group-hover:translate-x-1" />
                 <p>{objetivo}</p>
@@ -194,7 +191,7 @@ import { Image } from 'astro:assets'
       </div>
     </section>
 
-    <section id="documentos" class="mb-16">
+    <section class="mb-16">
       <div class="mb-6 flex items-center space-x-2">
         <div class="h-1 w-10 bg-primary"></div>
         <span
@@ -203,30 +200,8 @@ import { Image } from 'astro:assets'
           Normativa
         </span>
       </div>
-      <div class="mb-6 flex items-center gap-3">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="text-primary"
-        >
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-          ></path>
-          <path d="M14 2v6h6"></path>
-          <path d="M16 13H8"></path>
-          <path d="M16 17H8"></path>
-          <path d="M10 9H8"></path>
-        </svg>
-        <h2 class="text-3xl font-bold">Estatutos y Reglamentos</h2>
-      </div>
-
-      <div class="grid gap-6 md:grid-cols-2">
+      <h2 class="mb-6 text-3xl font-bold">Estatutos y Reglamentos</h2>
+      <div class="grid gap-12 md:grid-cols-2">
         <div
           class="overflow-hidden rounded-lg bg-muted shadow-md transition-shadow duration-300 hover:shadow-xl"
         >
