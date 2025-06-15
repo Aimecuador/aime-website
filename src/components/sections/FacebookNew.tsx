@@ -54,12 +54,12 @@ export function FacebookNew() {
   return (
     <article className="w-full transition-transform duration-300 hover:scale-[1.02] sm:max-w-[300px]">
       <a
-        className={`block w-full overflow-hidden rounded-md ${
-          isSquareAspectImage ? 'h-full' : 'h-[350px]'
-        }`}
         href={post.permalink_url}
         target="_blank"
         rel="noopener noreferrer"
+        className={`block w-full overflow-hidden rounded-md ${
+          isSquareAspectImage ? 'h-full' : 'h-[350px]'
+        }`}
       >
         <img
           ref={newImageRef}
@@ -70,6 +70,8 @@ export function FacebookNew() {
       </a>
       <div className="mt-2">
         <a
+          target="_blank"
+          rel="noopener noreferrer"
           href={post.permalink_url}
           className={`text-lg font-bold hover:text-blue-500 hover:underline ${
             isSquareAspectImage ? 'line-clamp-4' : 'line-clamp-2'
