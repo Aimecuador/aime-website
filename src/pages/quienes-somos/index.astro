@@ -180,8 +180,8 @@ import { Image } from 'astro:assets'
               'Promover la investigación, la innovación y el uso de tecnologías en la ingeniería de minas.',
               'Fomentar espacios de diálogo y colaboración con los diferentes actores del sector minero.',
               'Contribuir al desarrollo de una minería sustentable y alineada con los objetivos del país.',
-            ].map((objetivo) => (
-              <li class="group flex items-start gap-3">
+            ].map((objetivo, index) => (
+              <li class="group flex items-start gap-3" {...(index === 4 ? { id: "normativa" } : {})}>
                 <ChevronRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5 transition-transform duration-300 group-hover:translate-x-1" />
                 <p>{objetivo}</p>
               </li>
@@ -190,7 +190,7 @@ import { Image } from 'astro:assets'
         </ul>
       </div>
     </section>
-
+    
     <section class="mb-16">
       <div class="mb-6 flex items-center space-x-2">
         <div class="h-1 w-10 bg-primary"></div>
