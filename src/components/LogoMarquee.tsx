@@ -68,7 +68,7 @@ export function LogoMarquee({ logos, speed = 75 }: LogoMarqueeProps) {
             <img
               src={logo.image || '/placeholder.svg'}
               alt={logo.name}
-              className="h-[85px] min-w-32 max-w-max object-contain"
+              className="h-[85px] min-w-32 max-w-max object-contain contrast-125"
               style={{
                 transform: `scale(${logo.scale || 1})`,
               }}
