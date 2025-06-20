@@ -73,15 +73,17 @@ const blogPosts = [
     <div class="grid gap-6 md:gap-10 md:grid-cols-2 lg:grid-cols-3">
       {
         blogPosts.map((post) => (
-          <article class="group flex flex-col overflow-hidden rounded-md border border-gray-200 shadow-sm transition-shadow hover:shadow-lg pb-1">
-            <a href={`/blog/${post.slug}`} class="overflow-hidden rounded-md">
-              <Image
-                src={post.image}
-                alt={post.title}
-                width={600}
-                height={400}
-                class="w-full rounded-md object-cover transition-transform duration-500 group-hover:scale-110"
-              />
+          <article class="group flex flex-col overflow-hidden rounded-md border border-gray-200 shadow-md transition-shadow hover:shadow-lg pb-1">
+            <a href={`/blog/${post.slug}`} class="block overflow-hidden rounded-t-md">
+              <div class="overflow-hidden">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  width={600}
+                  height={400}
+                  class="w-full object-cover transform transition-transform duration-500 ease-out will-change-transform group-hover:scale-110"
+                />
+              </div>
             </a>
             <div class="flex flex-1 flex-col px-4">
               <p class="mt-3 flex items-center text-sm text-muted-foreground">

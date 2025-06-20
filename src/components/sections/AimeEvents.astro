@@ -87,13 +87,15 @@ const eventsToRender = limit ? events.slice(0, limit) : events
     eventsToRender.map((event) => (
       <article class="group flex flex-col overflow-hidden transition-all duration-300">
         <a href={`/eventos/${event.slug}`} class="overflow-hidden rounded-md">
-          <Image
-            width={400}
-            height={200}
-            src={event.image}
-            alt={event.title}
-            class="size-full rounded-md object-cover transition-transform duration-500 group-hover:scale-110"
-          />
+          <div class="overflow-hidden">
+            <Image
+              width={400}
+              height={200}
+              src={event.image}
+              alt={event.title}
+              class="size-full rounded-md object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          </div>
         </a>
 
         <h3 class="mt-2 line-clamp-2 text-lg font-bold transition-colors duration-300 hover:text-primary">

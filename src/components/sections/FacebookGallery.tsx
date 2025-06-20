@@ -50,7 +50,7 @@ export function FacebookGallery({
   if (loading) {
     return (
       <>
-        <div className="grid grid-cols-2 gap-1.5 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
           {[...Array(initialVisibleCount)].map((_, index) => (
             <Skeleton key={index} className="aspect-square w-full rounded-md" />
           ))}
@@ -60,7 +60,12 @@ export function FacebookGallery({
   }
 
   if (error) {
-    return <div className="py-4 text-center text-red-500">{error}</div>
+    return (
+      <div className="py-10 text-center text-red-500">
+        <p>{error}</p>
+        <p>Por favor, inténtelo de nuevo más tarde.</p>
+      </div>
+    )
   }
 
   // Aplanar todas las galerías en un solo array de imágenes
@@ -81,11 +86,10 @@ export function FacebookGallery({
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-1.5 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4">
         {imagesToShow.map((src, i) => (
           <article
             key={i}
-            role="button"
             aria-label={`Imagen ${i + 1}`}
             tabIndex={0}
             onClick={() => setSelectedImage(src)}
