@@ -8,33 +8,20 @@ import { FacebookNew } from '@/components/sections/FacebookNew'
 
 const upcomingEventsAndNews = [
   {
-    title: 'Curso de Seguridad Minera',
-    image: '/images/eventos/proximos-eventos/seguridad-minera.jpeg',
-    date: '23 - 25 Julio de 2025',
-  },
-  {
-    title: 'XI Cumbre Internacional Minera',
-    image:
-      '/images/eventos/proximos-eventos/xi-cumbre-internacional-minera.jpeg',
-    date: '4- 5 Septiembre de 2025',
+    title: 'II Seminario Internacional de Gestión de Depósitos de Relaves',
+    image: '/images/eventos/proximos-eventos/ii-seminario-internacional.jpeg',
+    date: '18 - 22 Mayo de 2026',
   },
 ]
 
 const upcomingEvents = [
   {
-    title: 'Curso de Seguridad Minera',
-    date: '23 - 25 Julio de 2025',
+    title: 'II Seminario Internacional de Gestión de Depósitos de Relaves',
+    date: '18 - 22 Mayo de 2026',
     description: 'Quito, Ecuador',
-    month: 'jul',
-    day: '23',
-  },
-  {
-    title: 'XI Cumbre Internacional Minera',
-    date: '4 - 5 Septiembre de 2025',
-    description: 'Machala, Ecuador',
-    month: 'sep',
-    day: '04',
-  },
+    month: 'may',
+    day: '18',
+  }
 ]
 
 const companyLogos = [
@@ -236,7 +223,9 @@ const cooperationAgreements = [
             </span>
             <div class="h-1 w-10 bg-primary"></div>
           </div>
-          <h2 class="mt-4 text-3xl text-center font-bold tracking-tighter sm:text-4xl">
+          <h2
+            class="mt-4 text-center text-3xl font-bold tracking-tighter sm:text-4xl"
+          >
             ÚLTIMAS NOTICIAS Y EVENTOS
           </h2>
         </div>
@@ -245,7 +234,7 @@ const cooperationAgreements = [
       <!-- Box de Últimas Noticias y Eventos -->
       <div
         id="eventsAndNewsGrid"
-        class="mt-16 flex flex-col flex-wrap items-center justify-center sm:flex-row gap-10 lg:gap-16 xl:gap-24"
+        class="mt-16 flex flex-col flex-wrap items-center justify-center gap-10 sm:flex-row lg:gap-16 xl:gap-24"
       >
         {
           upcomingEventsAndNews.map((event) => (
