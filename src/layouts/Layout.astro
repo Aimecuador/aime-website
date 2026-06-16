@@ -3,9 +3,15 @@ import '@/styles/globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer.astro'
 import '@fontsource-variable/open-sans'
+import '@fontsource/barlow/400.css'
+import '@fontsource/barlow/500.css'
+import '@fontsource/barlow/600.css'
+import '@fontsource/barlow/700.css'
+import '@fontsource/barlow/800.css'
 import openSansWoff2 from '@fontsource-variable/open-sans/files/open-sans-latin-wght-normal.woff2?url'
 import { ClientRouter } from 'astro:transitions'
 import WhatsappButton from '@/components/WhatsappButton.astro'
+import SocialBar from '@/components/SocialBar.astro'
 import FirstSection from '@/components/sections/FirstSection.astro'
 
 interface Props {
@@ -94,6 +100,7 @@ const {
     <FirstSection>
       <slot />
     </FirstSection>
+    <SocialBar />
     <WhatsappButton />
     <Footer />
   </body>
@@ -151,6 +158,10 @@ const {
     height: auto;
     max-height: 90svh;
     object-fit: contain;
+  }
+
+  .font-barlow {
+    font-family: 'Barlow', sans-serif;
   }
 
   body.overflow-hidden {

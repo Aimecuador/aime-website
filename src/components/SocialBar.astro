@@ -1,0 +1,51 @@
+---
+import FacebookIcon from '@/assets/svg/facebook.svg'
+import InstagramIcon from '@/assets/svg/instagram.svg'
+import TikTokIcon from '@/assets/svg/tiktok.svg'
+import TwitterXIcon from '@/assets/svg/x.svg'
+
+const socialLinks = [
+  {
+    name: 'Facebook',
+    href: 'https://www.facebook.com/AimeEcuador',
+    Icon: FacebookIcon,
+    className: 'bg-blue-600',
+  },
+  {
+    name: 'TikTok',
+    href: 'https://www.tiktok.com/@aime_ecuador',
+    Icon: TikTokIcon,
+    className: 'bg-black',
+  },
+  {
+    name: 'Instagram',
+    href: 'https://www.instagram.com/aime_ecuador/',
+    Icon: InstagramIcon,
+    className: 'bg-pink-500',
+  },
+  {
+    name: 'Twitter',
+    href: 'https://twitter.com/aime_ecuador',
+    Icon: TwitterXIcon,
+    className: 'bg-black',
+  },
+]
+---
+
+<div
+  class="fixed left-0 top-1/2 z-50 hidden -translate-y-1/2 flex-col items-center md:flex"
+>
+  {
+    socialLinks.map(({ name, href, Icon, className }) => (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class={`flex size-10 items-center justify-center text-white transition-all duration-300 hover:brightness-150 ${className}`}
+        aria-label={name}
+      >
+        <Icon class="size-5" />
+      </a>
+    ))
+  }
+</div>

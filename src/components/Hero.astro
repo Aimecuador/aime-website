@@ -1,79 +1,190 @@
 ---
-import { ChevronRight } from 'lucide-react'
-import SocialIcons from './SocialIcons'
-import { Image } from 'astro:assets'
+import Image from 'astro/components/Image.astro'
 ---
 
 <div class="relative overflow-hidden">
-  <div class="absolute inset-0 z-10 bg-black/75"></div>
-  <div
-    class="absolute inset-0 z-0 overflow-hidden transition-opacity duration-1000"
-  >
-    <picture>
-      <source
-        media="(min-width: 1024px)"
-        srcset="/images/home/hero-1-xl.webp"
-      />
-      <source media="(min-width: 640px)" srcset="/images/home/hero-1-lg.webp" />
-      <Image
-        src="/images/home/hero-1-sm.webp"
-        alt="Minería en Ecuador"
-        width={1920}
-        height={1080}
-        loading="eager"
-        class="h-full w-full object-cover"
-      />
-    </picture>
-  </div>
-  <section
-    id="inicio"
-    class="h-[100dvh] overflow-hidden pt-[11dvh] lg:pt-[13dvh]"
-  >
-    <div class="container relative z-10 grid h-full items-center">
-      <div
-        class="mx-auto flex h-[80%] max-h-[500px] max-w-3xl flex-col justify-around text-center text-white md:h-[70%]"
+  <div class="absolute inset-0 z-0">
+    <div
+      id="slide-video"
+      class="absolute inset-0 z-10 transition-opacity duration-700"
+    >
+      <video
+        autoplay
+        muted
+        playsinline
+        class="pointer-events-none h-full w-full object-cover brightness-90"
+        id="hero-video"
       >
-        <div class="flex items-center justify-center space-x-2">
-          <div class="h-1 w-10 bg-primary"></div>
-          <span class="font-medium uppercase tracking-wider"> AIME </span>
-          <div class="h-1 w-10 bg-primary"></div>
-        </div>
-        <h1
-          class="animate-fade-up text-4xl font-bold tracking-tighter animate-delay-200 animate-duration-700 sm:text-5xl lg:text-[55px]"
-        >
-          Asociación de Ingenieros de Minas del Ecuador
-        </h1>
-        <p
-          class="animate-fade-up text-lg animate-delay-300 animate-duration-700 md:text-2xl"
-        >
-          Promoviendo el desarrollo <strong>sostenible</strong> de la minería en
-          Ecuador
-        </p>
-        <div
-          class="flex animate-fade-up flex-col justify-center gap-2 pt-4 animate-delay-300 animate-duration-500 sm:flex-row sm:gap-4"
-        >
-          <a
-            href="/contacto"
-            class="inline-flex h-11 animate-pulse items-center justify-center rounded-md bg-primary px-8 text-base font-medium text-white transition-all duration-300 animate-duration-300 animate-once animate-ease-in-out hover:scale-105"
-          >
-            Contáctanos
-          </a>
-          <a
-            href="/quienes-somos"
-            class="group inline-flex h-11 items-center justify-center rounded-md border border-input bg-background/20 px-8 text-base font-medium transition-all duration-300 hover:scale-105 hover:bg-background/40"
-          >
-            Conoce más
-            <ChevronRight
-              className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-            />
-          </a>
-        </div>
+        <source src="/videos/hero-banner.mp4" type="video/mp4" />
+      </video>
+    </div>
 
-        <SocialIcons
-          className="mt-7 justify-center"
-          iconColor="rounded-full hover:text-white bg-transparent p-1.5 hover:bg-primary"
+    <div
+      id="slide-image"
+      class="absolute inset-0 z-0 opacity-0 transition-opacity duration-1000"
+    >
+      <picture>
+        <source
+          media="(min-width: 1024px)"
+          srcset="/images/home/hero-1-xl.webp"
         />
+        <source
+          media="(min-width: 640px)"
+          srcset="/images/home/hero-1-lg.webp"
+        />
+        <Image
+          src="/images/home/hero-1-sm.webp"
+          alt="Minería en Ecuador"
+          width={1920}
+          height={1080}
+          loading="eager"
+          class="h-full w-full object-cover"
+        />
+      </picture>
+      <div class="absolute inset-0 bg-black/75"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div
+          class="container mx-auto flex h-[70%] max-w-3xl flex-col items-center justify-around text-center text-white"
+        >
+          <div
+            class="flex animate-fade-up items-center justify-center space-x-2 animate-delay-100 animate-duration-700"
+          >
+            <div class="h-1 w-10 bg-primary"></div>
+            <span class="font-medium uppercase tracking-wider"> AIME </span>
+            <div class="h-1 w-10 bg-primary"></div>
+          </div>
+          <h1
+            class="animate-fade-up text-4xl font-bold tracking-tighter animate-delay-200 animate-duration-700 sm:text-5xl lg:text-[55px]"
+          >
+            Asociación de Ingenieros de <span class="text-primary">Minas</span> del
+            Ecuador
+          </h1>
+          <p
+            class="animate-fade-up text-lg animate-delay-300 animate-duration-700 md:text-2xl"
+          >
+            Promoviendo el desarrollo <strong>sostenible</strong> de la minería en
+            Ecuador
+          </p>
+
+          <div
+            class="flex animate-fade-up flex-col justify-center gap-2 pt-4 animate-delay-[500ms] animate-duration-500 sm:flex-row sm:gap-4"
+          >
+            <a
+              href="/contacto"
+              class="inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-base font-medium text-white transition-all duration-300 hover:scale-105"
+            >
+              Contáctanos
+            </a>
+            <a
+              href="/quienes-somos"
+              class="group inline-flex h-11 items-center justify-center rounded-md border border-input bg-background/20 px-8 text-base font-medium transition-all duration-300 hover:scale-105 hover:bg-background/40"
+            >
+              Conoce más
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+
+  <button
+    id="carousel-prev"
+    class="absolute left-20 top-1/2 z-30 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
+    aria-label="Anterior"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="size-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"
+      ></path>
+    </svg>
+  </button>
+  <button
+    id="carousel-next"
+    class="absolute right-20 top-1/2 z-30 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
+    aria-label="Siguiente"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="size-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"
+      ></path>
+    </svg>
+  </button>
+
+  <section id="inicio" class="min-h-[calc(100dvh-13dvh)] overflow-hidden">
   </section>
 </div>
+
+<script is:inline>
+  const slides = [
+    { id: 'slide-video', video: 'hero-video' },
+    { id: 'slide-image', video: null },
+  ]
+  let current = 0
+
+  const prevBtn = document.getElementById('carousel-prev')
+  const nextBtn = document.getElementById('carousel-next')
+
+  function goTo(index) {
+    if (index === current) return
+
+    const prevSlide = document.getElementById(slides[current].id)
+    const nextSlide = document.getElementById(slides[index].id)
+
+    prevSlide.style.zIndex = '0'
+    prevSlide.style.opacity = '0'
+    nextSlide.style.zIndex = '10'
+    nextSlide.style.opacity = '1'
+
+    if (slides[index].video) {
+      const video = document.getElementById(slides[index].video)
+      video.currentTime = 0
+      video.play()
+    }
+    if (slides[current].video) {
+      const video = document.getElementById(slides[current].video)
+      video.pause()
+    }
+
+    current = index
+  }
+
+  prevBtn?.addEventListener('click', () => {
+    const next = (current - 1 + slides.length) % slides.length
+    goTo(next)
+  })
+
+  nextBtn?.addEventListener('click', () => {
+    const next = (current + 1) % slides.length
+    goTo(next)
+  })
+
+  document.getElementById('hero-video')?.addEventListener('ended', () => {
+    const next = (current + 1) % slides.length
+    goTo(next)
+  })
+</script>

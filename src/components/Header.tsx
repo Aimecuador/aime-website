@@ -22,48 +22,7 @@ const menuItems = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const [headerClassname, setHeaderClassname] = useState(
-    isScrolled
-      ? 'h-[10dvh] bg-white text-foreground shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]'
-      : 'h-[15dvh] bg-transparent text-white',
-  )
-
-  const [hamburgerLineClass, setHamburgerLineClass] = useState(
-    isScrolled ? 'hamburger-line' : 'hamburger-line-transparent',
-  )
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  useEffect(() => {
-    if (window.location.pathname === '/') {
-      const homeHeaderClass = isScrolled
-        ? 'h-[10dvh] bg-white text-foreground shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]'
-        : 'h-[15dvh] bg-transparent text-white'
-
-      const homeHamburgerLineClass = isScrolled
-        ? 'hamburger-line'
-        : 'hamburger-line-transparent'
-
-      setHeaderClassname(homeHeaderClass)
-      setHamburgerLineClass(homeHamburgerLineClass)
-    } else {
-      const homeHeaderClass = isScrolled
-        ? 'h-[10dvh] bg-white text-foreground shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]'
-        : 'h-[15dvh] shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]'
-
-      setHeaderClassname(homeHeaderClass)
-      setHamburgerLineClass('hamburger-line')
-    }
-  }, [isScrolled])
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -97,24 +56,11 @@ export default function Header() {
   }, [isMenuOpen])
 
   return (
-    <header className="fixed top-0 z-40 w-full font-medium">
-      <div
-        className={cn(
-          'grid w-full place-items-center transition-all duration-300 ease-in-out',
-          headerClassname,
-        )}
-      >
+    <header className="fixed top-0 z-40 w-full font-medium shadow-[0_2px_5px_-1px_rgba(0,0,0,0.1)]">
+      <div className="grid w-full place-items-center bg-white text-foreground transition-all duration-300 ease-in-out h-[10dvh] lg:h-[13dvh]">
         <div className="container">
           <div className="flex items-center justify-between">
-            <a
-              href="/"
-              className={cn(
-                'aspect-[800/682] w-auto',
-                isScrolled
-                  ? 'h-[55px]'
-                  : 'h-[55px] rounded-md bg-white p-1 lg:h-[70px]',
-              )}
-            >
+            <a href="/" className="h-[55px] w-auto lg:h-[70px]">
               <img
                 src={'/aime-logo-sin-texto.jpg'}
                 alt="AIME logo"
@@ -202,7 +148,7 @@ export default function Header() {
             >
               <div className={`hamburger ${isMenuOpen ? 'active' : ''}`}>
                 {[...Array(3)].map((_, index) => (
-                  <span key={index} className={hamburgerLineClass} />
+                  <span key={index} className="hamburger-line" />
                 ))}
               </div>
             </button>

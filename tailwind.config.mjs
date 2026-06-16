@@ -72,5 +72,5 @@ export default {
       },
     },
   },
-  plugins: [require('tailwindcss-animated')],
+  plugins: [require('tailwindcss-animated'), require('tailwindcss-intersect')],
 }
