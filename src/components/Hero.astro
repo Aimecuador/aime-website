@@ -160,14 +160,15 @@ import Image from 'astro/components/Image.astro'
     nextSlide.style.zIndex = '10'
     nextSlide.style.opacity = '1'
 
-    if (slides[index].video) {
-      const video = document.getElementById(slides[index].video)
-      video.currentTime = 0
-      video.play()
-    }
     if (slides[current].video) {
       const video = document.getElementById(slides[current].video)
       video.pause()
+    }
+
+    if (slides[index].video) {
+      const video = document.getElementById(slides[index].video)
+      video.currentTime = 0
+      video.play().catch(() => {})
     }
 
     current = index
@@ -183,8 +184,15 @@ import Image from 'astro/components/Image.astro'
     goTo(next)
   })
 
-  document.getElementById('hero-video')?.addEventListener('ended', () => {
-    const next = (current + 1) % slides.length
-    goTo(next)
-  })
+  const heroVideo = document.getElementById('hero-video')
+  if (heroVideo) {
+    heroVideo.addEventListener('ended', () => {
+      const next = (current + 1) % slides.length
+      goTo(next)
+    })
+    if (heroVideo.ended) {
+      const next = (current + 1) % slides.length
+      goTo(next)
+    }
+  }
 </script>
