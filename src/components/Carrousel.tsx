@@ -231,10 +231,6 @@ export default function Carrousel() {
     }
 
     video.addEventListener('ended', onEnded)
-    if (video.ended && exiting === null) {
-      goTo((current + 1) % TOTAL_SLIDES)
-    }
-
     return () => video.removeEventListener('ended', onEnded)
   }, [current, exiting])
 
@@ -245,8 +241,9 @@ export default function Carrousel() {
     if (current === 0 && exiting === null) {
       video.currentTime = 0
       video.play().catch(() => {})
-    } else if (exiting !== 0) {
+    } else {
       video.pause()
+      video.currentTime = 0
     }
   }, [current, exiting])
 
