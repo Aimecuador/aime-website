@@ -28,6 +28,7 @@ export default function FacebookNoticias() {
     <div className="mx-auto mt-10 grid max-w-4xl gap-6 sm:grid-cols-2 lg:gap-8">
       {posts.map((post) => (
         <a
+          key={post.created_time}
           href={post.permalink_url}
           target="_blank"
           rel="noopener noreferrer"
