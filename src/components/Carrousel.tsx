@@ -284,7 +284,7 @@ export default function Carrousel() {
       <button
         type="button"
         onClick={() => goTo((current - 1 + TOTAL_SLIDES) % TOTAL_SLIDES)}
-        className="absolute left-20 top-1/2 z-30 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
+        className="absolute left-5 md:left-20 top-1/2 z-30 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
         aria-label="Anterior"
       >
         <svg
@@ -305,7 +305,7 @@ export default function Carrousel() {
       <button
         type="button"
         onClick={() => goTo((current + 1) % TOTAL_SLIDES)}
-        className="absolute right-20 top-1/2 z-30 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
+        className="absolute right-5 md:right-20 top-1/2 z-30 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
         aria-label="Siguiente"
       >
         <svg
