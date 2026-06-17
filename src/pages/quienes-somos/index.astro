@@ -6,8 +6,6 @@ import {
   History,
   Target,
   Compass,
-  Award,
-  CheckCircle,
   ChevronRight,
 } from 'lucide-react'
 import { Image } from 'astro:assets'
@@ -19,7 +17,7 @@ import { Image } from 'astro:assets'
 >
   <main class="container mx-auto py-12">
     <section class="mb-16">
-      <div class="grid items-center gap-12 lg:grid-cols-2">
+      <div class="grid items-center gap-12 lg:grid-cols-2 lg:ml-36">
         <div>
           <div class="mb-6 flex items-center space-x-2">
             <div class="h-1 w-10 bg-primary"></div>
@@ -48,11 +46,11 @@ import { Image } from 'astro:assets'
             </p>
           </div>
         </div>
-        <div class="relative overflow-hidden shadow-lg">
+        <div class="relative overflow-hidden">
           <Image
-            src="/images/nosotros/directiva-aime.webp"
+            src="/images/nosotros/directiva-aime.jpeg"
             alt="Directiva de AIME"
-            class="h-auto w-full rounded-md"
+            class="max-h-[400px] w-auto rounded-md shadow-lg"
             width={1200}
             height={800}
           />
