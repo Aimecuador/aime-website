@@ -154,7 +154,7 @@ function SlideJoin({
 
   return (
     <div
-      className={`absolute inset-0 transition-opacity duration-1000 ${exiting === index ? 'animate__animated animate__fadeOutTopLeft animate__faster' : ''}`}
+      className={`absolute inset-0 transition-opacity duration-1000 ${exiting === index ? 'animate__animated animate__fadeOutUp animate__faster' : ''}`}
       style={{ zIndex: visible ? 10 : 0, opacity: visible ? 1 : 0 }}
     >
       <img
