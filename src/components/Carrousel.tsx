@@ -1,10 +1,127 @@
-import { useEffect, useRef, useState } from 'react'
+import { memo, useCallback, useEffect, useRef, useState } from 'react'
 
-const TOTAL_SLIDES = 3
+const TOTAL_SLIDES = 5
+const INTRO_DURATION = 2800
 const EXIT_DURATION = 500
 const SLIDE_DURATION = 7000
 
-function SlideVideo({
+const SlideIntro = memo(function SlideIntro({
+  current,
+  index,
+  exiting,
+  exitClass,
+  entryClass,
+}: {
+  current: number
+  index: number
+  exiting: number | null
+  exitClass?: string
+  entryClass?: string
+}) {
+  const visible = current === index
+  const exitAnim =
+    exitClass || (index === 0 ? 'animate__zoomOut' : 'animate__fadeOutDown')
+  const enterAnim = entryClass || (index === 2 ? 'animate__zoomIn' : '')
+
+  return (
+    <div
+      className={`absolute inset-0 bg-white${!exiting || exiting !== index ? 'transition-opacity duration-1000' : ''}${exiting === index ? `animate__animated ${exitAnim} animate__faster` : ''}`}
+      style={{ zIndex: visible ? 10 : 0, opacity: visible ? 1 : 0 }}
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(245,166,35,0.14),_transparent_40%),radial-gradient(circle_at_bottom_right,_rgba(25,16,19,0.08),_transparent_35%)]" />
+      <div className="absolute inset-0 flex items-center justify-center px-6">
+        {visible && (
+          <div
+            key={current}
+            className={`flex w-full max-w-5xl flex-col items-center gap-8 lg:flex-row lg:items-center lg:justify-center lg:gap-12${enterAnim ? `animate__animated ${enterAnim} animate__faster` : ''}`}
+          >
+            <img
+              src="/images/eventos/cumbre/cumbre-logo.png"
+              alt="Logo del evento"
+              className="animate__animated animate__zoomIn w-44 shrink-0 drop-shadow-[0_10px_22px_rgba(25,16,19,0.14)] sm:w-56 lg:w-[20rem]"
+              style={{ animationDelay: '120ms' }}
+            />
+
+            <div className="flex flex-col items-center gap-2 text-center lg:items-start lg:text-left">
+              <div className="flex flex-wrap items-end justify-center gap-2 lg:justify-start">
+                <img
+                  src="/images/eventos/cumbre/XI.png"
+                  alt="XI"
+                  className="animate__animated animate__fadeInDown h-16 w-auto sm:h-20 lg:h-24"
+                  style={{ animationDelay: '260ms' }}
+                />
+                <img
+                  src="/images/eventos/cumbre/cumbre.png"
+                  alt="CUMBRE"
+                  className="animate__animated animate__fadeInRight h-16 w-auto sm:h-20 lg:h-24"
+                  style={{ animationDelay: '420ms' }}
+                />
+              </div>
+              <img
+                src="/images/eventos/cumbre/internacional.png"
+                alt="INTERNACIONAL"
+                className="animate__animated animate__fadeInUp h-14 w-auto sm:h-16 lg:h-20"
+                style={{ animationDelay: '620ms' }}
+              />
+              <img
+                src="/images/eventos/cumbre/minera.png"
+                alt="MINERA"
+                className="animate__animated animate__fadeInUp h-16 w-auto sm:h-20 lg:h-24"
+                style={{ animationDelay: '820ms' }}
+              />
+              <div className="mt-2 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
+                <img
+                  src="/images/eventos/cumbre/paises/1.png"
+                  alt=""
+                  className="animate__animated animate__fadeInRight h-6 w-auto sm:h-7 lg:h-8"
+                  style={{ animationDelay: '1000ms' }}
+                />
+                <img
+                  src="/images/eventos/cumbre/paises/2.png"
+                  alt=""
+                  className="animate__animated animate__fadeInRight h-6 w-auto sm:h-7 lg:h-8"
+                  style={{ animationDelay: '1100ms' }}
+                />
+                <img
+                  src="/images/eventos/cumbre/paises/3.png"
+                  alt=""
+                  className="animate__animated animate__fadeInRight h-6 w-auto sm:h-7 lg:h-8"
+                  style={{ animationDelay: '1200ms' }}
+                />
+                <img
+                  src="/images/eventos/cumbre/paises/4.png"
+                  alt=""
+                  className="animate__animated animate__fadeInRight h-6 w-auto sm:h-7 lg:h-8"
+                  style={{ animationDelay: '1300ms' }}
+                />
+                <img
+                  src="/images/eventos/cumbre/paises/5.png"
+                  alt=""
+                  className="animate__animated animate__fadeInRight h-6 w-auto sm:h-7 lg:h-8"
+                  style={{ animationDelay: '1400ms' }}
+                />
+                <img
+                  src="/images/eventos/cumbre/paises/6.png"
+                  alt=""
+                  className="animate__animated animate__fadeInRight h-6 w-auto sm:h-7 lg:h-8"
+                  style={{ animationDelay: '1500ms' }}
+                />
+                <img
+                  src="/images/eventos/cumbre/paises/7.png"
+                  alt=""
+                  className="animate__animated animate__fadeInRight h-6 w-auto sm:h-7 lg:h-8"
+                  style={{ animationDelay: '1600ms' }}
+                />
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+})
+
+const SlideVideo = memo(function SlideVideo({
   current,
   index,
   exiting,
@@ -19,10 +136,9 @@ function SlideVideo({
 
   return (
     <div
-      className={`absolute inset-0 transition-opacity duration-700 ${exiting === index ? 'animate__animated animate__fadeOut animate__faster' : ''}`}
+      className={`absolute inset-0 ${exiting === index ? 'animate__animated animate__zoomOut animate__faster' : visible && exiting === null ? 'animate__animated animate__zoomIn animate__faster' : 'pointer-events-none opacity-0'}`}
       style={{
         zIndex: visible ? 10 : 0,
-        opacity: visible ? 1 : 0,
       }}
     >
       <video
@@ -32,13 +148,13 @@ function SlideVideo({
         playsInline
         className="pointer-events-none h-full w-full object-cover brightness-90"
       >
-        <source src="/videos/hero-banner.mp4" type="video/mp4" />
+        <source src="/videos/hero-banner-2.mp4" type="video/mp4" />
       </video>
     </div>
   )
-}
+})
 
-function SlideImage({
+const SlideImage = memo(function SlideImage({
   current,
   index,
   exiting,
@@ -139,9 +255,9 @@ function SlideImage({
       </div>
     </div>
   )
-}
+})
 
-function SlideJoin({
+const SlideJoin = memo(function SlideJoin({
   current,
   index,
   exiting,
@@ -198,7 +314,7 @@ function SlideJoin({
       </div>
     </div>
   )
-}
+})
 
 export default function Carrousel() {
   const [current, setCurrent] = useState(0)
@@ -209,36 +325,41 @@ export default function Carrousel() {
     undefined,
   )
 
-  const goTo = (index: number) => {
-    if (index === current || exiting !== null) return
+  const currentRef = useRef(current)
+  const exitingRef = useRef(exiting)
+  currentRef.current = current
+  exitingRef.current = exiting
+
+  const goTo = useCallback((index: number) => {
+    if (index === currentRef.current || exitingRef.current !== null) return
     clearTimeout(timerRef.current)
     clearTimeout(transitionTimerRef.current)
 
-    setExiting(current)
+    setExiting(currentRef.current)
 
     transitionTimerRef.current = setTimeout(() => {
       setCurrent(index)
       setExiting(null)
     }, EXIT_DURATION)
-  }
+  }, [])
 
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
 
     const onEnded = () => {
-      goTo((current + 1) % TOTAL_SLIDES)
+      goTo((currentRef.current + 1) % TOTAL_SLIDES)
     }
 
     video.addEventListener('ended', onEnded)
     return () => video.removeEventListener('ended', onEnded)
-  }, [current, exiting])
+  }, [goTo])
 
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
 
-    if (current === 0 && exiting === null) {
+    if (current === 1 && exiting === null) {
       video.currentTime = 0
       video.play().catch(() => {})
     } else {
@@ -248,7 +369,19 @@ export default function Carrousel() {
   }, [current, exiting])
 
   useEffect(() => {
-    if (current === 1 || current === 2) {
+    if (current === 0) {
+      timerRef.current = setTimeout(() => {
+        goTo(1)
+      }, INTRO_DURATION)
+    }
+
+    if (current === 2) {
+      timerRef.current = setTimeout(() => {
+        goTo(3)
+      }, INTRO_DURATION)
+    }
+
+    if (current === 3 || current === 4) {
       timerRef.current = setTimeout(() => {
         const next = (current + 1) % TOTAL_SLIDES
         goTo(next)
@@ -268,20 +401,28 @@ export default function Carrousel() {
   return (
     <div className="relative overflow-hidden">
       <div className="absolute inset-0 z-0">
+        <SlideIntro current={current} index={0} exiting={exiting} />
         <SlideVideo
           current={current}
-          index={0}
+          index={1}
           exiting={exiting}
           videoRef={videoRef}
         />
-        <SlideImage current={current} index={1} exiting={exiting} />
-        <SlideJoin current={current} index={2} exiting={exiting} />
+        <SlideIntro current={current} index={2} exiting={exiting} />
+        <SlideImage current={current} index={3} exiting={exiting} />
+        <SlideJoin current={current} index={4} exiting={exiting} />
       </div>
 
       <button
         type="button"
-        onClick={() => goTo((current - 1 + TOTAL_SLIDES) % TOTAL_SLIDES)}
-        className="absolute left-5 md:left-20 top-1/2 z-30 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
+        onClick={() => {
+          let target: number
+          if (current <= 2) target = 4
+          else if (current === 3) target = 0
+          else target = 3
+          goTo(target)
+        }}
+        className="absolute left-5 top-1/2 z-30 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70 md:left-20"
         aria-label="Anterior"
       >
         <svg
@@ -301,8 +442,8 @@ export default function Carrousel() {
       </button>
       <button
         type="button"
-        onClick={() => goTo((current + 1) % TOTAL_SLIDES)}
-        className="absolute right-5 md:right-20 top-1/2 z-30 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
+        onClick={() => goTo(current < 3 ? 3 : (current + 1) % TOTAL_SLIDES)}
+        className="absolute right-5 top-1/2 z-30 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70 md:right-20"
         aria-label="Siguiente"
       >
         <svg
