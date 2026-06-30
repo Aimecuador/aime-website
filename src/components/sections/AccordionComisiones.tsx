@@ -48,7 +48,7 @@ const comisiones = [
       'Asesorar a los miembros de la Asociación en problemáticas geotécnicas que requieran criterio técnico especializado.',
     ],
     director: {
-      name: 'Ing. FERNANDO QUESPAZ',
+      name: 'Ing. DANIEL ALEGRÍA, Ing. LORENA VARGAS',
       role: 'Director Ejecutivo Comisión Técnicas de Geotecnia y Mecánica de Rocas',
       foto: '/placeholder.svg?height=200&width=200&text=Ing.+Mendoza',
     },
@@ -104,7 +104,7 @@ const comisiones = [
       'Impulsar alianzas estratégicas con centros de investigación, universidades y empresas tecnológicas vinculadas a la minería.',
     ],
     director: {
-      name: 'Ing. OSWALDO SANDOVAL',
+      name: 'Ing. MICHELLE ROMÁN',
       role: 'Director Ejecutivo Comisión Técnicas de Tecnología e Innovación CTET',
       foto: '/placeholder.svg?height=200&width=200&text=Ing.+Sandoval',
     },
