@@ -48,7 +48,7 @@ const comisiones = [
       'Asesorar a los miembros de la Asociación en problemáticas geotécnicas que requieran criterio técnico especializado.',
     ],
     director: {
-      name: 'Ing. MARLON PONCE',
+      name: 'Ing. FERNANDO QUESPAZ',
       role: 'Director Ejecutivo Comisión Técnicas de Geotecnia y Mecánica de Rocas',
       foto: '/placeholder.svg?height=200&width=200&text=Ing.+Mendoza',
     },
@@ -67,7 +67,7 @@ const comisiones = [
       'Colaborar con autoridades y organismos técnicos en la definición y mejora de normativas nacionales relacionadas con recursos y reservas minerales.',
     ],
     director: {
-      name: 'Ing. FERNANDO DAVID SAAVEDRA GABINO',
+      name: 'Sin encargado',
       role: 'Director Ejecutivo Comisión Técnicas de Especialidades Recursos y Reservas Minerales',
       foto: '/placeholder.svg?height=200&width=200&text=Ing.+Varela',
     },
