@@ -3,7 +3,7 @@ import { memo, useCallback, useEffect, useRef, useState } from 'react'
 const TOTAL_SLIDES = 5
 const INTRO_DURATION = 2800
 const EXIT_DURATION = 500
-const SLIDE_DURATION = 7000
+const SLIDE_DURATION = 9500
 
 const SlideIntro = memo(function SlideIntro({
   current,

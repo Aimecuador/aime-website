@@ -224,14 +224,39 @@ const cooperationAgreements = [
               </svg>
               Oro Verde - Machala, Ecuador
             </p>
+            <button
+              type="button"
+              onclick="openModal('qr-modal')"
+              class="flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-primary"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-4 shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <rect x="3" y="3" width="7" height="7" rx="1.5" stroke-linejoin="round"></rect>
+                <rect x="14" y="3" width="7" height="4" rx="1.5" stroke-linejoin="round"></rect>
+                <rect x="14" y="11" width="4" height="7" rx="1.5" stroke-linejoin="round"></rect>
+                <rect x="3" y="14" width="4" height="7" rx="1.5" stroke-linejoin="round"></rect>
+                <rect x="9" y="14" width="3" height="3" rx="1"></rect>
+                <rect x="11" y="9" width="3" height="3" rx="1"></rect>
+                <rect x="9" y="3" width="3" height="3" rx="1"></rect>
+              </svg>
+              Escanear QR
+            </button>
           </div>
           <div class="flex gap-3">
-            <button
-              onclick="openModal('qr-modal')"
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSe8GeOR57ooTErqdS92xYdkW5ERGDKM0KyzgZrecbB11enEig/viewform?usp=publish-editor"
+              target="_blank"
+              rel="noopener noreferrer"
               class="inline-flex h-10 cursor-pointer items-center justify-center rounded-lg bg-primary px-5 text-sm font-semibold text-white transition-all duration-300 hover:bg-primary/90"
             >
               Inscribirme
-            </button>
+            </a>
             <button
               onclick="openModal('poster-modal')"
               class="inline-flex h-10 cursor-pointer items-center justify-center rounded-lg border border-input bg-background px-5 text-sm font-semibold transition-all duration-300 hover:bg-accent"
@@ -363,7 +388,7 @@ const cooperationAgreements = [
   >
     <div
       class="relative max-w-sm rounded-2xl bg-white p-8 shadow-2xl"
-      onclick="event.stopPropagation()"
+      id="qr-modal-content"
     >
       <button
         onclick="closeModal('qr-modal')"
@@ -389,7 +414,7 @@ const cooperationAgreements = [
         Escanea el código QR para inscribirte
       </p>
       <img
-        src="/images/eventos/proximos-eventos/qr-inscripcion.png"
+        src="/images/eventos/proximos-eventos/qr-inscripcion.jpg"
         alt="QR Inscripción"
         class="mx-auto h-64 w-64 object-contain"
       />
@@ -431,6 +456,11 @@ const cooperationAgreements = [
   </div>
 
   <script is:inline>
+    const modalContent = document.getElementById('qr-modal-content')
+    modalContent?.addEventListener('click', (e) => {
+      e.stopPropagation()
+    })
+
     function openModal(id) {
       document.getElementById(id)?.classList.remove('hidden')
       document.getElementById(id)?.classList.add('flex')
